@@ -1,0 +1,407 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\title{
+  Diskretna matematika\\
+  \large Zadaća 1 \\}
+\author{Vedad Fejzagić}
+\date{Oktobar 22, 2017}
+
+\begin{document}
+
+\maketitle
+
+\iffalse
+
+\section{Introduction}
+\subsection{Who am I}
+
+Hello world!
+\textbf{This is bold text}
+\textit{This is italic.}
+
+
+\emph{this is emphatic.}
+\underline{Some underline.}
+
+``Propper quotes''
+
+\section{List}
+\begin{enumerate}
+\item Bread
+\item butter
+\end{enumerate}
+
+\section{Unordered List}
+\begin{itemize}
+\item Bread
+	\begin{itemize}
+	\item Bread
+	\end{itemize}
+\item butter
+\end{itemize}
+Ovo je \ref{Z1}
+\fi
+
+\newpage
+
+\section*{Zadatak 1\label{Z1}}
+
+\hspace{0.65cm}Ako označimo tablete T1, T2 i T3 kao x, y i z respektivno, problem svodimo na rješavanje sljedeće diofantove jednačine sa 3 nepoznate:
+
+$$15x + 33y + 27z = 162$$\\
+
+Očigledno je da vrijedi:
+
+$$NZD(15, 33, 27) = 3$$\\
+
+Dokažimo koristeći Euklidov algoritam:
+
+$$NZD(15, 33, 27) = NZD(NZD(15, 33), 27) =$$ 
+$$= NZD(3, 27) = NZD(27, 3) = 3$$\\
+
+Dalje, s obzirom da je $NZD(15, 33, 27) = 3, 3 \mid 162$, zadana diofantova jednačina je rješiva.
+
+$$15x + 33y + 27z = 162$$
+$$5x + 11y + 9z = 54$$
+$$5x + 11y = 54 - 9z$$\\
+
+Pošto je $NZD(5, 11) = 1$, rješenja za $x$ i $y$ će postojati akko je $1 \mid (54 - 9z)$ tj. ako postoji $k\in Z$ takav da vrijedi $54 - 9z = k$. Ovo je diofantova jednačina, dakle $NZD(9, 1) = 1, 1 \mid 54$, te je potrebno izraziti $NZD(9, 1) = 1$ kao linearnu kombinaciju 9 i 1:
+
+$$9 = 1 \cdot 8 + 1 \implies 1 = 9 - 1 \cdot 8$$\\
+
+Jedno rješenje je:
+
+$$z^{*} = 54$$
+$$k^{*} = - 8 \cdot 54 = - 432$$\\
+
+Opće rješenje za $z$($k$ nas ne interesuje za konkretan problem):
+
+$$z = 54 + t, t\in Z$$\\
+
+Vraćamo u početnu jednačinu:
+
+$$5x + 11y = 54 - 9(54 + t)$$
+$$5x + 11y = -432 - 9t$$\\
+
+Dobivena jednačina je diofantova. Očigledno je $NZD(15, 11) = 1$, potrebno je izraziti $NZD(15, 11) = 1$ preko linearne kombinacije 15 i 11:
+
+$$11 = 2 \cdot 5 + 1 \implies 1 = 11 - 2 \cdot 5 = - 2 \cdot 5 + 11$$\\
+
+Pa su opća rješenja:
+
+$$x = 864 + 18t + 11s$$
+$$y = -432 - 9t - 5s$$
+$$z = 54 + t$$
+$$t, s\in Z$$
+\begin{center}
+uz ograničenja $x, y, z > 0$
+\end{center}
+
+Pristupamo rješavanju sistema nejednačina:
+
+\[
+x = 864 + 18t + 11s > 0 \label{eq:gen1} \tag{1}
+\]
+\[
+y = -432 - 9t - 5s \implies y = 432 + 9t - 5s < 0 \label{eq:gen2} \tag{2}
+\]
+$$z = 54 + t > 0 \implies t > - 54$$
+
+Iz (\ref{eq:gen2}):
+
+\[
+s < \frac{- 9t - 432}{5} \label{eq:gens1} \tag{A}
+\]
+
+Iz (\ref{eq:gen1}):
+
+\[
+s > \frac{- 864 - 18t}{11} \label{eq:gens2} \tag{B}
+\]\\
+
+Možemo zaključiti:
+
+$$(\ref{eq:gen1}) \land (\ref{eq:gen2}) \implies \frac{- 9t - 432}{5} > s > \frac{- 864 - 18t}{11} \implies$$
+$$\implies (- 9t - 432) \cdot 11 > (- 864 - 18t) \cdot 5$$\
+$$- 9t - 432 > 0$$\
+$$t < \frac{- 432}{9}$$\
+$$t < -48$$\\
+
+Rješenja za t: 
+$$(t > -54) \land (t < -48) \implies t\in (-48, -54)$$
+
+tj. 
+
+$$t\in [-49, -53], t\in Z$$\\
+
+Dalje, računamo vrijednost s, $\forall t\in [-49, -53] \land t\in Z$ koristeći nejednakosti \ref{eq:gens1} i \ref{eq:gens2}. Lahko se pokaže da vrijednosti t = - 49, t = - 50 i t = - 53 ne daju vrijednost $s \in Z$, dakle te vrijednosti odbacujemo.\\
+
+\underline{Za t = - 51:}
+
+$$(\ref{eq:gens1}) \implies s < \frac{27}{5} ( = 5.4)$$
+$$(\ref{eq:gens2}) \implies s > \frac{54}{11} ( \sim 4.9)$$
+$$s \in (\frac{54}{11}, \frac{27}{5})$$\\
+
+Pa jedina vrijednost u skupu $Z$ na dobivenom intervalu je $s = 5$. Tu vrijednost i uzimamo.\\
+
+\underline{Za t = - 52:}\\
+
+Na sličan način kao i na prethodnom primjeru dobijamo vrijednost $s = 7$.\\
+
+Zaključujemo da postoje dva rješenja, te ih uvrštavamo u opšta:\\
+
+\underline{Za $t = - 51 \land s = 5$}\\
+
+$$x = 1, y = 2, z = 3$$
+$$Provjera: 1 \cdot 15 + 2 \cdot 33 + 3 \cdot 27 = 162$$\\
+
+\underline{Za $t = - 52 \land s = 7$}
+
+$$x = 5, y = 1, z = 2$$
+$$Provjera: 5 \cdot 15 + 1 \cdot 33 + 2 \cdot 27 = 162$$\\
+
+Dakle, postoje dva načina realizacije terapije; prvi način je jedna tableta T1, dvije tablete T2 i 3 tablete T3; drugi način je pet tableta T1, jedna tableta T2 i dvije tablete T3.
+
+\section*{Zadatak 2\label{Z2}}
+
+\hspace{0.65cm}Zadani problem možemo predstaviti u obliku sistema linearnih kongruencija, gdje je $x$ traženi minimalni broj banana:
+
+$$x \equiv 8 \pmod{9} \to NZD(1, 9) = 1$$
+$$x \equiv 2 \pmod{10} \to NZD(1, 10) = 1$$
+$$x \equiv 0 \pmod{17} \to NZD(1, 17) = 1$$\vspace{1mm}
+
+Dakle, sistem linearnih kongruencija je rješiv što slijedi upravo iz rješivosti svih kongruencija pojedinačno. Rješavamo koristeći kinesku teoremu o ostacima. Najprije provjeramo da li je možemo primjeniti: 
+
+$$NZD(9, 10) = 1$$
+$$NZD(9, 17) = 1$$
+$$NZD(10, 17) = 1$$\vspace{1mm}
+
+Očigledno je da kinesku teoremu o ostacima možemo primjeniti.
+
+$$n1 \cdot n2 \cdot n3 = 9 \cdot 10 \cdot 17 = 1530$$\vspace{1mm}
+$$\lambda 1 = \frac{1530}{9} = 170$$\vspace{1mm}
+$$\lambda 2 = \frac{1530}{10} = 153$$\vspace{1mm}
+$$\lambda 3 = \frac{1530}{17} = 90$$\vspace{1mm}
+
+Rješenje možemo predstaviti u obliku:
+
+$$x = 170x_{1} + 153x_{2} + 90x_{3} \pmod{1530}$$\vspace{1mm}
+
+Pri čemu su $x_{1}, x_{2}, x_{3}$ ma koja rješenja sistema linearnih kongruencija:
+
+\[
+170x_{1} \equiv 8 \pmod{9} \label{eq:kong1} \tag{A}
+\]
+\[
+153x_{2} \equiv 2 \pmod{10} \label{eq:kong2} \tag{B}
+\]
+$$90x_{3} \equiv 0 \pmod{17}$$
+
+\begin{center}
+$x_{3}$ je očigledno bilo koji cijeli broj, dakle $x_{3} = 0$
+\end{center}\vspace{1mm}
+
+Kongruencije (\ref{eq:kong1}) i (\ref{eq:kong2}) možemo jednostavno skratiti, te ih izraziti kao diofantove jednačine pa naći potrebnu vrijednost za $x_{1}$ i $x_{2}$:
+
+Prvo skraćujemo kongruencije:
+
+$$(\ref{eq:kong1}) \to 170 > 9 \to mod(170, 9) = 8 \implies 8x_{1} \equiv 8 \pmod{9}$$
+$$(\ref{eq:kong2}) \to 153 > 10 \to mod(153, 10) = 3 \implies 3x_{2} \equiv 2 \pmod{10}$$\vspace{1mm}
+
+Odgovarajuće diofantove jednačine:
+
+$$(\ref{eq:kong1}) \to 8x_{1} + 9y = 8 \to NZD(8, 9) = 1, 1 \mid 8$$
+$$(\ref{eq:kong2}) \to 3x_{2} + 10y = 2 \to NZD(3, 10) = 1, 1 \mid 2$$\vspace{1mm}
+
+Nalazimo $x_{1}$ i $x_{2}$ tako da $y \in Z$, pri čemu ne moramo rješavati diofantove jednačine, već pogađamo vrijednosti. Dobijamo:
+
+$$x_{1} = 1$$
+$$x_{2} = 4$$
+\begin{center}
+Također $x_{3} = 0$
+\end{center}
+
+Pa je opće rješenje:
+
+$$x \equiv 170 \cdot 1 + 153 \cdot 4 + 90 \cdot 0 \pmod{1530}$$
+$$x \equiv 782 \pmod{1530}$$
+
+Možemo pisati:
+
+$$x = 782 + 1530t, t\in Z$$\vspace{1mm}
+
+Nalazimo tipično rješenje za koje vrijedi $0 \leq x < 1530$
+
+$$0 \leq 782 + 1530t < 1530$$\vspace{1mm}
+$$t \geq - \frac{782}{1530} \>\>\>\> \land \>\>\>\> t < \frac{748}{1530}$$\vspace{1mm}
+$$t \geq - 0.51 \>\>\>\> \land \>\>\>\> t < 0.488$$\vspace{1mm}
+$$t\in [-0.51, 0.488) \land t \in Z \implies \underline{t = 0}$$\vspace{1mm}
+
+Uvrštavanjem u $x = 782 + 1530t$, se dobije:
+
+$$\underline{x = 782}$$\vspace{1mm}
+
+Zaključujemo da ne samo da je 782 minimalan broj banana potreban da se jednako rasporede u odgovarajuće gomile, već je to i jedini broj za koji može to da se uradi. Provjeriti ćemo rezultat vračajući $x$ u početne jednačine sistema:
+
+$$782 \equiv 8 \pmod{9} \implies 782 + 9y = 8 \implies y \in Z$$
+$$782 \equiv 2 \pmod{10} \implies 782 + 10y = 2 \implies y \in Z$$
+$$782 \equiv 0 \pmod{17} \implies 782 + 17y = 0 \implies y \in Z$$\vspace{1mm}
+
+Minimalan(i jedini) broj banana potrebnih da bi se jednako raspodijelili je 782.
+
+\section*{Zadatak 4\label{Z4}}
+
+a)
+\[
+8x + 10y + 17z \equiv 64 \pmod{93} \label{eq:Z4eq1} \tag{1}
+\]
+\[
+12x + 9y + 19z \equiv 3 \pmod{93} \label{eq:Z4eq2} \tag{2}
+\]
+\[
+7x + 14y + 15z \equiv 68 \pmod{93} \label{eq:Z4eq3} \tag{3}
+\]
+\\
+Množimo kongruenciju \ref{eq:Z4eq1} sa 12 i kongruenciju \ref{eq:Z4eq2} sa -8, te ih sabiramo. To ima smisla uraditi jer je $NZD(93, 12) = 1 \land NZD(93, 8) = 1$. Dakle dobijamo:
+
+$$48y + 52z \equiv 744 \pmod{93}$$\vspace{1mm}
+
+Pošto $744 > 93 \implies mod(744, 93) = 0$, kongruencija se svede na:
+
+$$48y + 52z \equiv 0 \pmod{93}$$ \vspace{1mm}
+
+Dalje, množimo kongruenciju \ref{eq:Z4eq2} sa 7 i kongruenciju \ref{eq:Z4eq3} sa -12, te ih sabiramo. NZD u oba slučaja je 1. Dobijamo:
+
+$$105y + 47z \equiv 795 \pmod{93}$$\vspace{1mm}
+
+Daljim skraćivanjem se dobije:
+
+$$12y + 47z \equiv 51 \pmod{93}$$\vspace{1mm}
+
+Sistem smo sveli na sljedeće tri kongruencije:
+
+$$48y + 52z \equiv 0 \pmod{93}$$
+$$12y + 47z \equiv 51 \pmod{93}$$
+$$7x + 14y + 15z \equiv 68 \pmod{93}$$\vspace{1mm}
+
+Množimo prvu kongruenciju sa -47 i drugu kongruenciju sa 52, sabiramo ih, skratimo, te dobijemo kongruenciju sa jednom nepoznatom:
+
+$$-51y \equiv 48 \pmod{93}$$\vspace{1mm}
+
+Odgovarajuća diofantova jednačina je $-51y + 93k = 48$ gdje je $k$ parametar, $k \in Z$. Pošto je $NZD(93, 51) = 3 \land 3 \mid 48$, diofantova jednačina je rješiva, te očekujemo 3 tipična rješenja. Proširenim euklidovim algoritmom se dobije:
+
+$$1 = 11 \cdot 17 - 6 \cdot 31$$\vspace{1mm}
+
+Interesuje nas rješenje po promjenjivoj $y$:
+
+$$y = -176 + 31t$$\vspace{1mm}
+
+Za tipična rješenja mora vrijediti: $0 \leq y \leq 92 \to t \in [6, 8]$. Dakle dobili smo 3 tipična rješenja koja glase:
+
+$$y = 10, y = 41, y = 72$$\vspace{1mm}
+
+Za $y = 10$ kongruencija ima najmanje tipično rješenje, pa opće rješenje možemo pisati u obliku $y \equiv 10 \pmod{31}$. Da ne bi razmatrali svaki od tipičnih rješenja zasebno, možemo na sljedeći način napisati opće rješenje:
+
+$$y = 10 + 31t, t \in Z$$\vspace{1mm}
+
+Dobiveno opće rješenje vraćamo u prvu kongruenciju:
+
+$$48(10 + 31t) + 52z = 0 \pmod {93}$$\vspace{1mm}
+
+Tj. skraćivanjem:
+
+$$52z = -15 \pmod{93}$$\vspace{1mm}
+
+Pa je odgovarajuća diofantova jednačina $52z\> +\> 93k = -15, k \in Z$. $NZD(93, 520) = 1 \> \land \> 1 \mid 15$, dakle diofantova jednačina je rješiva te očekujemo jedinstveno tipično rješenje. Dobije se $z = -510 + 93t, t \in Z$. Pa je tipično rješenje:
+
+$$z = 48 \to z \equiv 48 \pmod{93}$$\vspace{1mm}
+
+Uvrštavamo $z = 48$ i $y = 10 + 31t, t \in Z$ u kongruenciju \ref{eq:Z4eq3}. Dobije se:
+
+$$7x = -48 - 62t \pmod{93}, t \in Z$$\vspace{1mm}
+
+Odgovarajuća diofantova jednačina: $7x + 93k = -48 - 62t, t, k \in Z$. Diofantova jednačina je rješiva, te očekujemo jedno tipično rješenje za svaki cijeli broj t, $NZD(93, 7) = 1 \land 1 \mid -48 - 62t$.
+Dobije se $x = -672 -868t + 93s, t, s \in Z$. Pa je $s = 8 + \frac{868}{93} \cdot t, t \in Z$. Tipično rješenje je jedinstveno i ono glasi:
+
+$$x = 72 - 868t, t \in Z \to x \equiv 72 - 31t \pmod{93}$$\vspace{1mm}
+
+Dakle, rješenja sistema su:
+
+$$x \equiv 72 - 31t \pmod{93}, t \in Z$$
+$$y \equiv 10 \pmod{31}$$
+$$z \equiv 48 \pmod{93}$$\vspace{1mm}
+
+Pri čemu svako tipično rješenje koje smo dobili za $y$ odgovara da bude rješenje sistema. Dakle, ovaj sistem ima 3 tipična rješenja:
+
+$$x = 310, y = 10, z = 48$$ 
+$$x = 1271, y = 41, z = 48$$
+$$x = 2232, y = 72, z = 48$$\vspace{1mm}
+\\
+b)
+\[
+24x + 27y \equiv 9 \pmod{78} \label{eq:Z4eq1b} \tag{1}
+\]
+\[
+10x + 12y \equiv 16 \pmod{78} \label{eq:Z4eq2b} \tag{2}
+\]
+\\
+
+Ne možemo množiti kongruencije odgovarajućim brojevima jer njihovi odgovarajući $NZD \neq 1$. Dakle, moramo postepeno smanjivati koeficijent uz neku nepoznatu u nekoj kongruenciji, dok ne nestane potpuno. Uradit ćemo sljedeće korake, kako bi nepoznatu $x$ izbacili iz druge kongruencije:\vspace{1mm}
+
+\begin{center}
+1.) Množimo kongruenciju \ref{eq:Z4eq2b} sa -1 i dodajemo kongruenciji \ref{eq:Z4eq1b}. Ovaj korak uradimo 2 puta uzastopno.
+
+
+2.) Množimo kongruenciju \ref{eq:Z4eq1b} sa -1 i dodajemo kongruenciji \ref{eq:Z4eq2b}. Ovaj korak uradimo 2 puta uzastopno također.
+
+
+3.) Uradimo 1. ponovno, ali ovaj put samo jednom.
+
+
+4.) Uradimo 2. ponovno, ali ovaj put samo jednom.
+\end{center}
+
+Dobili smo sistem:
+
+$$2x - 3y \equiv -85 \pmod{78}$$
+$$9y \equiv 147 \pmod{78}$$\vspace{1mm}
+
+Sistem sa jednom nepoznatom svodimo na diofantovu jednačinu $9y + 78k = 147$, gdje je k parametar. $NZD(78, 9) = 3 \land 3 \mid 69$. Zaključujemo da je diofantova jednačina rješiva, i očekujemo 3 tipična rješenja. Podijelimo diofantovu jednačinu sa 3, dobijamo $3y + 26k = 23$. Proširenim euklidovim algoritmom dobijemo $1 = 9 \cdot 3 - 1 \cdot 26$. Pa je $y = 207 + 26t, t \in Z$. Za $t = -7, t = -6, t = -5$ dobijamo tipična rješenja ove kongruencije:
+
+$$y = 25, y = 51, y = 77$$\vspace{1mm}
+
+Najmanje tipično rješenje je y = 25, pa možemo također pisati:
+
+$$y \equiv 25 \pmod{26}$$ \vspace{1mm}
+
+Da ne bi morali za svako tipično rješenje računati sistem, pišemo općenito $y = 25 + 26t, t \in Z$. Isti izraz vraćamo u prvu kongruenciju tj.
+
+$$2x - 3y \equiv -85 \pmod{78} \to 2x \equiv -10 + 78t \pmod{78}$$
+$$2x \equiv -10 \pmod{78}$$\vspace{1mm}
+
+Odgovarajuća diofantova jednačina je $2x + 78k = -10$, gdje je k parametar. $NZD(78, 2) = 2 \land 2 \mid 10$, dakle diofantova jednačina je rješiva i očekujemo 2 tipična rješenja. Rješenje diofantove jednačine je $x = -5 + 39t, t \in Z$. Iz rješenja slijedi da za $t = 1 \land t = 2$ imamo tipična rješenja:
+
+$$x = 34, x = 73$$\vspace{1mm}
+
+Najmanje tipično rješenje je $x = 34$, pa možemo također pisati:
+
+$$x \equiv 34 \pmod{39}$$\vspace{1mm}
+
+Zaključujemo da je rješenje sistema:
+
+$$x \equiv 34 \pmod{39}$$
+$$y \equiv 25 \pmod{26}$$\vspace{1mm}
+
+Ili zapisano u vidu tipičnih rješenja; ovaj sistem ima 6 tipičnih rješenja:
+
+$$x = 34, y = 25; x = 34, y = 51; x = 34, y = 77$$
+$$x = 73, y = 25; x = 73, y = 51; x = 73, y = 77$$
+
+\end{document}
