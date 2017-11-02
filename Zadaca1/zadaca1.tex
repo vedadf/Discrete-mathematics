@@ -4,8 +4,25 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{pifont}
+\usepackage{listings}
+\usepackage{xcolor}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	language=C++,
+	frame = tb,
+	numbers = left,
+	showstringspaces = false,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{green}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#} 
+}
 
 \title{
   Diskretna matematika\\
@@ -16,38 +33,6 @@
 \begin{document}
 
 \maketitle
-
-\iffalse
-
-\section{Introduction}
-\subsection{Who am I}
-
-Hello world!
-\textbf{This is bold text}
-\textit{This is italic.}
-
-
-\emph{this is emphatic.}
-\underline{Some underline.}
-
-``Propper quotes''
-
-\section{List}
-\begin{enumerate}
-\item Bread
-\item butter
-\end{enumerate}
-
-\section{Unordered List}
-\begin{itemize}
-\item Bread
-	\begin{itemize}
-	\item Bread
-	\end{itemize}
-\item butter
-\end{itemize}
-Ovo je \ref{Z1}
-\fi
 
 \newpage
 
@@ -129,45 +114,47 @@ s > \frac{- 864 - 18t}{11} \label{eq:gens2} \tag{B}
 Možemo zaključiti:
 
 $$(\ref{eq:gen1}) \land (\ref{eq:gen2}) \implies \frac{- 9t - 432}{5} > s > \frac{- 864 - 18t}{11} \implies$$
-$$\implies (- 9t - 432) \cdot 11 > (- 864 - 18t) \cdot 5$$\
-$$- 9t - 432 > 0$$\
-$$t < \frac{- 432}{9}$$\
-$$t < -48$$\\
+$$\implies (- 9t - 432) \cdot 11 > (- 864 - 18t) \cdot 5$$
+$$- 9t - 432 > 0$$
+$$t < \frac{- 432}{9}$$
+$$t < -48$$\vspace{1mm}
 
 Rješenja za t: 
 $$(t > -54) \land (t < -48) \implies t\in (-48, -54)$$
 
 tj. 
 
-$$t\in [-49, -53], t\in Z$$\\
+$$t\in [-49, -53], t\in Z$$\vspace{1mm}
 
-Dalje, računamo vrijednost s, $\forall t\in [-49, -53] \land t\in Z$ koristeći nejednakosti \ref{eq:gens1} i \ref{eq:gens2}. Lahko se pokaže da vrijednosti t = - 49, t = - 50 i t = - 53 ne daju vrijednost $s \in Z$, dakle te vrijednosti odbacujemo.\\
+Dalje, računamo vrijednost s, $\forall t\in [-49, -53] \land t\in Z$ koristeći nejednakosti \ref{eq:gens1} i \ref{eq:gens2}. Lahko se pokaže da vrijednosti t = - 49, t = - 50 i t = - 53 ne daju vrijednost $s \in Z$, dakle te vrijednosti odbacujemo.\vspace{1mm}
 
 \underline{Za t = - 51:}
 
 $$(\ref{eq:gens1}) \implies s < \frac{27}{5} ( = 5.4)$$
 $$(\ref{eq:gens2}) \implies s > \frac{54}{11} ( \sim 4.9)$$
-$$s \in (\frac{54}{11}, \frac{27}{5})$$\\
+$$s \in (\frac{54}{11}, \frac{27}{5})$$\vspace{1mm}
 
-Pa jedina vrijednost u skupu $Z$ na dobivenom intervalu je $s = 5$. Tu vrijednost i uzimamo.\\
+Pa jedina vrijednost u skupu $Z$ na dobivenom intervalu je $s = 5$. Tu vrijednost i uzimamo.\vspace{1mm}
 
 \underline{Za t = - 52:}\\
 
-Na sličan način kao i na prethodnom primjeru dobijamo vrijednost $s = 7$.\\
+Na sličan način kao i na prethodnom primjeru dobijamo vrijednost $s = 7$.\vspace{1mm}
 
-Zaključujemo da postoje dva rješenja, te ih uvrštavamo u opšta:\\
+Zaključujemo da postoje dva rješenja, te ih uvrštavamo u opšta:\vspace{1mm}
 
-\underline{Za $t = - 51 \land s = 5$}\\
+\underline{Za $t = - 51 \land s = 5$}\vspace{1mm}
 
 $$x = 1, y = 2, z = 3$$
-$$Provjera: 1 \cdot 15 + 2 \cdot 33 + 3 \cdot 27 = 162$$\\
+$$Provjera: 1 \cdot 15 + 2 \cdot 33 + 3 \cdot 27 = 162$$\vspace{1mm}
 
 \underline{Za $t = - 52 \land s = 7$}
 
 $$x = 5, y = 1, z = 2$$
-$$Provjera: 5 \cdot 15 + 1 \cdot 33 + 2 \cdot 27 = 162$$\\
+$$Provjera: 5 \cdot 15 + 1 \cdot 33 + 2 \cdot 27 = 162$$\vspace{1mm}
 
 Dakle, postoje dva načina realizacije terapije; prvi način je jedna tableta T1, dvije tablete T2 i 3 tablete T3; drugi način je pet tableta T1, jedna tableta T2 i dvije tablete T3.
+
+\newpage
 
 \section*{Zadatak 2\label{Z2}}
 
@@ -255,6 +242,126 @@ $$782 \equiv 2 \pmod{10} \implies 782 + 10y = 2 \implies y \in Z$$
 $$782 \equiv 0 \pmod{17} \implies 782 + 17y = 0 \implies y \in Z$$\vspace{1mm}
 
 Minimalan(i jedini) broj banana potrebnih da bi se jednako raspodijelili je 782.
+
+\newpage
+
+\section*{Zadatak 3\label{Z3}}
+
+a)
+
+\hspace{0.65cm}Slova Y i G se ponavljaju najviše puta. Slovo Y se ponavlja 8 puta, a slovo G se ponavlja 6 puta u sifriranoj poruci. Pošto se u bosanskom jeziku najčešće pojavljuje slovo A, a nakon njega po učestanosti slovo E, možemo pretpostaviti da je prilikom šifriranja došlo do zamjene slova A slovom Y i slova E slovom G. Slova A, Y, E i G imaju ASCII vrijednosti respektivno: 65, 89, 69 i 71. Iz uslova zadatka imamo algoritam:
+
+$$y = \pmod{ax + b, 26} + 65$$\vspace{1mm}
+
+Gdje je x ASCII kod slova koje se zamijeni ASCII kodom slova y. Dakle, iz navedene pretpostavke mora vrijediti:
+
+$$89 = \pmod{a\cdot65 + b, 26} + 65$$ 
+$$71 = \pmod{a\cdot69 + b, 26} + 65$$
+
+Odnosno:
+
+$$\pmod{65\cdot a + b, 26} = 24$$
+$$\pmod{69\cdot a + b, 26} = 6$$\vspace{1mm}
+
+Zapišimo ove jednačine u obliku kongruencija:
+
+$$65\cdot a + b \equiv 24 \pmod{26}$$
+$$69\cdot a + b \equiv 6 \pmod{26}$$\vspace{1mm}
+
+Oduzimanjem prve kongruencije od druge dobijemo kongruenciju:
+
+$$4a \equiv -18\pmod{26}$$\vspace{1mm}
+
+Odgovarajuća diofantova jednačina:
+
+$$4a + 26k = -18, k \in Z$$\vspace{1mm} 
+
+$NZD(4, 26) = 2$, $2 \mid 18$, pa očekujemo 2 tipična rješenja. Dijelimo jednačinu sa 2:
+
+$$2a + 13k = -9, k \in Z$$\vspace{1mm}
+
+$NZD(2, 13) = 1$, $1 \mid 9$, pa proširenim euklidovim algoritmom dobijamo $1 = -6\cdot 2 + 13$. Pa je opće rješenje za a:
+
+$$a = 54 + 13t, t \in Z$$\vspace{1mm}
+
+Za tipična rješenja mora vrijediti $0 \leq a \leq 25$. Pa se dobije da su tipična rješenja za $t = -3$ i $t = -4$, i njihove vrijednosti: $a = 15$ i $a = 2$.
+Dalje, da bi našli vrijednost za b, uzimamo kongruenciju $65\cdot a + b \equiv 24 \pmod{26}$\vspace{1mm}
+
+Za $a = 15$ se dobije kongruencija $b \equiv -951 \pmod{26}$ iz koje slijedi $b = -951 + 26t$, $t \in Z$
+
+Za $a = 2$ se dobije kongruencija $b \equiv -106 \pmod{26}$ iz koje slijedi $b = -106 + 26t$, $t \in Z$\vspace{1mm}
+
+Za tipična rješenja mora vrijediti $0 \leq b \leq 25$. Pa su za b tipična rješenja data sa $t = 37$ za $a = 15$ i $t = 5$ za $a = 2$.  Tj. vrijednosti tipičnih rješenja su $b = 11$ i $b = 24$. Dakle, kao što je očekivano dobili smo 2 tipična rješenja: 
+
+$$a = 15, b = 11$$
+$$a = 2, b = 24$$\vspace{1mm}
+
+Zaključujemo da postoje dva moguća rješenja za a i b kojim se A preslikava u Y i E preslikava u G. Možemo odbaciti drugi slučaj kada je $a = 2$ i $b = 24$ jer kada uvrstimo u jednačinu dobije se $y = \pmod{2x + 24, 26} + 65$. Dakle, $2x + 24$ je uvijek paran broj pa je i $\pmod{2x + 24, 26}$ uvijek paran, a suma parnog i neparnog broja daju neparan broj, pa y bude na kraju neparan. To znači da bi poruka morala sadržavati znakove sa neparnim ASCII kodovima, a očigledno to nije slučaj (npr slovo G ima ASCII kod 68). Dakle, uzimamo $a = 15$ i $b = 11$.\vspace{10mm}
+
+b)
+
+\hspace{0.65cm}Funkcija šifriranja glasi:
+
+$$y = \pmod{15x + 11, 26} + 65$$\vspace{1mm}
+
+Potrebno je riješiti ovaj izraz uz uvjet $65 \leq x < 91$ jer je to raspon za koje ASCII kodovi daju velika slova. Da bi računanje bilo lakše uzimamo smjenu $x = 65 + x'$, pa uvjet postane $0 \leq x < 26$. Tj. sveli smo na traženje tipičnih rješenja za $x'$. Prvo izrazimo funkciju šifriranja tako da figuriše $x'$:
+
+$$y = \pmod{15x + 11, 26} + 65$$
+$$y = \pmod{15(65 + x') + 11, 26} + 65$$
+$$y = \pmod{986 + 15x', 26} + 65 \to y = \pmod{15x' + 24, 26} + 65$$\vspace{1mm}
+
+
+Jer $\pmod{986, 26} = 24$. Sada je potrebno izraziti $x'$. Napišimo formulu kao kongruenciju:
+
+$$y - 65  = \pmod{15x' + 24, 26} \implies y - 65 \equiv 15x' + 24 \pmod{26}$$\vspace{1mm}
+
+Pa izrazimo $x'$:
+
+$$15x' \equiv y - 89\pmod{26}$$\vspace{1mm}
+
+Gdje je x' nepoznata, a y parametar. Odgovarajuća diofantova jednačina je $15x' + 26k = y - 89$, $k \in Z$. $NZD(15, 26) = 1$, $1 \mid (y - 89)$, pa je jednačina rješiva za svako $y \in Z$. Primjenom proširenog euklidovog algoritma dobijemo: $1 = 7\cdot 15 - 4\cdot 26$.
+
+Pa je opće rješenje za $x'$
+
+$$x' = 7y - 623 + 26t, t \in Z$$\vspace{1mm}
+
+Sada je potrebno birati $t$ tako da vrijedi $0 \leq x' < 26$. Jednostavniji način je da se zapiše dobiveni izraz kao kongruencija:
+
+$$x' \equiv -623 + 7y \pmod{26}$$\vspace{1mm}
+
+Redukcijom koeficijenata po modulu 26 dobijamo:
+
+$$x' \equiv -25 + 7y \pmod{26}$$\vspace{1mm}
+
+Pa je $x' = \pmod{-25 + 7y, 26}$. Pošto je $x = x' + 65$, funkcija za dešifrovanje glasi:
+
+$$x = \pmod{-25 + 7y, 26} + 65$$
+
+c)
+
+I zaista, za $y = 89$ (slovo Y), funkcija daje vrijednost $x = 65$ (slovo A), i za $y = 71$ (slovo G), $x = 69$ (slovo E).
+
+Listing funkcije u C++-u koja vraća dešifriranu poruku na osnovu one koja je vraćena kao parametar, pomoću dobivene funkcije dešifiriranja je data ispod:\vspace{5mm}
+\begin{lstlisting}
+string Desifruj(string sif, string desif=""){
+    for(int i = 0; i < sif.size(); i++)
+        desif += ((-25+7*(int)(sif[i]-'\0'))%26+65)-'\0';
+    return desif;
+}
+\end{lstlisting}
+
+Dešifrovana poruka glasi:
+\begin{center}
+DISKRETNAMATEMATIKANIJETESKANIZAKOGAKOVJEZBAREDOVNO
+\end{center}
+
+Ako dodamo razmake:
+
+\begin{center}
+DISKRETNA MATEMATIKA NIJE TESKA NI ZA KOGA KO VJEZBA REDOVNO
+\end{center}
+
+\newpage
 
 \section*{Zadatak 4\label{Z4}}
 
