@@ -511,4 +511,121 @@ Ili zapisano u vidu tipičnih rješenja; ovaj sistem ima 6 tipičnih rješenja:
 $$x = 34, y = 25; x = 34, y = 51; x = 34, y = 77$$
 $$x = 73, y = 25; x = 73, y = 51; x = 73, y = 77$$
 
+\newpage
+
+\section*{Zadatak 5\label{Z5} }
+
+\hspace{6.8mm}a)
+
+$$x^2 \equiv 212 \pmod{2093}$$\vspace{1mm}
+
+$m = 2093$ nije prost broj, ali je neparan, tako da svakako vrijede pravila računa sa Legendreovim simbolom (tkz. Legendre-Jacobijev simbol). Pošto vrijedi:
+
+$$NZD(212, 2093) = 1 \land 2093 = 2^0 \cdot 7 \cdot 13 \cdot 23$$ \vspace{1mm}
+
+uvjeti rješivosti zadane kvadratne kongruencije su:
+
+$$(212 \mid 7) = 1$$
+$$(212 \mid 13) = 1$$
+$$(212 \mid 23) = 1$$\vspace{1mm}
+
+Pošto je $e = 0$, nema dopunskih uvjeta. Provjerimo uvjete rješivosti:
+
+$$(212 \mid 7) = (mod(212, 7) \mid 7) = (2 \mid 7) = (-1)^{\frac{49-1}{8}} = (-1)^6 = 1$$
+$$(212 \mid 13) = (mod(212, 13) \mid 13) = (4 \mid 13) = (2^2 \mid 13) = 1$$\vspace{1mm}
+$$(212 \mid 23) = (mod(212, 23) \mid 23) = (5 \mid 23) = (23 \mid 5) \cdot (-1)^{\frac{4\cdot 22}{4}} =$$ 
+$$= (23 \mid 5) = (mod(23, 5) \mid 5) = (3 \mid 5) = (5 \mid 3) \cdot (-1)^{\frac{2\cdot 4}{4}} = (5 \mid 3) =$$ 
+$$= (mod(5, 3) \mid 3) = (2 \mid 3) = (-1)^{\frac{9-1}{8}} = -1$$\vspace{1mm}
+
+Primjetimo da uvjet $(212 \mid 23) \neq 1$ pa zadana kvadratna kongruencija nije rješiva.\vspace{1mm}
+\newpage
+b)
+
+$$x^2 \equiv 1033 \pmod{1368}$$\vspace{1mm}
+
+U ovom slučaju vrijedi:
+
+$$NZD(1033, 1368) = 1 \land 1368 = 2^3 \cdot 3^2 \cdot 19$$\vspace{1mm}
+
+Uvjeti rješivosti ove kvadratne kongruencije su:
+
+$$(1033 \mid 3) = 1$$
+$$(1033 \mid 19) = 1$$\vspace{1mm}
+
+Dalje, pošto je $e = 3 (\geq 3)$ imamo dopunski uvjet $a \equiv 1 \pmod{8}$. Dopunski uvjet je ispunjen jer $mod(1033, 8) = 1$. Ispitajmo ostale uvjete:
+
+$$(1033 \mid 3) = (mod(1033, 3) \mid 3) = (1 \mid 3) = 1$$\vspace{1mm}
+$$(1033 \mid 19) = (mod(1033, 19) \mid 19) = (7 \mid 19) = (19 \mid 7) \cdot (-1)^{\frac{18\cdot 6}{4}} =$$
+$$= - (5 \mid 7) = - (7 \mid 5) \cdot (-1)^{\frac{6\cdot 4}{4}} = - (2 \mid 5) = - (-1)^{\frac{24}{8}} = 1$$\vspace{1mm}
+
+Zaključujemo da je kvadratna kongruencija rješiva, te je njen broj rješenja:
+
+$$2^{k + 2} = 2^{2 + 2} = 2^4 = 16$$\vspace{1mm}
+
+\newpage
+
+c)
+
+$$x^2 \equiv 919 \pmod{120}$$\vspace{1mm}
+
+Skraćivanjem koeficijenta dobijemo:
+
+$$x^2 \equiv 79 \pmod{120}$$\vspace{1mm}
+
+Za ovaj slučaj vrijedi:
+
+$$NZD(79, 120) = 1 \land 120 = 2^3 \cdot 3 \cdot 5$$\vspace{1mm}
+
+Očigledno je $e = 3$, pa su uvjeti rješivosti:
+
+$$(79 \mid 3) = 1$$
+$$(79 \mid 5) = 1$$
+\begin{center}
+dopunski uvjet: $a \equiv 1 \pmod{8} \implies 79 \equiv 1\pmod{8}$
+\end{center}
+
+Prva dva uvjeta su zadovoljena:
+
+$$(79 \mid 3) = (mod(79, 3) \mid 3) = (1 \mid 3) = 1$$
+$$(79 \mid 5) = (mod(79, 5) \mid 5) = (4 \mid 5) = (2^2 \mid 5) = 1$$\vspace{1mm}
+
+Međutim, dopunski uvjet nije zadovoljen jer $mod(79, 8) = 7 \neq 1$. Dakle, ova kvadratna kongruencija nije rješiva.
+
+\newpage
+
+d)
+
+$$x^2 \equiv 375 \pmod{40425}$$\vspace{1mm}
+
+U ovom slučaju $NZD(375, 40425) = 75 \neq 1$, dakle kvadratna kongruencija je rješiva akko vrijedi $NZD(\frac{a}{q^2}, \frac{m}{d}) = 1$ i ako je rješiva kvadratna kongruencija
+$y^2 \equiv \frac{a}{q^2} \pmod{\frac{m}{d}}$. Gdje vrijedi $d = p \cdot q^2$. Konkretno, u ovom slučaju je:
+
+$$75 = 3 \cdot 5^2 \to p = 3 \land q = 5$$\vspace{1mm}
+
+Pa imamo da je $NZD(15, 539) = 1$, pa je prvi uslov zadovoljen. Provjeravamo da li je kvadratna kongruencija po $y$ rješiva. Imamo da je:
+
+$$y^2 \equiv 15 \pmod{539}$$\vspace{1mm}
+
+Rastavljanjem na proste faktore dobijemo $539 = 2^0 \cdot 7^2 \cdot 11$. Dakle, kvadratna kongruencija je rješiva ako su ispunjeni uslovi:
+
+$$(15 | 7) = 1$$
+$$(15 | 11) = 1$$
+
+Ispitajmo:
+
+$$(15 | 7) = (mod(15, 7) | 7) = (1 | 7) = 1$$
+$$(15 | 11) = (mod(15, 11) | 11) = (4 | 11) = (2^2 | 11) = 1$$\vspace{1mm}
+
+Pa je kvadratna kongruencija rješiva, te je potrebno odrediti broj rješenja kvadratne kongruencije po y, a pošto je $e = 0$, broj rješenja je:
+
+$$n = 2^k = 2^2 = 4$$\vspace{1mm}
+
+Konačno, broj rješenja početne kvadratne kongruencije je:
+
+$$n \cdot q = 4 \cdot 5 = 20$$
+
+\newpage
+
+\section*{Zadatak 6\label{Z6} }
+
 \end{document}
