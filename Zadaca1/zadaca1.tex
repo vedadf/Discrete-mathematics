@@ -38,6 +38,12 @@
 
 \section*{Zadatak 1\label{Z1}}
 
+\underline{Postavka:}
+
+Za potrebe neke vitaminske terapije koriste se tri vrste tableta T1, T2 i T3 koje respektivno sadrže 15, 33, odnosno 27 jedinica nekog vitamina. Terapijom je potrebno unijeti 162 jedinica tog vitamina. Odredite sve moguće načine kako se može realizirati ta terapija pomoću raspoloživih tableta ukoliko se tablete ne smiju lomiti, tj. može se uzeti samo cijela tableta.
+
+\underline{Rješenje:}\\
+
 \hspace{0.65cm}Ako označimo tablete T1, T2 i T3 kao x, y i z respektivno, problem svodimo na rješavanje sljedeće diofantove jednačine sa 3 nepoznate:
 
 $$15x + 33y + 27z = 162$$\\
@@ -158,6 +164,12 @@ Dakle, postoje dva načina realizacije terapije; prvi način je jedna tableta T1
 
 \section*{Zadatak 2\label{Z2}}
 
+\underline{Postavka:}
+
+Čopor majmuna je skupljao banane. Kada su skupljene banane pokušali razmjestiti u 9 jednakih gomila, ispostavilo se da preostaje 8 banana koje je nemoguće rasporedititi tako da gomile budu jednake. Slično, kada su probali rasporediti banane u 10 jednakih gomila, preostale su 2 banane. Međutim, uspjeli su skupljene banane razmjestiti u 17 jednakih gomila. Odredite koliki je najmanji mogući broj banana za koji je ovakav scenario moguć (uz pretpostavku da su majmuni u stanju uraditi ovo što je opisano, što je prilično diskutabilno).
+
+\underline{Rješenje:}\\
+
 \hspace{0.65cm}Zadani problem možemo predstaviti u obliku sistema linearnih kongruencija, gdje je $x$ traženi minimalni broj banana:
 
 $$x \equiv 8 \pmod{9} \to NZD(1, 9) = 1$$
@@ -247,6 +259,29 @@ Minimalan(i jedini) broj banana potrebnih da bi se jednako raspodijelili je 782.
 
 \section*{Zadatak 3\label{Z3}}
 
+\underline{Postavka:}
+
+Tajna špijunska organizacija HABER SPY, zadužena za prisluškivanje razgovora na ETF Haber kutiji u cilju sprečavanja dogovaranja jezivih terorističkih aktivnosti koje se sastoje u podvaljivanju pokvarene (ukisle) kafe neposlušnim djelatnicima ETF-a, jednog dana uhvatila je tajanstvenu poruku koja je glasila
+
+ROISTGXLYWYXGWYXOSYLODGXGISYLOJYSAKYSABDGJNYTGRABLA
+
+Ova poruka smjesta je analizirana uz pomoć HEPEK superkvantnog kompjutera, koji nije uspio dešifrirati poruku, ali je došao do sljedećih spoznaja:
+
+\begin{enumerate}
+\item Izvorna poruka je u cijelosti pisana bosanskim jezikom, isključivo velikim slovima unutar engleskog alfabeta (ASCII kodovi u opsegu od 65 do 91)
+\item Za šifriranje je korišten algoritam prema kojem se svaki znak izvorne poruke čiji je ASCII kod x mijenja znakom sa ASCII kodom y prema formuli y = mod(a x + b, 26) + 65, gdje su a i b neke cjelobrojne konstante u opsegu od 0 do 25.
+\end{enumerate}
+
+Međutim, HEPEK nije uspio do kraja probiti algoritam šifriranja i dešifrirati poruku. Stoga je vaš zadatak sljedeći:
+
+\begin{enumerate}
+\item Odredite konstante a i b ukoliko je poznata činjenica da se u bosanskom jeziku ubjedljivo najviše puta pojavljuje slovo A, a odmah zatim po učestanosti pojavljivanja slijedi slovo E;
+\item Odredite funkciju dešifriranja, tj. funkciju kojom se vrši rekonstrukcija x iz poznatog y;
+\item Na osnovu rezultata pod b), dešifrirajte uhvaćenu poruku (za tu svrhu, napišite kratku funkciju od dva reda u C-u, C++-u ili nekom drugom sličnom programskom jeziku, jer bi Vam ručno računanje oduzelo cijeli dan; uz zadaću, priložite listing te funkcije).
+\end{enumerate}
+
+\underline{Rješenje:}\\
+\newpage
 a)
 
 \hspace{0.65cm}Slova Y i G se ponavljaju najviše puta. Slovo Y se ponavlja 8 puta, a slovo G se ponavlja 6 puta u sifriranoj poruci. Pošto se u bosanskom jeziku najčešće pojavljuje slovo A, a nakon njega po učestanosti slovo E, možemo pretpostaviti da je prilikom šifriranja došlo do zamjene slova A slovom Y i slova E slovom G. Slova A, Y, E i G imaju ASCII vrijednosti respektivno: 65, 89, 69 i 71. Iz uslova zadatka imamo algoritam:
@@ -364,6 +399,19 @@ DISKRETNA MATEMATIKA NIJE TESKA NI ZA KOGA KO VJEZBA REDOVNO
 \newpage
 
 \section*{Zadatak 4\label{Z4}}
+
+\underline{Postavka:}
+
+Riješite sljedeće sisteme linearnih kongruencija i izdvojite im tipična rješenja:
+
+\begin{enumerate}
+\item $8 x + 10 y + 17 z \equiv 64 (mod 93), 12 x + 9 y + 19 z \equiv 3 (mod 93), 7 x + 14 y + 15 z \equiv 68 (mod 93)$
+\item $24 x + 27 y \equiv 9 (mod 78), 10 x + 12 y \equiv 16 (mod 78)$
+\end{enumerate}
+
+NAPOMENA: Čuvajte se neregularnih transformacija!
+
+\underline{Rješenje:}\\
 
 a)
 \[
@@ -515,6 +563,19 @@ $$x = 73, y = 25; x = 73, y = 51; x = 73, y = 77$$
 
 \section*{Zadatak 5\label{Z5} }
 
+\underline{Postavka:}
+
+Ispitajte rješivost i odredite broj rješenja sljedećih kvadratnih kongruencija (u slučaju da su rješive)
+
+\begin{enumerate}
+\item $x2 \equiv 212 (mod 2093)$
+\item $x2 \equiv 1033 (mod 1368)$
+\item $x2 \equiv 919 (mod 120)$
+\item $x2 \equiv 375 (mod 40425)$
+\end{enumerate}
+
+\underline{Rješenje:}\\
+
 \hspace{6.8mm}a)
 
 $$x^2 \equiv 212 \pmod{2093}$$\vspace{1mm}
@@ -627,6 +688,21 @@ $$n \cdot q = 4 \cdot 5 = 20$$
 \newpage
 
 \section*{Zadatak 6\label{Z6} }
+
+\underline{Postavka:}
+
+Nađite sve diskretne kvadratne korijene sljedećih klasa ostataka, formiranjem odgovarajućih kvadratnih kongruencija i njihovim rješavanjem (rješavanje "grubom silom" neće biti prihvaćeno):
+
+\begin{enumerate}
+\item $[64]_{89}$
+\item $[85]_{1369}$ 
+\item $[9]_{133}$
+\item $[1431]_{5643}$
+\end{enumerate}
+
+NAPOMENA: Nađena rješenja možete lako provjeriti modularnim kvadriranjem.
+
+\underline{Rješenje:}\\
 
 Pretpostavimo da su sve kvadratne kongruencije rješive.\vspace{1mm}
 
