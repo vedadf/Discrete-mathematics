@@ -28,7 +28,7 @@
   Diskretna matematika\\
   \large Zadaća 1 \\}
 \author{Vedad Fejzagić}
-\date{Oktobar 22, 2017}
+\date{2017}
 
 \begin{document}
 
@@ -1094,5 +1094,105 @@ Aida i Bogdan međusobno razmjenjuju poruke preko Facebook-a. Kako je poznato da
 NAPOMENA: Obratite pažnju da je poruka veća od modula enkripcije!\\
 
 \underline{Rješenje:}\\
+
+Javni ključevi dati u zadatku su oblika $(a, m)$ tj. za Aidu:
+
+$$a = 535, m = 1363$$
+
+I za Bogdana:
+
+$$a = 73, m = 1271$$
+
+a)
+
+Tajni ključ je par $(b, m)$ gdje se b računa iz kongruencije:
+
+$$ab \equiv 1 \pmod{\varphi (m)}$$\vspace{1mm}
+
+Za Aidu i Bogdana respektivno vrijedi:
+
+$$\varphi(m) = \varphi(1363) = \varphi(29) \cdot \varphi(47) = 28 \cdot 46 = 1288$$
+$$\varphi(m) = \varphi(1271) = \varphi(31) \cdot \varphi(41) = 30 \cdot 40 = 1200$$\vspace{1mm}
+
+Pa računamo sljedeće kongruencije:
+
+$$535b \equiv 1 \pmod{1288}$$
+$$73b \equiv 1 \pmod{1200}$$\vspace{1mm}
+
+Odgovarajuće diofantove jednačine:
+
+$$535b + 1288u = 1$$
+$$73b + 1200u = 1$$\vspace{1mm}
+
+Gdje je $u$ parametar. Prošireni euklidov algoritam daje rastavu:
+
+$$1 = -65 \cdot 535 + 27 \cdot 1288$$
+$$1 = -263 \cdot 73 + 16 \cdot 1200$$\vspace{1mm}
+
+Opća rješenja za $b$ su:
+
+$$b = -65 + 1288t, t \in z$$
+$$b = -263 + 1200t, t \in Z$$\vspace{1mm}
+
+Pa su tipična rješenja:
+
+$$t = 1 \to b = 1223$$
+$$t = 1 \to b = 937$$\vspace{1mm}
+
+Tajni ključ za Aidu je $(1223, 1363)$.
+
+Tajni ključ za Bogdana je $(937, 1271)$.\vspace{1mm}
+
+b)\vspace{1mm}
+
+Kada se poruke šalju Aidi, funkcija za šifriranje glasi:
+
+$$E_{A}(x) = mod(x^{535}, 1363)$$\vspace{1mm}
+
+A kada se šalje Bogdanu, funkcija za šifriranje glasi:
+
+$$E_{B}(x) = mod(x^{73}, 1271)$$\vspace{1mm}
+
+Za nalaženje funkcija dešifriranja $D_{A}(y)$ i $D_{B}(y)$ izračunali smo već tajne eksponente $b_{a} = 1223$ i $b_{b} = 937$. Pa su odgovarajuće funkcije dešifriranja za Aidu i Bogdana respektivno:
+
+$$D_{A}(y) = mod(y^{1223}, 1363)$$
+$$D_{B}(y) = mod(y^{937}, 1271)$$\vspace{1mm}
+
+c)
+
+Pošto Aida šalje Bogdanu, Aida će da koristi Bogdanovu funkciju za šifriranje $E_{B}(x) = mod(x^{73}, 1271)$. Međutim, pošto je $x = 6747 > 1271$, izrazit ćemo $x$ u bazi $1271$, te svaku 'cifru' posebno šifrirati. Broj $6747$ napisan u bazi $1271$ je $6747 = 5 \cdot 1271 + 392$. Dakle šifriramo $5$ i $392$.
+
+$$E_{B}(5) = mod(5^{73}, 1271) = ([5]_{1271})^{73} = 408$$
+$$E_{B}(392) = mod(392^{73}, 1271) = ([392]_{1271})^{73} = 72$$\vspace{1mm}
+
+Na kraju, šifrirana poruka glasi: $y = 408 \cdot 1271 + 72 \implies \underline{y = 518640}$.
+
+Digitalni potpis $z$ računamo kao:
+
+$$z = E_{B}(D_{A}(6747))$$\vspace{1mm}
+
+Prvo izračunajmo $D_{A}(6747) = mod(6747^{1223}, 1363)$, pošto je $6747 > 1363$, predstavimo $6747$ u bazi od $1363$. Dobije se da je $6747 = 4 \cdot 1363 + 1295$. Računamo $D_{A}$ za $4$ i $1295$. Dobije se $D_{A}(6747) = 444 \cdot 1363 + 240 = 605 412$. Pa je $E_{B}(605412) = mod(605412^{73}, 1271)$. Uradimo sličan postupak kao i ranije pošto $605412 > 1271$. Konačno, dobije se da je digitalni potpis:
+
+$$z = 455 \cdot 1271 + 755 \implies \underline{z= 579 060}$$\vspace{1mm}
+
+d)
+
+Bogdan pristupa dešifrovanju poruke $y = 518 640$.
+
+$$x = D_{B}(518640) = mod(518640^{937}, 1271)$$\vspace{1mm}
+
+Pošto $y > 1271$, izrazimo $y$ po bazi $1271$. Dobije se $518640 = 408 \cdot 1271 + 72$. Računamo cifre posebno:
+
+$$D_{B}(408) = mod(408^{937}, 1271) = 5$$
+$$D_{B}(72) = mod(72^{937}, 1271) = 392$$\vspace{1mm}
+
+Bogdan je dešifrovanjem dobio $x = 5 \cdot 1271 + 392 \implies \underline{x = 6747}$. Dobio je izvornu poruku što je i trebao da dobije. Provjeravamo digitalni potpis formulom:
+
+$$E_{A}(D_{B}(z)) \to E_{A}(D_{B}(579060))$$\vspace{1mm}
+
+Prvo računamo $D_{B}(579060)$, računa se na isti način kao i prethodni primjeri, svakako mora se svesti na bazu $1271$ pa posebno računati cifre. Dobije se da je $D_{B}(579060) = 605412$. Sada računamo $E_{A}(605412)$, također, na veoma sličan način dobijemo da je $E_{A}(605412) = 6747$.
+
+Zaključujemo da je poruka zaista došla od Aide.
+
 
 \end{document}
