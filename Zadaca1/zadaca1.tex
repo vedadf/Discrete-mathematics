@@ -51,13 +51,13 @@ Dokažimo koristeći Euklidov algoritam:
 $$NZD(15, 33, 27) = NZD(NZD(15, 33), 27) =$$ 
 $$= NZD(3, 27) = NZD(27, 3) = 3$$\\
 
-Dalje, s obzirom da je $NZD(15, 33, 27) = 3, 3 \mid 162$, zadana diofantova jednačina je rješiva.
+Dalje, s obzirom da je $NZD(15, 33, 27) = 3, 3 \mid 162$, zadana diofantova jednačina je rješiva. Podijelimo je sa $3$ i prebacimo $z$ na desnu stranu:
 
 $$15x + 33y + 27z = 162$$
 $$5x + 11y + 9z = 54$$
 $$5x + 11y = 54 - 9z$$\\
 
-Pošto je $NZD(5, 11) = 1$, rješenja za $x$ i $y$ će postojati akko je $1 \mid (54 - 9z)$ tj. ako postoji $k\in Z$ takav da vrijedi $54 - 9z = k$. Ovo je diofantova jednačina, dakle $NZD(9, 1) = 1, 1 \mid 54$, te je potrebno izraziti $NZD(9, 1) = 1$ kao linearnu kombinaciju 9 i 1:
+Pošto je $NZD(5, 11) = 1$, rješenja za $x$ i $y$ će postojati akko je $1 \mid (54 - 9z)$ tj. ako postoji $k\in Z$ takav da vrijedi $54 - 9z = k$ tj. $k + 9z = 54$. Ovo je diofantova jednačina, dakle $NZD(9, 1) = 1, 1 \mid 54$, te je potrebno izraziti $NZD(9, 1) = 1$ kao linearnu kombinaciju 9 i 1:
 
 $$9 = 1 \cdot 8 + 1 \implies 1 = 9 - 1 \cdot 8$$\\
 
@@ -75,7 +75,7 @@ Vraćamo u početnu jednačinu:
 $$5x + 11y = 54 - 9(54 + t)$$
 $$5x + 11y = -432 - 9t$$\\
 
-Dobivena jednačina je diofantova. Očigledno je $NZD(15, 11) = 1$, potrebno je izraziti $NZD(15, 11) = 1$ preko linearne kombinacije 15 i 11:
+Dobivena jednačina je diofantova. Očigledno je $NZD(5, 11) = 1$, potrebno je izraziti $NZD(5, 11) = 1$ preko linearne kombinacije 5 i 11:
 
 $$11 = 2 \cdot 5 + 1 \implies 1 = 11 - 2 \cdot 5 = - 2 \cdot 5 + 11$$\\
 
@@ -113,8 +113,8 @@ s > \frac{- 864 - 18t}{11} \label{eq:gens2} \tag{B}
 
 Možemo zaključiti:
 
-$$(\ref{eq:gen1}) \land (\ref{eq:gen2}) \implies \frac{- 9t - 432}{5} > s > \frac{- 864 - 18t}{11} \implies$$
-$$\implies (- 9t - 432) \cdot 11 > (- 864 - 18t) \cdot 5$$
+$$(\ref{eq:gen1}) \land (\ref{eq:gen2}) \implies \frac{- 9t - 432}{5} > s > \frac{- 864 - 18t}{11}$$
+$$(- 9t - 432) \cdot 11 > (- 864 - 18t) \cdot 5$$
 $$- 9t - 432 > 0$$
 $$t < \frac{- 432}{9}$$
 $$t < -48$$\vspace{1mm}
@@ -126,9 +126,9 @@ tj.
 
 $$t\in [-49, -53], t\in Z$$\vspace{1mm}
 
-Dalje, računamo vrijednost s, $\forall t\in [-49, -53] \land t\in Z$ koristeći nejednakosti \ref{eq:gens1} i \ref{eq:gens2}. Lahko se pokaže da vrijednosti t = - 49, t = - 50 i t = - 53 ne daju vrijednost $s \in Z$, dakle te vrijednosti odbacujemo.\vspace{1mm}
+Dalje, računamo vrijednost s, $\forall t\in [-49, -53] \land t\in Z$ koristeći nejednakosti \ref{eq:gens1} i \ref{eq:gens2}. Lahko se pokaže da vrijednosti $t = - 49$, $t = - 50$ i $t = - 53$ ne daju vrijednost $s \in Z$, dakle te vrijednosti odbacujemo.\vspace{1mm}
 
-\underline{Za t = - 51:}
+\underline{Za $t = - 51$:}
 
 $$(\ref{eq:gens1}) \implies s < \frac{27}{5} ( = 5.4)$$
 $$(\ref{eq:gens2}) \implies s > \frac{54}{11} ( \sim 4.9)$$
@@ -136,7 +136,7 @@ $$s \in (\frac{54}{11}, \frac{27}{5})$$\vspace{1mm}
 
 Pa jedina vrijednost u skupu $Z$ na dobivenom intervalu je $s = 5$. Tu vrijednost i uzimamo.\vspace{1mm}
 
-\underline{Za t = - 52:}\\
+\underline{Za $t = - 52$:}\\
 
 Na sličan način kao i na prethodnom primjeru dobijamo vrijednost $s = 7$.\vspace{1mm}
 
@@ -152,7 +152,7 @@ $$Provjera: 1 \cdot 15 + 2 \cdot 33 + 3 \cdot 27 = 162$$\vspace{1mm}
 $$x = 5, y = 1, z = 2$$
 $$Provjera: 5 \cdot 15 + 1 \cdot 33 + 2 \cdot 27 = 162$$\vspace{1mm}
 
-Dakle, postoje dva načina realizacije terapije; prvi način je jedna tableta T1, dvije tablete T2 i 3 tablete T3; drugi način je pet tableta T1, jedna tableta T2 i dvije tablete T3.
+Dakle, postoje dva načina realizacije terapije; prvi način je jedna tableta T1, dvije tablete T2 i tri tablete T3; drugi način je pet tableta T1, jedna tableta T2 i dvije tablete T3.
 
 \newpage
 
@@ -627,5 +627,383 @@ $$n \cdot q = 4 \cdot 5 = 20$$
 \newpage
 
 \section*{Zadatak 6\label{Z6} }
+
+Pretpostavimo da su sve kvadratne kongruencije rješive.\vspace{1mm}
+
+a)
+
+$$[64]_{89} \to x^{2} \equiv 64 \pmod{89}$$\vspace{1mm}
+
+$p = 89$ je prost broj različit od 2. Pošto je $mod(89, 4) = mod(89, 8) = 1$, koristimo Tonelli algoritam. Potrebno je naći broj g takav da $(g\mid89) = -1$.
+
+Probajmo za \underline{$g = 2$}
+
+$$(2\mid89) = (-1)^{990} = 1$$\vspace{1mm}
+
+Uvjet nije zadovoljen, probajmo sa \underline{$g = 3$}
+
+$$(3\mid89) = (89\mid3)(-1)^{\frac{88 \cdot 2}{4}} = (89 \mid 3)(-1)^{44} = (mod(89, 3) \mid 3) = (2 \mid 3) = -1$$\vspace{1mm}
+
+Uslov je zadovoljen, $g = 3$. Potrebno je još izračunati broj $h = inv(g, p) = inv(3, 89) = ([3]_{89})^{-1}$
+
+$$([3]_{89})^{-1} \to 3x \equiv 1 \pmod{89} \to 3x + 89y = 1$$\vspace{1mm}
+
+Gdje je y parametar. Prošireni euklidov algoritam daje rastavu $1 = 3 \cdot 30 - 1 \cdot 89$ od čega slijedi $x = 30 + 89t, t \in Z$
+
+$t = 0 \to x = 30$ tj.  $h = 30$. Na kraju, potrebne varijable za Tonelli algoritam su:
+
+$$t = \frac{89-1}{2} = 44, v = 1. w = 64, h = 30, g = 3, p = 89$$\vspace{1mm}
+
+Nakon prvog prolaska kroz petlju:
+
+$$t = 22, h = 10, g = 9$$\vspace{1mm}
+
+Nakon drugog tj. posljednjeg prolaska kroz petlju:
+
+$$t = 11, h = 11, g = 81$$\vspace{1mm}
+
+Pa su konačna rješenja:
+
+$$x = mod(64^6, 89) = 8$$
+$$x = 89 - 8 = 81$$\vspace{1mm}
+
+b)
+
+$$[85]_{1369} \to x^{2} \equiv 85 \pmod{1369}$$\vspace{1mm}
+
+$m = 1369$ nije prost broj, napišimo ga u obliku $m = p^k$ tj. $1369 = 37^2$. 
+
+Dakle, rješavamo kongruenciju $x^2 \equiv 85 \pmod{37}$. $p = 37$ je prost broj za koji vrijedi:
+
+$$mod(37, 4) \neq 3$$
+$$mod(37, 8) = 5$$\vspace{1mm}
+
+Pa je jedno tipično rješenje:
+
+$$x = mod(a^{\frac{p + 3}{8}} \cdot 2^{\frac{p - 1}{4}}, p)$$
+$$x = mod(11^5 \cdot 2^9, 37)$$
+$$x = 23 (= x_{1})$$\vspace{1mm}
+
+Da bi dobili rješenje početne kvadratne kongruencije, potrebno je izračunati:
+
+$$[h]_{p} = ([2\cdot x1]_{p})^{-1} = ([46]_{37})^{-1}$$\vspace{1mm}
+
+Odgovarajuća diofantova jednačina je $46h + 37y = 1$. Prošireni euklidov algoritam daje rastavu $1 = 5 \cdot 37 - 4 \cdot 46$.
+
+Iz čega slijedi $h = -4 + 37t, t \in Z \to t = 1 \to \underline{h = 33}$. Koristimo rekurzivnu formulu da izračunamo jedno tipično rješenje:
+
+$$x_{2} = mod(x_{1} - h((x_{1})^2 - a), p^2)$$
+$$x_{2} = mod(23 - 33(23^2 - 85), 37^2)$$
+$$x_{2} = 939$$\vspace{1mm}
+
+Zaključujemo da su rješenja:
+
+$$x = 939$$
+$$x = 1369 - 939 = 430$$\vspace{1mm}
+
+c)
+
+$$[9]_{133} \to x^2\equiv 9 \pmod{133}$$\vspace{1mm}
+
+$m = 133$ je složen broj. Rastavimo na proste faktore $133 = 7 \cdot 19$, pa je zadana kongruencija ekvivalentna sljedećem sistemu kongruencija:
+
+$$x^2 \equiv 9 \pmod{7}$$
+$$x^2 \equiv 9 \pmod{19}$$\vspace{1mm}
+
+Rješavamo zasebno obje kvadratne kongruencije. Za prvu kvadratnu kongruenciju vrijedi $mod(7, 4) = 3$, pa su njena tipična rješenja:
+
+$$x = mod(a^{\frac{p + 1}{4}}, p) = mod(9^2, 7) = 4$$
+$$x = p - 4 = 7 - 4 = 3$$\vspace{1mm}
+
+Za drugu kvadratnu kongruenciju vrijedi također $mod(19, 4) = 3$, pa su njena tipična rješenja:
+
+$$x = 16$$
+$$x = 3$$\vspace{1mm}
+
+Možemo formirati četiri sistema od dvije linearne kongruencije koje figurišu dobivena tipična rješenja:
+
+\[
+x \equiv 4 \pmod{7}, x \equiv 16 \pmod{19} \label{eq:Z6eq1} \tag{1}
+\]
+\[
+x \equiv 3 \pmod{7}, x \equiv 16 \pmod{19} \label{eq:Z6eq2} \tag{2}
+\]
+\[
+x \equiv 4 \pmod{7}, x \equiv 3 \pmod{19} \label{eq:Z6eq3} \tag{3}
+\]
+\[
+x \equiv 3 \pmod{7}, x \equiv 3 \pmod{19} \label{eq:Z6eq4} \tag{4}
+\]
+\\
+Koristit ćemo kinesku teoremu o ostacima za rješavanje svih sistema. To smijemo uraditi jer $NZD(7, 19) = 1$. Također, za sva 4 sistema vrijedi sljedeće:
+
+$$n_{1} \cdot n_{2} = 133$$
+$$\lambda_{1} = \frac{133}{7} = 19$$
+$$\lambda_{2} = \frac{133}{19} = 7$$
+$$x = 19x_{1} + 7x_{2} \pmod{133}$$\vspace{1mm}
+
+\underline{Rješavamo prvi sistem:}
+
+$$19x_{1} \equiv 4 \pmod{7}$$
+$$7x_{2} \equiv 16 \pmod{19}$$\vspace{1mm}
+
+Rješavamo obje kongruencije uporedo. Odgovarajuće diofantove jednačine:
+
+$$19x_{1} + 7y = 4$$
+$$7x_{2} + 19y = 16$$\vspace{1mm}
+
+Gdje je $y$ parametar. Prošireni euklidov algoritam daje rastavu:
+
+$$1 = 3 \cdot 19 - 8 \cdot 7$$\vspace{1mm}
+
+Dobivena jednakost vrijedi za obje jednačine, pa je:
+
+$$x_{1} = 12 + 7t, t \in Z \to t = -1 \to \underline{x_{1} = 5}$$
+$$x_{2} = -128 + 19t, t \in Z \to t = 7 \to \underline{x_{2} = 5}$$\vspace{1mm}
+
+Na kraju, rješenje prvog sistema je:
+
+$$x \equiv 19 \cdot 5 + 7 \cdot 5 \pmod{133}$$
+$$x \equiv 130 \pmod{133}$$
+$$\underline{x = 130}$$\vspace{1mm}
+
+\underline{Rješavamo drugi sistem:}
+
+$$19x_{1} \equiv 3 \pmod{7}$$
+$$7x_{2} \equiv 16 \pmod{19}$$\vspace{1mm}
+
+Druga kongruencija je rješena u prethodnom slučaju, $\underline{x_{2} = 5}$. Odgovarajuća diofantova jednačina je ista kao i u prethodnom slučaju. Lahko zaključujemo da vrijedi:
+
+$$x_{1} = 9 + 7t, t \in Z \to t = -1 \to \underline{x_{1} = 2}$$\vspace{1mm}
+
+Rješenje drugog sistema je:
+
+$$x \equiv 19 \cdot 2 + 7 \cdot 5 \pmod{133}$$
+$$x \equiv 73 \pmod{133}$$
+$$\underline{x = 73}$$\vspace{1mm}
+
+\underline{Rješavamo treći sistem:}
+
+$$19x_{1} \equiv 4 \pmod{7}$$
+$$7x_{2} \equiv 3 \pmod{19}$$\vspace{1mm}
+
+Prva kongruencija je rješena ranije $\underline{x_{1} = 5}$, diofantova jednačina je ista kao i tokom rješavanja prvog sistema. Dakle:
+
+$$x_{2} = -24 + 19t, t \in Z \to t = 2 \to \underline{x_{2} = 14}$$\vspace{1mm}
+
+Rješenje trećeg sistema:
+
+$$x \equiv 19 \cdot 5 + 7 \cdot 14 \pmod{133}$$
+$$x \equiv 196 \pmod{133}$$
+$$x \equiv 60 \pmod{133}$$
+$$\underline{x = 60}$$\vspace{1mm}
+
+\underline{Rješavamo četvrti sistem:}
+
+$$19x_{1} \equiv 3 \pmod{7}$$
+$$7x_{2} \equiv 3 \pmod{19}$$\vspace{1mm}
+
+Obje kongruencije su rješene u prethodnim sistemima, dakle slijedi:
+
+$$\underline{x_{1} = 2} \land \underline{x_{2} = 14}$$\vspace{1mm}
+
+Rješenje četvrtog sistema je:
+
+$$x \equiv 19 \cdot 2 + 7 \cdot 14 \pmod{133}$$
+$$x \equiv 136 \pmod{133}$$
+$$x \equiv 3 \pmod{133}$$
+$$\underline{x = 3}$$\vspace{1mm}
+
+Rješenja polazne kvadratne kongruencije su:
+
+$$x = 3$$
+$$x = 60$$
+$$x = 73$$
+$$x = 130$$
+
+d)
+
+$$[1431]_{5643} \to x^2\equiv 1431 \pmod{5643}$$\vspace{1mm}
+
+Pošto je $NZD(1431, 5643) = 27 = 3^3$, transformišemo kvadratnu kongruenciju. Napišimo $d = 27$ u obliku $d = d \cdot q^2 \to 27 = 3 \cdot 3^2$. Dakle, uvrstimo smjenu $x = 9y$. Polazna kongruencija postaje:
+
+$$81y^2 \equiv 1431 \pmod{5643}$$\vspace{1mm}
+
+Dijelimo sa $27$:
+
+$$3y^2 \equiv 53 \pmod{209}$$\vspace{1mm}
+
+Smjena $y^2 = z$:
+
+$$3z \equiv 53 \pmod{209}$$\vspace{1mm}
+
+Dobivena linearna kongruencija je rješiva jer $NZD(3, 209) = 1 \land 1 \mid 53$. Odgovarajuća diofantova jednačina je $3z + 209u = 53$. Prošireni euklidov algoritam daje rastavu $1 = -209 + 3 \cdot 70$ tj. $z = 3710 + 209t, t \in Z$. Iz čega slijedi $t = -17 \to \underline{z = 157}$. Dakle:
+
+$$z \equiv 157 \pmod{209}$$\vspace{1mm}
+
+Vratimo smjenu:
+
+$$y^2 \equiv 157 \pmod{209}$$\vspace{1mm}
+
+$NZD(157, 209) = 1$ što smo i htjeli postići. Broj $m = 209$ je složen, rastavimo na proste faktore $209 = 11 \cdot 19$. Dakle, dobivena kvadratna kongruencija je ekvivalentna sljedećem sistemu:
+
+$$y^2 \equiv 157 \pmod{11} \to y^2 \equiv 3 \pmod{11}$$
+$$y^2 \equiv 157 \pmod{19} \to y^2 \equiv 5 \pmod{19}$$\vspace{1mm}
+
+Kongruencije su proste, njihova rješenja su, respektivno:
+
+$$y = 5, y = 6$$
+$$y = 9, y = 10$$\vspace{1mm}
+
+Kao i u prethodnom zadatku, dobili smo četiri sistema od po dvije linearne kongruencije:
+
+\[
+y \equiv 5 \pmod{11}, y \equiv 9 \pmod{19} \label{eq:Z6eq1a} \tag{1}
+\]
+\[
+y \equiv 6 \pmod{11}, y \equiv 9 \pmod{19} \label{eq:Z6eq1b} \tag{2}
+\]
+\[
+y \equiv 5 \pmod{11}, y \equiv 10 \pmod{19} \label{eq:Z6eq1c} \tag{3}
+\]
+\[
+y \equiv 6 \pmod{11}, y \equiv 10 \pmod{19} \label{eq:Z6eq1d} \tag{4}
+\]
+\\
+
+Možemo sve sisteme riješiti kineskom teoremom o ostacima, to smijemo uraditi jer $NZD(11, 19) = 1$. Za sve sisteme vrijedi sljedeće:
+
+$$n_{1} \cdot n_{2} = 209$$
+$$\lambda_{1} = \frac{209}{11} = 19$$
+$$\lambda_{2} = \frac{209}{19} = 11$$
+$$y = 19y_{1} + 11y_{2} \pmod{209}$$\vspace{1mm}
+
+\underline{Rješavamo prvi sistem:}
+
+$$19y_{1} \equiv 5 \pmod{11}$$
+$$11y_{2} \equiv 9 \pmod{19}$$\vspace{1mm}
+
+Rješavamo obje kongruencije uporedo. Odgovarajuće diofantove jednačine:
+
+$$19y_{1} + 11u = 5$$
+$$11y_{2} + 19u = 9$$\vspace{1mm}
+
+Gdje je $u$ parametar. Prošireni euklidov algoritam daje rastavu:
+
+$$1 = 7 \cdot 11 - 4 \cdot 19$$\vspace{1mm}
+
+Dobivena jednakost vrijedi za obje jednačine, pa je:
+
+$$y_{1} = -20 + 11t, t \in Z \to t = 2 \to \underline{y_{1} = 2}$$
+$$y_{2} = 63 + 19t, t \in Z \to t = -3 \to \underline{y_{2} = 6}$$\vspace{1mm}
+
+Na kraju, rješenje prvog sistema je:
+
+$$x \equiv 19 \cdot 2 + 11 \cdot 6 \pmod{209}$$
+$$x \equiv 104 \pmod{209}$$
+$$\underline{y = 104}$$\vspace{1mm}
+\newpage
+\underline{Rješavamo drugi sistem:}
+
+$$19y_{1} \equiv 6 \pmod{11}$$
+$$11y_{2} \equiv 9 \pmod{19}$$\vspace{1mm}
+
+Druga kongruencija je rješena u prethodnom slučaju, $\underline{y_{2} = 6}$. Odgovarajuća diofantova jednačina je ista kao i u prethodnom slučaju. Lahko zaključujemo da vrijedi:
+
+$$y_{1} = -24 + 11t, t \in Z \to t = 3 \to \underline{y_{1} = 9}$$\vspace{1mm}
+
+Rješenje drugog sistema je:
+
+$$y \equiv 19 \cdot 9 + 11 \cdot 6 \pmod{209}$$
+$$y \equiv 237 \pmod{209}$$
+$$y \equiv 28 \pmod{209}$$
+$$\underline{y = 28}$$\vspace{1mm}
+
+\underline{Rješavamo treći sistem:}
+
+$$19y_{1} \equiv 5 \pmod{11}$$
+$$11y_{2} \equiv 10 \pmod{19}$$\vspace{1mm}
+
+Prva kongruencija je rješena ranije $\underline{y_{1} = 2}$, diofantova jednačina je ista kao i tokom rješavanja prvog sistema. Dakle:
+
+$$y_{2} = 70 + 19t, t \in Z \to t = -3 \to \underline{y_{2} = 13}$$\vspace{1mm}
+
+Rješenje trećeg sistema:
+
+$$y \equiv 19 \cdot 2 + 11 \cdot 13 \pmod{209}$$
+$$y \equiv 181 \pmod{209}$$
+$$\underline{y = 181}$$\vspace{1mm}
+
+\underline{Rješavamo četvrti sistem:}
+
+$$19y_{1} \equiv 6 \pmod{11}$$
+$$11y_{2} \equiv 10 \pmod{19}$$\vspace{1mm}
+
+Obje kongruencije su rješene u prethodnim sistemima, dakle slijedi:
+
+$$\underline{y_{1} = 9} \land \underline{y_{2} = 13}$$\vspace{1mm}
+
+Rješenje četvrtog sistema je:
+
+$$y \equiv 19 \cdot 9 + 13 \cdot 11 \pmod{209}$$
+$$y \equiv 314 \pmod{209}$$
+$$y \equiv 105 \pmod{209}$$
+$$\underline{y = 105}$$\vspace{1mm}
+
+Rješenja svih sistema su, respektivno:
+
+$$\underline{y = 104}, \underline{y = 28}, \underline{y = 181}, \underline{y = 105}$$\vspace{1mm}
+
+Tj.:
+
+$$y \equiv 104 \pmod{209}$$
+$$y \equiv 28 \pmod{209}$$
+$$y \equiv 181 \pmod{209}$$
+$$y \equiv 105 \pmod{209}$$\vspace{1mm}
+
+Pošto je $x = 9y$, ova rješenja postaju:
+
+$$x \equiv 936 \pmod{1881}$$
+$$x \equiv 252 \pmod{1881}$$
+$$x \equiv 1629 \pmod{1881}$$
+$$x \equiv 945 \pmod{1881}$$\vspace{1mm}
+
+U zadatku su traženi diskretni kvadratni korijeni koji su zapravo tipična rješenja tj. rješenja u opsegu $0 \leq x < 5643 \to 0 \leq x \leq 5642$. Dakle, za svaku dobivenu kongruenciju računamo diskretne kvadratne korijene tj. računamo njihova rješenja u spomenutom opsegu. To ćemo uraditi uzastopno.
+
+Odgovarajuće diofantove jednačine:
+
+$$x + 1881u = 936$$
+$$x + 1881u = 252$$
+$$x + 1881u = 1629$$
+$$x + 1881u = 945$$\vspace{1mm}
+
+Odgovarajuća rješenja:
+
+$$x = 936 + 1881t, t \in Z$$
+$$x = 252 + 1881t, t \in Z$$
+$$x = 1629 + 1881t, t \in Z$$
+$$x = 945 + 1881t, t \in Z$$\vspace{1mm}
+
+Kada sva rješenja stavimo u opseg $0 \leq x \leq 5642$ dobijemo:
+
+$$x = 936, x = 2817, x = 4698$$
+$$x = 252, x = 2133, x = 4014$$
+$$x = 1629, x = 3510, x = 5391$$
+$$x = 945, x = 2826, x = 4707$$\vspace{1mm}
+
+Ovo su rješenja početne kvadratne kongruencije, ima ih 12. Konačno, sortirajmo ih u rastući poredak:
+
+$$x = 252$$
+$$x = 936$$
+$$x = 945$$
+$$x = 1629$$
+$$x = 2133$$
+$$x = 2817$$
+$$x = 2826$$
+$$x = 3510$$
+$$x = 4014$$
+$$x = 4698$$
+$$x = 4707$$
+$$x = 5391$$\vspace{1mm}
 
 \end{document}
