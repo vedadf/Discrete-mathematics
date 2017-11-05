@@ -44,7 +44,7 @@ Za potrebe neke vitaminske terapije koriste se tri vrste tableta T1, T2 i T3 koj
 
 \underline{Rješenje:}\\
 
-\hspace{0.65cm}Ako označimo tablete T1, T2 i T3 kao x, y i z respektivno, problem svodimo na rješavanje sljedeće diofantove jednačine sa 3 nepoznate:
+\hspace{0.65cm}Ako označimo tablete T1, T2 i T3 kao x, y i z respektivno, problem svodimo na rješavanje sljedeće Diofantove jednačine sa 3 nepoznate:
 
 $$15x + 33y + 27z = 162$$\\
 
@@ -57,13 +57,13 @@ Dokažimo koristeći Euklidov algoritam:
 $$NZD(15, 33, 27) = NZD(NZD(15, 33), 27) =$$ 
 $$= NZD(3, 27) = NZD(27, 3) = 3$$\\
 
-Dalje, s obzirom da je $NZD(15, 33, 27) = 3, 3 \mid 162$, zadana diofantova jednačina je rješiva. Podijelimo je sa $3$ i prebacimo $z$ na desnu stranu:
+Dalje, s obzirom da je $NZD(15, 33, 27) = 3, 3 \mid 162$, zadana Diofantova jednačina je rješiva. Podijelimo je sa $3$ i prebacimo $z$ na desnu stranu:
 
 $$15x + 33y + 27z = 162$$
 $$5x + 11y + 9z = 54$$
 $$5x + 11y = 54 - 9z$$\\
 
-Pošto je $NZD(5, 11) = 1$, rješenja za $x$ i $y$ će postojati akko je $1 \mid (54 - 9z)$ tj. ako postoji $k\in Z$ takav da vrijedi $54 - 9z = k$ tj. $k + 9z = 54$. Ovo je diofantova jednačina, dakle $NZD(9, 1) = 1, 1 \mid 54$, te je potrebno izraziti $NZD(9, 1) = 1$ kao linearnu kombinaciju 9 i 1:
+Pošto je $NZD(5, 11) = 1$, rješenja za $x$ i $y$ će postojati akko je $1 \mid (54 - 9z)$ tj. ako postoji $k\in Z$ takav da vrijedi $54 - 9z = k$ tj. $k + 9z = 54$. Ovo je Diofantova jednačina, dakle $NZD(9, 1) = 1, 1 \mid 54$, te je potrebno izraziti $NZD(9, 1) = 1$ kao linearnu kombinaciju 9 i 1:
 
 $$9 = 1 \cdot 8 + 1 \implies 1 = 9 - 1 \cdot 8$$\\
 
@@ -81,7 +81,7 @@ Vraćamo u početnu jednačinu:
 $$5x + 11y = 54 - 9(54 + t)$$
 $$5x + 11y = -432 - 9t$$\\
 
-Dobivena jednačina je diofantova. Očigledno je $NZD(5, 11) = 1$, potrebno je izraziti $NZD(5, 11) = 1$ preko linearne kombinacije 5 i 11:
+Dobivena jednačina je Diofantova. Očigledno je $NZD(5, 11) = 1$, potrebno je izraziti $NZD(5, 11) = 1$ preko linearne kombinacije 5 i 11:
 
 $$11 = 2 \cdot 5 + 1 \implies 1 = 11 - 2 \cdot 5 = - 2 \cdot 5 + 11$$\\
 
@@ -207,19 +207,19 @@ $$90x_{3} \equiv 0 \pmod{17}$$
 $x_{3}$ je očigledno bilo koji cijeli broj, dakle $x_{3} = 0$
 \end{center}\vspace{1mm}
 
-Kongruencije (\ref{eq:kong1}) i (\ref{eq:kong2}) možemo jednostavno skratiti, te ih izraziti kao diofantove jednačine pa naći potrebnu vrijednost za $x_{1}$ i $x_{2}$:
+Kongruencije (\ref{eq:kong1}) i (\ref{eq:kong2}) možemo jednostavno skratiti, te ih izraziti kao Diofantove jednačine pa naći potrebnu vrijednost za $x_{1}$ i $x_{2}$:
 
 Prvo skraćujemo kongruencije:
 
 $$(\ref{eq:kong1}) \to 170 > 9 \to mod(170, 9) = 8 \implies 8x_{1} \equiv 8 \pmod{9}$$
 $$(\ref{eq:kong2}) \to 153 > 10 \to mod(153, 10) = 3 \implies 3x_{2} \equiv 2 \pmod{10}$$\vspace{1mm}
 
-Odgovarajuće diofantove jednačine:
+Odgovarajuće Diofantove jednačine:
 
 $$(\ref{eq:kong1}) \to 8x_{1} + 9y = 8 \to NZD(8, 9) = 1, 1 \mid 8$$
 $$(\ref{eq:kong2}) \to 3x_{2} + 10y = 2 \to NZD(3, 10) = 1, 1 \mid 2$$\vspace{1mm}
 
-Nalazimo $x_{1}$ i $x_{2}$ tako da $y \in Z$, pri čemu ne moramo rješavati diofantove jednačine, već pogađamo vrijednosti. Dobijamo:
+Nalazimo $x_{1}$ i $x_{2}$ tako da $y \in Z$, pri čemu ne moramo rješavati Diofantove jednačine, već pogađamo vrijednosti. Dobijamo:
 
 $$x_{1} = 1$$
 $$x_{2} = 4$$
@@ -307,7 +307,7 @@ Oduzimanjem prve kongruencije od druge dobijemo kongruenciju:
 
 $$4a \equiv -18\pmod{26}$$\vspace{1mm}
 
-Odgovarajuća diofantova jednačina:
+Odgovarajuća Diofantova jednačina:
 
 $$4a + 26k = -18, k \in Z$$\vspace{1mm} 
 
@@ -315,7 +315,7 @@ $NZD(4, 26) = 2$, $2 \mid 18$, pa očekujemo 2 tipična rješenja. Dijelimo jedn
 
 $$2a + 13k = -9, k \in Z$$\vspace{1mm}
 
-$NZD(2, 13) = 1$, $1 \mid 9$, pa proširenim euklidovim algoritmom dobijamo $1 = -6\cdot 2 + 13$. Pa je opće rješenje za a:
+$NZD(2, 13) = 1$, $1 \mid 9$, pa proširenim Euklidovim algoritmom dobijamo $1 = -6\cdot 2 + 13$. Pa je opće rješenje za a:
 
 $$a = 54 + 13t, t \in Z$$\vspace{1mm}
 
@@ -354,7 +354,7 @@ Pa izrazimo $x'$:
 
 $$15x' \equiv y - 89\pmod{26}$$\vspace{1mm}
 
-Gdje je x' nepoznata, a y parametar. Odgovarajuća diofantova jednačina je $15x' + 26k = y - 89$, $k \in Z$. $NZD(15, 26) = 1$, $1 \mid (y - 89)$, pa je jednačina rješiva za svako $y \in Z$. Primjenom proširenog euklidovog algoritma dobijemo: $1 = 7\cdot 15 - 4\cdot 26$.
+Gdje je x' nepoznata, a y parametar. Odgovarajuća Diofantova jednačina je $15x' + 26k = y - 89$, $k \in Z$. $NZD(15, 26) = 1$, $1 \mid (y - 89)$, pa je jednačina rješiva za svako $y \in Z$. Primjenom proširenog Euklidovog algoritma dobijemo: $1 = 7\cdot 15 - 4\cdot 26$.
 
 Pa je opće rješenje za $x'$
 
@@ -450,7 +450,7 @@ Množimo prvu kongruenciju sa -47 i drugu kongruenciju sa 52, sabiramo ih, skrat
 
 $$-51y \equiv 48 \pmod{93}$$\vspace{1mm}
 
-Odgovarajuća diofantova jednačina je $-51y + 93k = 48$ gdje je $k$ parametar, $k \in Z$. Pošto je $NZD(93, 51) = 3 \land 3 \mid 48$, diofantova jednačina je rješiva, te očekujemo 3 tipična rješenja. Proširenim euklidovim algoritmom se dobije:
+Odgovarajuća Diofantova jednačina je $-51y + 93k = 48$ gdje je $k$ parametar, $k \in Z$. Pošto je $NZD(93, 51) = 3 \land 3 \mid 48$, Diofantova jednačina je rješiva, te očekujemo 3 tipična rješenja. Proširenim Euklidovim algoritmom se dobije:
 
 $$1 = 11 \cdot 17 - 6 \cdot 31$$\vspace{1mm}
 
@@ -474,7 +474,7 @@ Tj. skraćivanjem:
 
 $$52z = -15 \pmod{93}$$\vspace{1mm}
 
-Pa je odgovarajuća diofantova jednačina $52z\> +\> 93k = -15, k \in Z$. $NZD(93, 520) = 1 \> \land \> 1 \mid 15$, dakle diofantova jednačina je rješiva te očekujemo jedinstveno tipično rješenje. Dobije se $z = -510 + 93t, t \in Z$. Pa je tipično rješenje:
+Pa je odgovarajuća Diofantova jednačina $52z\> +\> 93k = -15, k \in Z$. $NZD(93, 520) = 1 \> \land \> 1 \mid 15$, dakle Diofantova jednačina je rješiva te očekujemo jedinstveno tipično rješenje. Dobije se $z = -510 + 93t, t \in Z$. Pa je tipično rješenje:
 
 $$z = 48 \to z \equiv 48 \pmod{93}$$\vspace{1mm}
 
@@ -482,7 +482,7 @@ Uvrštavamo $z = 48$ i $y = 10 + 31t, t \in Z$ u kongruenciju \ref{eq:Z4eq3}. Do
 
 $$7x = -48 - 62t \pmod{93}, t \in Z$$\vspace{1mm}
 
-Odgovarajuća diofantova jednačina: $7x + 93k = -48 - 62t, t, k \in Z$. Diofantova jednačina je rješiva, te očekujemo jedno tipično rješenje za svaki cijeli broj t, $NZD(93, 7) = 1 \land 1 \mid -48 - 62t$.
+Odgovarajuća Diofantova jednačina: $7x + 93k = -48 - 62t, t, k \in Z$. Diofantova jednačina je rješiva, te očekujemo jedno tipično rješenje za svaki cijeli broj t, $NZD(93, 7) = 1 \land 1 \mid -48 - 62t$.
 Dobije se $x = -672 -868t + 93s, t, s \in Z$. Pa je $s = 8 + \frac{868}{93} \cdot t, t \in Z$. Tipično rješenje je jedinstveno i ono glasi:
 
 $$x = 72 - 868t, t \in Z \to x \equiv 72 - 31t \pmod{93}$$\vspace{1mm}
@@ -528,7 +528,7 @@ Dobili smo sistem:
 $$2x - 3y \equiv -85 \pmod{78}$$
 $$9y \equiv 147 \pmod{78}$$\vspace{1mm}
 
-Sistem sa jednom nepoznatom svodimo na diofantovu jednačinu $9y + 78k = 147$, gdje je k parametar. $NZD(78, 9) = 3 \land 3 \mid 69$. Zaključujemo da je diofantova jednačina rješiva, i očekujemo 3 tipična rješenja. Podijelimo diofantovu jednačinu sa 3, dobijamo $3y + 26k = 23$. Proširenim euklidovim algoritmom dobijemo $1 = 9 \cdot 3 - 1 \cdot 26$. Pa je $y = 207 + 26t, t \in Z$. Za $t = -7, t = -6, t = -5$ dobijamo tipična rješenja ove kongruencije:
+Sistem sa jednom nepoznatom svodimo na diofantovu jednačinu $9y + 78k = 147$, gdje je k parametar. $NZD(78, 9) = 3 \land 3 \mid 69$. Zaključujemo da je Diofantova jednačina rješiva, i očekujemo 3 tipična rješenja. Podijelimo diofantovu jednačinu sa 3, dobijamo $3y + 26k = 23$. Proširenim Euklidovim algoritmom dobijemo $1 = 9 \cdot 3 - 1 \cdot 26$. Pa je $y = 207 + 26t, t \in Z$. Za $t = -7, t = -6, t = -5$ dobijamo tipična rješenja ove kongruencije:
 
 $$y = 25, y = 51, y = 77$$\vspace{1mm}
 
@@ -541,7 +541,7 @@ Da ne bi morali za svako tipično rješenje računati sistem, pišemo općenito 
 $$2x - 3y \equiv -85 \pmod{78} \to 2x \equiv -10 + 78t \pmod{78}$$
 $$2x \equiv -10 \pmod{78}$$\vspace{1mm}
 
-Odgovarajuća diofantova jednačina je $2x + 78k = -10$, gdje je k parametar. $NZD(78, 2) = 2 \land 2 \mid 10$, dakle diofantova jednačina je rješiva i očekujemo 2 tipična rješenja. Rješenje diofantove jednačine je $x = -5 + 39t, t \in Z$. Iz rješenja slijedi da za $t = 1 \land t = 2$ imamo tipična rješenja:
+Odgovarajuća Diofantova jednačina je $2x + 78k = -10$, gdje je k parametar. $NZD(78, 2) = 2 \land 2 \mid 10$, dakle Diofantova jednačina je rješiva i očekujemo 2 tipična rješenja. Rješenje diofantove jednačine je $x = -5 + 39t, t \in Z$. Iz rješenja slijedi da za $t = 1 \land t = 2$ imamo tipična rješenja:
 
 $$x = 34, x = 73$$\vspace{1mm}
 
@@ -724,7 +724,7 @@ Uslov je zadovoljen, $g = 3$. Potrebno je još izračunati broj $h = inv(g, p) =
 
 $$([3]_{89})^{-1} \to 3x \equiv 1 \pmod{89} \to 3x + 89y = 1$$\vspace{1mm}
 
-Gdje je y parametar. Prošireni euklidov algoritam daje rastavu $1 = 3 \cdot 30 - 1 \cdot 89$ od čega slijedi $x = 30 + 89t, t \in Z$
+Gdje je y parametar. Prošireni Euklidov algoritam daje rastavu $1 = 3 \cdot 30 - 1 \cdot 89$ od čega slijedi $x = 30 + 89t, t \in Z$
 
 $t = 0 \to x = 30$ tj.  $h = 30$. Na kraju, potrebne varijable za Tonelli algoritam su:
 
@@ -764,7 +764,7 @@ Da bi dobili rješenje početne kvadratne kongruencije, potrebno je izračunati:
 
 $$[h]_{p} = ([2\cdot x1]_{p})^{-1} = ([46]_{37})^{-1}$$\vspace{1mm}
 
-Odgovarajuća diofantova jednačina je $46h + 37y = 1$. Prošireni euklidov algoritam daje rastavu $1 = 5 \cdot 37 - 4 \cdot 46$.
+Odgovarajuća Diofantova jednačina je $46h + 37y = 1$. Prošireni Euklidov algoritam daje rastavu $1 = 5 \cdot 37 - 4 \cdot 46$.
 
 Iz čega slijedi $h = -4 + 37t, t \in Z \to t = 1 \to \underline{h = 33}$. Koristimo rekurzivnu formulu da izračunamo jedno tipično rješenje:
 
@@ -828,7 +828,7 @@ Rješavamo obje kongruencije uporedo. Odgovarajuće diofantove jednačine:
 $$19x_{1} + 7y = 4$$
 $$7x_{2} + 19y = 16$$\vspace{1mm}
 
-Gdje je $y$ parametar. Prošireni euklidov algoritam daje rastavu:
+Gdje je $y$ parametar. Prošireni Euklidov algoritam daje rastavu:
 
 $$1 = 3 \cdot 19 - 8 \cdot 7$$\vspace{1mm}
 
@@ -848,7 +848,7 @@ $$\underline{x = 130}$$\vspace{1mm}
 $$19x_{1} \equiv 3 \pmod{7}$$
 $$7x_{2} \equiv 16 \pmod{19}$$\vspace{1mm}
 
-Druga kongruencija je rješena u prethodnom slučaju, $\underline{x_{2} = 5}$. Odgovarajuća diofantova jednačina je ista kao i u prethodnom slučaju. Lahko zaključujemo da vrijedi:
+Druga kongruencija je rješena u prethodnom slučaju, $\underline{x_{2} = 5}$. Odgovarajuća Diofantova jednačina je ista kao i u prethodnom slučaju. Lahko zaključujemo da vrijedi:
 
 $$x_{1} = 9 + 7t, t \in Z \to t = -1 \to \underline{x_{1} = 2}$$\vspace{1mm}
 
@@ -863,7 +863,7 @@ $$\underline{x = 73}$$\vspace{1mm}
 $$19x_{1} \equiv 4 \pmod{7}$$
 $$7x_{2} \equiv 3 \pmod{19}$$\vspace{1mm}
 
-Prva kongruencija je rješena ranije $\underline{x_{1} = 5}$, diofantova jednačina je ista kao i tokom rješavanja prvog sistema. Dakle:
+Prva kongruencija je rješena ranije $\underline{x_{1} = 5}$, Diofantova jednačina je ista kao i tokom rješavanja prvog sistema. Dakle:
 
 $$x_{2} = -24 + 19t, t \in Z \to t = 2 \to \underline{x_{2} = 14}$$\vspace{1mm}
 
@@ -913,7 +913,7 @@ Smjena $y^2 = z$:
 
 $$3z \equiv 53 \pmod{209}$$\vspace{1mm}
 
-Dobivena linearna kongruencija je rješiva jer $NZD(3, 209) = 1 \land 1 \mid 53$. Odgovarajuća diofantova jednačina je $3z + 209u = 53$. Prošireni euklidov algoritam daje rastavu $1 = -209 + 3 \cdot 70$ tj. $z = 3710 + 209t, t \in Z$. Iz čega slijedi $t = -17 \to \underline{z = 157}$. Dakle:
+Dobivena linearna kongruencija je rješiva jer $NZD(3, 209) = 1 \land 1 \mid 53$. Odgovarajuća Diofantova jednačina je $3z + 209u = 53$. Prošireni Euklidov algoritam daje rastavu $1 = -209 + 3 \cdot 70$ tj. $z = 3710 + 209t, t \in Z$. Iz čega slijedi $t = -17 \to \underline{z = 157}$. Dakle:
 
 $$z \equiv 157 \pmod{209}$$\vspace{1mm}
 
@@ -964,7 +964,7 @@ Rješavamo obje kongruencije uporedo. Odgovarajuće diofantove jednačine:
 $$19y_{1} + 11u = 5$$
 $$11y_{2} + 19u = 9$$\vspace{1mm}
 
-Gdje je $u$ parametar. Prošireni euklidov algoritam daje rastavu:
+Gdje je $u$ parametar. Prošireni Euklidov algoritam daje rastavu:
 
 $$1 = 7 \cdot 11 - 4 \cdot 19$$\vspace{1mm}
 
@@ -984,7 +984,7 @@ $$\underline{y = 104}$$\vspace{1mm}
 $$19y_{1} \equiv 6 \pmod{11}$$
 $$11y_{2} \equiv 9 \pmod{19}$$\vspace{1mm}
 
-Druga kongruencija je rješena u prethodnom slučaju, $\underline{y_{2} = 6}$. Odgovarajuća diofantova jednačina je ista kao i u prethodnom slučaju. Lahko zaključujemo da vrijedi:
+Druga kongruencija je rješena u prethodnom slučaju, $\underline{y_{2} = 6}$. Odgovarajuća Diofantova jednačina je ista kao i u prethodnom slučaju. Lahko zaključujemo da vrijedi:
 
 $$y_{1} = -24 + 11t, t \in Z \to t = 3 \to \underline{y_{1} = 9}$$\vspace{1mm}
 
@@ -1000,7 +1000,7 @@ $$\underline{y = 28}$$\vspace{1mm}
 $$19y_{1} \equiv 5 \pmod{11}$$
 $$11y_{2} \equiv 10 \pmod{19}$$\vspace{1mm}
 
-Prva kongruencija je rješena ranije $\underline{y_{1} = 2}$, diofantova jednačina je ista kao i tokom rješavanja prvog sistema. Dakle:
+Prva kongruencija je rješena ranije $\underline{y_{1} = 2}$, Diofantova jednačina je ista kao i tokom rješavanja prvog sistema. Dakle:
 
 $$y_{2} = 70 + 19t, t \in Z \to t = -3 \to \underline{y_{2} = 13}$$\vspace{1mm}
 
@@ -1200,7 +1200,7 @@ Odgovarajuće diofantove jednačine:
 $$535b + 1288u = 1$$
 $$73b + 1200u = 1$$\vspace{1mm}
 
-Gdje je $u$ parametar. Prošireni euklidov algoritam daje rastavu:
+Gdje je $u$ parametar. Prošireni Euklidov algoritam daje rastavu:
 
 $$1 = -65 \cdot 535 + 27 \cdot 1288$$
 $$1 = -263 \cdot 73 + 16 \cdot 1200$$\vspace{1mm}
