@@ -1006,4 +1006,93 @@ $$x = 4698$$
 $$x = 4707$$
 $$x = 5391$$\vspace{1mm}
 
+\newpage
+
+\section*{Zadatak 7\label{Z7}}
+
+\underline{Postavka:}
+
+Ana i Bakir žele da razmjenjuju poruke šifrirane nekim algoritmom koji zahtijeva tajni ključ, ali nemaju sigurnog kurira preko kojeg bi mogli prenijeti ključ. Zbog toga su odlučili da razmijene ključ putem Diffie-Hellmanovog protokola. Za tu svrhu, oni su se preko ETF Haber kutije dogovorili da će koristiti prost broj p = 881 i generator g = 13. Nakon toga, Ana je u tajnosti slučajno izabrala broj a = 271, dok se Bakir u tajnosti odlučio za broj b = 172. Odredite koje još informacije Ana i Bakir moraju razmijeniti preko ETF Haber kutije da bi se dogovorili o vrijednosti ključa, te kako glasi ključ koji su oni dogovorili.\\
+
+\underline{Rješenje:}\\
+
+
+Pošto imamo sve potrebne informacije za računanje ključa po Diffie-Hellmanovom protokolu, možemo odmah preći na računanje istog.
+
+Ana računa vrijednost:
+
+$$\alpha = mod(g^a, p) = mod(13^{271}, 881) = ([13]_{881})^{271}$$\vspace{1mm}
+
+Napišimo broj $271$ preko sume stepena dvojke. $271 = 256 + 8 + 4 + 2 + 1$. Tako da je:
+
+$$([13]_{881})^{271} = ([13]_{881})^{256} \otimes ([13]_{881})^{8} \otimes ([13]_{881})^{4} \otimes ([13]_{881})^{2} \otimes ([13]_{881})^{1}$$\vspace{1mm}
+
+Sada stepene računamo rekurzivno:
+
+$$([13]_{881})^{2} = [13^{2}]_{881} = [169]_{881}$$
+$$([13]_{881})^{4} = [169^{2}]_{881} = [28561]_{881} = [mod(28561, 881)]_{881} = [369]_{881}$$
+$$([13]_{881})^{8} = [369^{2}]_{881} = [487]_{881}$$
+$$([13]_{881})^{256} = (([13]_{881})^{8})^{32} = ([487]_{881})^{32} = ([487^{4}]_{881})^{8} = ([684]_{881})^{8} = [451]_{881}$$\vspace{1mm}
+\newpage
+Na kraju imamo:
+
+$$([13]_{881})^{271} = [451]_{881} \otimes [487]_{881} \otimes [369]_{881} \otimes [169]_{881} \otimes [13]_{881} = [552]_{881}$$\vspace{1mm}
+
+Ana je izračunala vrijednost $\underline{\alpha = 552}$ i šalje Bakiru (može i javno). Sada Bakir računa vrijednost: 
+
+$$\beta = mod(g^b, p) = mod(13^{172}, 881) = ([13]_{881})^{172}$$\vspace{1mm}
+
+Napišimo broj $172$ preko sume stepena dvojke. $172 = 128 + 32 + 8 + 4$. Tako da je:
+
+$$([13]_{881})^{172} = ([13]_{881})^{128} \otimes ([13]_{881})^{32} \otimes ([13]_{881})^{8} \otimes ([13]_{881})^{4}$$\vspace{1mm}
+
+Stepene računamo rekurzivno, pri čemu ćemo samo napisati rezultate jer smo prethodno detaljnije:
+
+$$([13]_{881})^{4} = [369]_{881}$$
+$$([13]_{881})^{8} = [487]_{881}$$
+$$([13]_{881})^{32} = [684]_{881}$$
+$$([13]_{881})^{128} = [263]_{881}$$\vspace{1mm}
+
+Na kraju imamo:
+
+$$([13]_{881})^{172} = [877]_{881}$$\vspace{1mm}
+
+Bakir je izračunao vrijednost $\underline{\beta = 877}$ i šalje je Ani(može javno također). Sada Ana u privatnosti računa ključ:
+
+$$k = mod(\beta^{a}, p) = mod(877^{271}, 881) = ([877]_{881})^{271}$$\vspace{1mm}
+
+Prethodno smo opisali postupak računanja, sada napišimo $271 = 256 + 8 + 4 + 2 + 1$. I analogno kao u prethodnim slučajevima računamo stepene rekurzivno i dobijemo:
+
+$$([877]_{881})^{271} =  [499]_{881}$$\vspace{1mm}
+
+Dakle, Ana je dobila ključ $\underline{k = 499}$. Sada Bakir privatno računa ključ, mora dobiti istu vrijednost kao Ana. Bakir računa ključ po formuli:
+
+$$k = mod(\alpha^{b}, p) = mod(552^{172}, 881) = ([552]_{881})^{172}$$\vspace{1mm}
+
+Dobijemo da je:
+
+$$([552]_{881})^{172} = [499]_{881}$$\vspace{1mm}
+
+Tako da je i Bakir dobio ključ $\underline{k = 499}$. 
+
+Zaključujemo da su Ana i Bakir morali razmijeniti informacije of brojevima $\alpha = 552$ i $\beta = 877$. Također, ključ koji su dogovorili glasi $\underline{k = 499}$.
+\newpage
+\section*{Zadatak 8\label{Z8}}
+
+\underline{Postavka:}
+
+Aida i Bogdan međusobno razmjenjuju poruke preko Facebook-a. Kako je poznato da takva komunikacija nije pouzdana, oni su odlučili da će primati samo šifrirane poruke. Aida je na svoj profil postavila informaciju da prima samo poruke šifrirane pomoću RSA kriptosistema s javnim ključem (535, 1363), dok je Bogdan postavio informaciju da prima samo poruke šifrirane RSA kriptosistemom s javnim ključem (73, 1271).\\
+
+\begin{enumerate}  
+\item Odredite kako glase tajni ključevi koje koriste Aida i Bogdan za dešifriranje šifriranih poruka koje im pristižu.
+\item Odredite kako glase funkcije šifriranja i dešifriranja koje koriste Aida i Bogdan za šifriranje poruka koje šalju jedno drugom, odnosno za dešifriranje šifriranih poruka koje im pristižu.
+\item Odredite kako glasi šifrirana poruka y koju Aida šalje Bogdanu ako izvorna poruka glasi x = 6747. Kako glasi digitalni potpis z u slučaju da Aida želi Bogdanu dokazati da poruka potiče baš od nje?
+\item Pokažite kako će Bogdan dešifrirati šifriranu poruku y koju mu je Aida poslala (tj. primijenite odgovarajuću funkciju za dešifriranje na šifriranu poruku) i na osnovu primljenog digitalnog potpisa z utvrditi da je poruka zaista stigla od Aide.
+\end{enumerate}
+
+
+NAPOMENA: Obratite pažnju da je poruka veća od modula enkripcije!\\
+
+\underline{Rješenje:}\\
+
 \end{document}
