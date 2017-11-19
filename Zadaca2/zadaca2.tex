@@ -9,6 +9,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
+\usepackage{booktabs}
 
 \definecolor{listinggray}{gray}{0.9}
 \definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
@@ -67,7 +68,6 @@
 
 
 \newpage
-
 \section*{Zadatak 1\label{Z1}}
 
 \underline{Postavka:}
@@ -80,8 +80,8 @@ Sedam studenata možemo raspodijeliti oko okruglog stola na $6! = 6  \cdot 5 \cd
 
 Na osnovu multiplikativnog principa, ukupan broj načina je:
 
-$$\frac{P_{7}}{7} \cdot 7^{(3)} = 6! \cdot 7 \cdot 6 \cdot 5 = 151200$$
-
+$$\frac{P_{7}}{7} \cdot 7^{(3)} = 6! \cdot 7 \cdot 6 \cdot 5 = \underline{151200}$$
+\newpage
 \section*{Zadatak 2\label{Z2}}
 
 \underline{Postavka:}
@@ -90,4 +90,159 @@ Potrebno je formirati šestočlanu ekipu za međunarodno softversko-hardversko t
 
 \underline{Rješenje:}\\
 
+Potrebno je izabrati minimalno k studenata sa smjera RI i 6-k studenata sa smjera AiE, gdje je $k \geq 3$. Dakle, problem se svodi na računanje sume $\sum_{k=3}^{5} C_{5}^k \cdot C_{6}^{6-k}$. Dakle:
+
+$$C_{5}^3 \cdot C_{6}^3 + C_{5}^4 \cdot C_{6}^2 +  C_{5}^5 \cdot C_{6}^1 = 10 \cdot 20 + 5 \cdot 15 + 6 = \underline{281}$$
+
+Dodatno ograničenje: barem 2 studenta AiE:
+
+$$C_{5}^3 \cdot C_{6}^3 + C_{5}^4 \cdot C_{6}^2 = 10 \cdot 20 + 5 \cdot 15 = \underline{275}$$
+\newpage
+\section*{Zadatak 3\label{Z3}}
+
+\underline{Postavka:}
+
+Odredite na koliko načina možemo raspodijeliti 10 jabuka, 9 banana i 11 kajsija među troje djece, pri čemu se pretpostavlja se da se primjerci iste voćke ne mogu međusobno razlikovati (npr. sve jabuke su iste).
+
+\underline{Rješenje:}\\
+
+Podijelit ćemo prvo jabuke, pa kruške pa kajsije. Pošto su podjele neovisne, koristimo multiplikativni princip:
+
+$$\overline{C}_{3}^{10} \cdot \overline{C}_{3}^9 \cdot \overline{C}_{3}^{11} = C_{12}^{10} \cdot C_{11}^9 \cdot C_{13}^{11} = \dbinom{12}{10} \dbinom{11}{9} \dbinom{13}{11} = \underline{283140}$$
+\newpage
+\section*{Zadatak 4\label{Z4}}	 
+
+\underline{Postavka:}
+
+Na stolu se nalazi određena količina papirića, pri čemu se na svakom od papirića nalazi po jedno slovo. Na 3 papirića se nalazi slovo Z, na 4 papirića se nalazi slovo D, na 5 papirića slovo P i na 4 papirića slovo J. Odredite koliko se različitih šestoslovnih riječi može napisati slažući uzete papiriće jedan do drugog (nebitno je imaju li te riječi smisla ili ne).
+
+\underline{Rješenje:}\\
+
+Imamo \{$3\cdot Z, 4 \cdot D, 5\cdot P, 4\cdot J$\}. Potrebno je izračunati $\overline{P}_{4; 3, 4, 5, 4}^{6}$. To ćemo uraditi preko funkcije generatrise:
+
+$$\psi_{n; m_{1}, m_{2},..., m_{n}}(t) = \prod_{i=1}^{n}\sum_{j=0}^{m_{i}} \frac{t^j}{j!}$$\\
+$$\psi_{4; 3, 4, 5, 4}(t) = \bigg(1 + t + \frac{t^2}{2} + \frac{t^3}{6}\bigg)\bigg(1 + t + \frac{t^2}{2} + \frac{t^3}{6} + \frac{t^4}{24}\bigg)^2\bigg(1 + t + \frac{t^2}{2} + \frac{t^3}{6} + \frac{t^4}{24} + \frac{t^5}{120}\bigg)$$\\
+$$\psi_{4; 3, 4, 5, 4}(t) =  1 + 4t +  8 t^2 +  \frac{32}{3}t^3 + \frac{85}{8} t^4 +  \frac{503}{60}t^5+\frac{1301}{240} t^6 + ...$$\\
+
+Koeficijent uz $t^6$ je $\frac{1301}{240}$, dakle rješenje je:
+
+$$\frac{1301}{240} \cdot 6! = \underline{3903}$$
+\newpage
+\section*{Zadatak 5\label{Z5}}	 
+
+\underline{Postavka:}
+
+Odredite koliko se različitih paketa koji sadrže 5 voćki može napraviti ukoliko nam je raspolaganju 6 krušaka, 3 kajsije, 3 banane, 3 jabuke i 1 naranča (pri čemu se pretpostavlja da ne pravimo razliku između primjeraka iste voćke).
+
+\underline{Rješenje:}\\
+
+Radi se o 5-kombinacija multiskupa $ \{5 \cdot kruška, 3\cdot kajsija, 3\cdot banana, 3\cdot jabuka, 1\cdot naranča\}$, takod a je broj traženih paketa zapravo $\overline{C}_{5; 6, 3, 3, 3, 1}^{5}$. Rješavamo pomoču funkcije generatrise za koju vrijedi:
+
+$$\varphi_{n; m_{1}, m_{2},..., m_{n}}(t) = \prod_{i=1}^{n} \sum_{j=0}^{m_{i}} t^j$$\\
+$$\varphi_{5; 6,3,3,3,1}(t) = (1 + t + t^2 + t^3 + t^4 + t^5 + t^6)(1 + t + t^2 + t^3)^3(1 + t)$$
+$$\varphi_{5; 6,3,3,3,1}(t) = 1 + 5t + 14t^2 + 27t^3 + 40t^4 + 49t^5 + ...$$\\
+
+Koeficijent uz $t^5$ je $\underline{49}$ što je zapravo rješenje zadatka.
+\newpage
+\section*{Zadatak 6\label{Z6}}	 
+
+\underline{Postavka:}
+
+Odredite na koliko načina se može rasporediti 9 identičnih kuglica u 4 različitih kutija, ali tako da u svakoj kutiji bude najviše 4 kuglica.
+
+\underline{Rješenje:}\\
+
+Potrebno je odrediti broj kombinacija sa ponavljanjem klase 9 skupa od 4 elementa u kojoj se svaki element javlja najviše 4 puta. Dakle zanima nas $\overline{C}_{4; S,S,S,S}^{9}$. Koristimo funkcije generatrise:
+
+$$\varphi_{4; S,S,S,S}(t) = \prod_{i=1}^4 \sum_{j \in S} t^j = (1 + t + t^2 + t^3 + t^4)^4$$\\
+
+Izrazimo sumu ovog geometrijskog reda na drugi način:
+
+$$1 + t + t^2 + t^3 + t^4 = s / \cdot t$$
+$$t + t^2 + t^3 + t^4 + t^5 = st / (+1)$$
+$$1 + t + t^2 + t^3 + t^4 + t^5 = st + 1 $$
+$$s + t^5 = st + 1$$
+$$s = \frac{1-t^5}{1-t}$$
+
+Pa je:
+
+$$\varphi_{4; S,S,S,S}(t) = \bigg(\frac{1-t^5}{1-t}\bigg)^4 = (1 - t^5)^4 (1 - t)^{-4} = \bigg(\sum_{i=0}^{4} \dbinom{4}{i} (-t^5)^i \bigg) \bigg(\sum_{i=0}^{\infty} \dbinom{-4}{i} (-t)^i \bigg)$$
+
+Raspisivanjem ovih suma, zatim množenjem članova čiji produkt daje koeficijent uz $t^9$, te izračunavanjem tako dobijenog izraza, dobije se rezultat:
+
+$$\overline{C}_{4; S,S,S,S}^{9} = 80$$
+
+Alternativno, mogli smo množiti izraz grubom silom i tako dobiti isto rješenje.
+\newpage
+\section*{Zadatak 7\label{Z7}}	 
+
+\underline{Postavka:}
+
+Odredite na koliko načina se 13 različitih predmeta upakovati u 7 identičnih vreća (koje nemaju nikakav identitet po kojem bi se mogle razlikovati), pri čemu se dopušta i da neke od vreća ostanu prazne.
+
+\underline{Rješenje:}\\
+
+Ovdje se radi o Stirlingovim brojevima druge vrste, pri čemu je $n = 13$ i $k = 7$, te ćemo razmatrati više slučajeva:
+
+\begin{center}
+1. Nijedna vreća nije prazna
+
+2. Jedna vreća prazna 
+
+3. Dvije vreće prazne
+
+4. Tri vreće prazne
+
+5. Četiri vreće prazne
+
+6. Pet vreća praznih
+
+7. Šest vreća praznih
+\end{center}
+
+I na kraju sabrati sve slučajeve. Primjetimo da se suma svih slučajeva može napisati kao suma Stirlingovih brojeva druge vrste $\sum_{i=1}^7 S_{13}^i$. Rješavamo pomoću tabele:
+
+\begin{table}[]
+\centering
+\caption{Stirlingovi brojevi druge vrste}
+\label{Tabela1}
+\begin{tabular}{@{}cccccccc@{}}
+1 & 0 & 0    & 0      & 0       & 0       & 0       & 0       \\
+0 & 1 & 0    & 0      & 0       & 0       & 0       & 0       \\
+0 & 1 & 1    & 0      & 0       & 0       & 0       & 0       \\
+0 & 1 & 3    & 1      & 0       & 0       & 0       & 0       \\
+0 & 1 & 7    & 6      & 1       & 0       & 0       & 0       \\
+0 & 1 & 15   & 25     & 10      & 1       & 0       & 0       \\
+0 & 1 & 31   & 90     & 65      & 15      & 1       & 0       \\
+0 & 1 & 63   & 301    & 350     & 140     & 21      & 1       \\
+0 & 1 & 127  & 966    & 1701    & 1050    & 266     & 28      \\
+0 & 1 & 255  & 3025   & 7770    & 6951    & 2646    & 462     \\
+0 & 1 & 511  & 9330   & 34105   & 42525   & 22827   & 5880    \\
+0 & 1 & 1023 & 28501  & 145750  & 246730  & 179487  & 63987   \\
+0 & 1 & 2047 & 86526  & 611501  & 1379400 & 1323652 & 627396  \\
+0 & 1 & 4095 & 261625 & 2532530 & 7508501 & 9321312 & 5715424
+\end{tabular}
+\end{table}
+\newpage
+Sada samo saberemo sve brojeve u svim kolonama u zadnjem redu, dakle:
+
+$$\sum_{i=1}^7 S_{13}^i = 5715424 + 9321312 +  7508501 + 2532530 + 261625 + 4095 + 1 = \underline{25343488}$$
+
+\newpage
+\section*{Zadatak 8\label{Z8}}	 
+
+\underline{Postavka:}
+
+Odredite na koliko se načina može 11 kamenčića razvrstati u 6 gomilica. Pri tome se i kamenčići i gomilice smatraju identičnim (odnosno ni kamenčići ni gomilice nemaju nikakav identitet po kojem bi se mogli razlikovati).
+
+\underline{Rješenje:}\\
+
+\newpage
+\section*{Zadatak 9\label{Z9}}	 
+
+\underline{Postavka:}
+
+Odredite na koliko načina se broj 13 može rastaviti na sabirke koji su prirodni brojevi, pri čemu njihov poredak nije bitan, ali pod dodatnim uvjetom da se sabirak 1 smije pojaviti najviše 2 puta, dok se sabirak 3 smije pojaviti samo neparan broj puta.
+
+\underline{Rješenje:}\\
 \end{document}
