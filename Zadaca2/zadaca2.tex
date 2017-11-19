@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	language=C++,
+	frame = tb,
+	numbers = left,
+	showstringspaces = false,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{green}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#} 
+}
+
+\begin{document}
+
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+	
+	\center
+	
+	\textsc{\Large Elektrotehnički fakultet Univerziteta Sarajevo}\\[4cm]
+	
+	{\huge\bfseries Diskretna Matematika\vspace{5mm}
+
+ 	Zadaća 2}\\[4.5cm]
+
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Student}\\
+			Vedad Fejzagić\\[5mm]
+			\textit{Broj indeksa}\\
+			17336\\[5mm]
+			\textit{Grupa}\\
+			RI2-2
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textbf{Demonstrator}\\
+			\hspace{10mm}Šeila Bečirović
+		\end{flushright}
+	\end{minipage}
+	
+	\vfill\vfill\vfill
+	
+	{\large\today}
+	
+	\vfill
+	
+\end{titlepage}
+
+
+\newpage
+
+\section*{Zadatak 1\label{Z1}}
+
+\underline{Postavka:}
+
+Odredite na koliko je različitih načina moguće razmjestiti 7 studenata i 3 profesora oko okruglog stola ako je poznato da se profesori međusobno ne podnose i ne mogu sjediti jedan do drugog.
+
+\underline{Rješenje:}\\
+
+Sedam studenata možemo raspodijeliti oko okruglog stola na $6! = 6  \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1$ načina. Profesore raspoređujemo između svaka dva studenta. Prvog profesora možemo na $7$ mjesta smjestiti, drugog na 6 i trećeg na 5 mjesta. Dakle $7 \cdot 6 \cdot 5$ načina.
+
+Na osnovu multiplikativnog principa, ukupan broj načina je:
+
+$$\frac{P_{7}}{7} \cdot 7^{(3)} = 6! \cdot 7 \cdot 6 \cdot 5 = 151200$$
+
+\section*{Zadatak 2\label{Z2}}
+
+\underline{Postavka:}
+
+Potrebno je formirati šestočlanu ekipu za međunarodno softversko-hardversko takmičenje. Uvjeti su da ekipa mora imati barem tri studenta sa smjera RI, dok su studenti drugih smjerova poželjni (zbog većeg hardverskog znanja) ali ne i obavezni. Za takmičenje se prijavilo 5 studenata smjera RI i 6 studenata smjera AiE (dok studenti drugih smjerova nisu bili zainteresirani). Odredite na koliko načina je moguće odabrati traženu ekipu. Koliko će iznositi broj mogućih ekipa ukoliko se postavi dodatno ograničenje da ekipa mora imati i barem dva studenta smjera AiE?
+
+\underline{Rješenje:}\\
+
+\end{document}
