@@ -106,7 +106,7 @@ Odredite na koliko načina možemo raspodijeliti 10 jabuka, 9 banana i 11 kajsij
 
 \underline{Rješenje:}\\
 
-Podijelit ćemo prvo jabuke, pa kruške pa kajsije. Pošto su podjele neovisne, koristimo multiplikativni princip:
+Podijelit ćemo prvo jabuke, pa banane pa kajsije. Pošto su podjele neovisne, koristimo multiplikativni princip:
 
 $$\overline{C}_{3}^{10} \cdot \overline{C}_{3}^9 \cdot \overline{C}_{3}^{11} = C_{12}^{10} \cdot C_{11}^9 \cdot C_{13}^{11} = \dbinom{12}{10} \dbinom{11}{9} \dbinom{13}{11} = \underline{283140}$$
 \newpage
@@ -118,7 +118,7 @@ Na stolu se nalazi određena količina papirića, pri čemu se na svakom od papi
 
 \underline{Rješenje:}\\
 
-Imamo \{$3\cdot Z, 4 \cdot D, 5\cdot P, 4\cdot J$\}. Potrebno je izračunati $\overline{P}_{4; 3, 4, 5, 4}^{6}$. To ćemo uraditi preko funkcije generatrise:
+Imamo \{$3\cdot Z, 4 \cdot D, 5\cdot P, 4\cdot J$\}. Potrebno je izračunati $\overline{P}_{4; 3, 4, 5, 4}^{6}$. To ćemo uraditi preko generatrise:
 
 $$\psi_{n; m_{1}, m_{2},..., m_{n}}(t) = \prod_{i=1}^{n}\sum_{j=0}^{m_{i}} \frac{t^j}{j!}$$\\
 $$\psi_{4; 3, 4, 5, 4}(t) = \bigg(1 + t + \frac{t^2}{2} + \frac{t^3}{6}\bigg)\bigg(1 + t + \frac{t^2}{2} + \frac{t^3}{6} + \frac{t^4}{24}\bigg)^2\bigg(1 + t + \frac{t^2}{2} + \frac{t^3}{6} + \frac{t^4}{24} + \frac{t^5}{120}\bigg)$$\\
@@ -136,7 +136,7 @@ Odredite koliko se različitih paketa koji sadrže 5 voćki može napraviti ukol
 
 \underline{Rješenje:}\\
 
-Radi se o 5-kombinacija multiskupa $ \{5 \cdot kruška, 3\cdot kajsija, 3\cdot banana, 3\cdot jabuka, 1\cdot naranča\}$, takod a je broj traženih paketa zapravo $\overline{C}_{5; 6, 3, 3, 3, 1}^{5}$. Rješavamo pomoču funkcije generatrise za koju vrijedi:
+Radi se o 5-kombinacija multiskupa $ \{5 \cdot kruška, 3\cdot kajsija, 3\cdot banana, 3\cdot jabuka, 1\cdot naranča\}$, takod a je broj traženih paketa zapravo $\overline{C}_{5; 6, 3, 3, 3, 1}^{5}$. Rješavamo pomoču generatrise za koju vrijedi:
 
 $$\varphi_{n; m_{1}, m_{2},..., m_{n}}(t) = \prod_{i=1}^{n} \sum_{j=0}^{m_{i}} t^j$$\\
 $$\varphi_{5; 6,3,3,3,1}(t) = (1 + t + t^2 + t^3 + t^4 + t^5 + t^6)(1 + t + t^2 + t^3)^3(1 + t)$$
@@ -152,7 +152,7 @@ Odredite na koliko načina se može rasporediti 9 identičnih kuglica u 4 razli�
 
 \underline{Rješenje:}\\
 
-Potrebno je odrediti broj kombinacija sa ponavljanjem klase 9 skupa od 4 elementa u kojoj se svaki element javlja najviše 4 puta. Dakle zanima nas $\overline{C}_{4; S,S,S,S}^{9}$. Koristimo funkcije generatrise:
+Potrebno je odrediti broj kombinacija sa ponavljanjem klase 9 skupa od 4 elementa u kojoj se svaki element javlja najviše 4 puta. Dakle zanima nas $\overline{C}_{4; S,S,S,S}^{9}$. Koristimo generatrise:
 
 $$\varphi_{4; S,S,S,S}(t) = \prod_{i=1}^4 \sum_{j \in S} t^j = (1 + t + t^2 + t^3 + t^4)^4$$\\
 
@@ -205,22 +205,23 @@ I na kraju sabrati sve slučajeve. Primjetimo da se suma svih slučajeva može n
 \begin{table}[]
 \centering
 \caption{Stirlingovi brojevi druge vrste}
-\label{Tabela1}
-\begin{tabular}{@{}cccccccc@{}}
-1 & 0 & 0    & 0      & 0       & 0       & 0       & 0       \\
-0 & 1 & 0    & 0      & 0       & 0       & 0       & 0       \\
-0 & 1 & 1    & 0      & 0       & 0       & 0       & 0       \\
-0 & 1 & 3    & 1      & 0       & 0       & 0       & 0       \\
-0 & 1 & 7    & 6      & 1       & 0       & 0       & 0       \\
-0 & 1 & 15   & 25     & 10      & 1       & 0       & 0       \\
-0 & 1 & 31   & 90     & 65      & 15      & 1       & 0       \\
-0 & 1 & 63   & 301    & 350     & 140     & 21      & 1       \\
-0 & 1 & 127  & 966    & 1701    & 1050    & 266     & 28      \\
-0 & 1 & 255  & 3025   & 7770    & 6951    & 2646    & 462     \\
-0 & 1 & 511  & 9330   & 34105   & 42525   & 22827   & 5880    \\
-0 & 1 & 1023 & 28501  & 145750  & 246730  & 179487  & 63987   \\
-0 & 1 & 2047 & 86526  & 611501  & 1379400 & 1323652 & 627396  \\
-0 & 1 & 4095 & 261625 & 2532530 & 7508501 & 9321312 & 5715424
+\label{my-label}
+\begin{tabular}{@{}c|cccccccc@{}}
+n/k & 0 & 1 & 2    & 3      & 4       & 5       & 6       & 7       \\ \midrule
+0   & 1 & 0 & 0    & 0      & 0       & 0       & 0       & 0       \\
+1   & 0 & 1 & 0    & 0      & 0       & 0       & 0       & 0       \\
+2   & 0 & 1 & 1    & 0      & 0       & 0       & 0       & 0       \\
+3   & 0 & 1 & 3    & 1      & 0       & 0       & 0       & 0       \\
+4   & 0 & 1 & 7    & 6      & 1       & 0       & 0       & 0       \\
+5   & 0 & 1 & 15   & 25     & 10      & 1       & 0       & 0       \\
+6   & 0 & 1 & 31   & 90     & 65      & 15      & 1       & 0       \\
+7   & 0 & 1 & 63   & 301    & 350     & 140     & 21      & 1       \\
+8   & 0 & 1 & 127  & 966    & 1701    & 1050    & 266     & 28      \\
+9   & 0 & 1 & 255  & 3025   & 7770    & 6951    & 2646    & 462     \\
+10  & 0 & 1 & 511  & 9330   & 34105   & 42525   & 22827   & 5880    \\
+11  & 0 & 1 & 1023 & 28501  & 145750  & 246730  & 179487  & 63987   \\
+12  & 0 & 1 & 2047 & 86526  & 611501  & 1379400 & 1323652 & 627396  \\
+13  & 0 & 1 & 4095 & 261625 & 2532530 & 7508501 & 9321312 & 5715424
 \end{tabular}
 \end{table}
 \newpage
@@ -237,6 +238,33 @@ Odredite na koliko se načina može 11 kamenčića razvrstati u 6 gomilica. Pri 
 
 \underline{Rješenje:}\\
 
+Da bi jedna gomilica postojala mora biti barem 1 kamenčić koji predstavlja tu gomilicu. Dakle, svaka od 6 gomilica mora imati barem 1 kamenčić. 
+
+Također, pošto se ni kamenčići ni gomilice ne razlikuju međusobno, radi se o particijama $p_{11}^6$ koje ćemo izračunati pomoću tabele koristeći formulu $p_{n}^k = p_{n-1}^{k-1} + p_{n-k}^{k}$. Tabela je data ispod.
+\newpage
+\begin{table}[]
+\centering
+\caption{Particije $p_{11}^6$}
+\label{my-label}
+\begin{tabular}{@{}c|cccccc@{}}
+n/k & 1 & 2 & 3  & 4  & 5  & 6 \\ \midrule
+1   & 1 & 0 & 0  & 0  & 0  & 0 \\
+2   & 1 & 1 & 0  & 0  & 0  & 0 \\
+3   & 1 & 1 & 1  & 0  & 0  & 0 \\
+4   & 1 & 2 & 1  & 1  & 0  & 0 \\
+5   & 1 & 2 & 2  & 1  & 1  & 0 \\
+6   & 1 & 3 & 3  & 2  & 1  & 1 \\
+7   & 1 & 3 & 4  & 3  & 2  & 1 \\
+8   & 1 & 4 & 5  & 5  & 3  & 2 \\
+9   & 1 & 4 & 7  & 6  & 5  & 3 \\
+10  & 1 & 5 & 8  & 9  & 7  & 5 \\
+11  & 1 & 5 & 10 & 11 & 10 & 7
+\end{tabular}
+\end{table}
+
+Dakle, rješenje je $\underline{p_{11}^6 = 7}$
+
+\newpage
 \newpage
 \section*{Zadatak 9\label{Z9}}	 
 
@@ -245,4 +273,202 @@ Odredite na koliko se načina može 11 kamenčića razvrstati u 6 gomilica. Pri 
 Odredite na koliko načina se broj 13 može rastaviti na sabirke koji su prirodni brojevi, pri čemu njihov poredak nije bitan, ali pod dodatnim uvjetom da se sabirak 1 smije pojaviti najviše 2 puta, dok se sabirak 3 smije pojaviti samo neparan broj puta.
 
 \underline{Rješenje:}\\
+
+Dakle, radi se o particijama sa dodatnim ograničenjima koji možemo lahko riješiti koristeći generatrisu. Imamo sljedeći slučaj:
+
+$$n = 13$$
+$$S = \{1, 2, 3, 4, 5, 6,..., 13\}$$
+\begin{center}
+Pošto sabirak 1 najviše 2 puta:
+\end{center}
+$$S_{1} = \{0, 1, 2\}$$
+\begin{center}
+Pošto se sabirak 3 smije pojaviti samo neparan broj puta, ako se pojavi 5 puta onda minimalni broj koji bi sabirci formirali je 15, dakle samo jednom i tri puta se smije pojaviti:
+\end{center}
+$$S_{3} = \{1, 3\}$$
+\begin{center}
+Ostali:
+\end{center}
+$$S_{2} = S_{4} = ... = S_{13} = \{0, 1, 2, 3, ...\}$$
+
+Generatrisa:
+
+$$\varphi(t) = \prod_{i = S} \sum_{j \in S_{i}} t^{i\cdot j} = \prod_{i = 1}^{13} \sum_{j \in S_{i}} t^{i\cdot j}$$
+$$\varphi(t) = (1 + t + t^2)(1 + t^2 + t^4 + t^6 + t^8 + t^{10} + t^{12} + ...)(t^3 + t^9)(1 + t^4 + t^8 + t^{12} + ...)(1 + t^5 + t^{10} + ...)$$
+$$(1 + t^6 + t^{12} + ...)(1 + t^7 + ...)(1 + t^8 + ...)(1 + t^9 + ...)(1 + t^{10} + ...)(1 + t^{11} + ...)(1 + t^{12} + ...)(1 + t^{13} + ...)$$
+
+Nakon množenja, koeficijent uz $t^{13}$(rješenje) je $\underline{12}$.
+
+\newpage
+\section*{Zadatak 10\label{Z10}}	 
+
+\underline{Postavka:}
+
+U nekoj kutiji nalazi se 165 kompakt diskova (CD-ova), od kojih je 20 diskova nečitljivo. Ukoliko nasumice izaberemo 9 diskova iz kutije, nađite vjerovatnoću da će
+\begin{center}
+a. svi izabrani diskovi biti čitljivi;
+
+b. tačno jedan izabrani disk biti nečitljiv;
+
+c. barem jedan izabrani disk biti nečitljiv;
+
+d. tačno dva izabrana diska biti nečitljiva;
+
+e. barem dva izabrana diska biti nečitljiva;
+
+f. najviše dva izabrana diska biti nečitljiva;
+
+g. najviše dva izabrana diska biti čitljiva;
+
+h. svi izabrani diskovi biti nečitljivi.
+\end{center}
+\underline{Rješenje:}\\
+
+Od 165 CD-ova, 20 je nečitljivo, dakle 145 je čitljivo. Biramo 9 nasumice. Dakle:\\
+
+a) 
+
+$$p = \frac{C_{145}^9}{C_{165}^9} = \frac{\dbinom{145}{9}}{\dbinom{165}{9}} \approx 0.303 \approx 30\% $$
+
+b)
+
+$$p = \frac{C_{20}^1 C_{145}^8}{C_{165}^{9}} \approx 0.398 \approx 39.8\%$$
+
+c)
+
+$$p = \frac{ C_{145}^1 C_{20}^8 + C_{145}^2 C_{20}^7 + C_{145}^3 C_{20}^6 + C_{145}^4 C_{20}^5 + C_{145}^5 C_{20}^4 + C_{145}^6 C_{20}^3 + C_{145}^7 C_{20}^2 + C_{145}^8 C_{20}^1 + C_{20}^9}{C_{165}^{9}}$$
+$$p \approx 0.697 \approx 69.7 \%$$
+
+d)
+
+$$p = \frac{C_{20}^2 C_{145}^7}{C_{165}^9} \approx 0.2192 \approx 21.9 \%$$
+
+e)
+
+$$p = \frac{ C_{145}^2 C_{20}^7 + C_{145}^3 C_{20}^6 + C_{145}^4 C_{20}^5 + C_{145}^5 C_{20}^4 + C_{145}^6 C_{20}^3 + C_{145}^7 C_{20}^2 + C_{20}^{8} C_{145}^{1} + C_{20}^9}{C_{165}^{9}}$$
+$$p \approx 0.2989 \approx 29.8 \%$$
+
+f)
+
+$$p = \frac{C_{20}^0 C_{145}^9 + C_{20}^{1} C_{145}^{8} + C_{20}^{2} C_{145}^7}{C_{165}^{9}} \approx 0.92 \approx 92\%$$
+
+g)
+
+$$p = \frac{C_{20}^9 C_{145}^0 + C_{20}^{8} C_{145}^{1} + C_{20}^{7} C_{145}^2}{C_{165}^{9}} \approx 4.13 \cdot 10^{-6} \approx 4.13 \cdot 10^{-4}\%$$
+
+h)
+
+$$p = \frac{C_{20}^9}{C_{165}^9} \approx 8.395 \cdot 10^{-10} \approx 8.395 \cdot 10^{-8} \%$$
+
+\newpage
+\section*{Zadatak 11\label{Z11}}	 
+
+\underline{Postavka:}
+
+Neka je dat pravičan novčić, tj. novčić kod kojeg je jednaka vjerovatnoća pojave glave ili pisma prilikom bacanja. Ako bacimo takav novčić 48 puta, očekujemo da će otprilike 24 puta pasti glava i isto toliko puta pismo. Međutim, to naravno ne znači da će sigurno biti tačno 24 pojava glave ili pisma (štaviše, vjerovatnoća da se tačno to desi je prilično mala). Odredite:
+
+\begin{center}
+
+a. Vjerovatnoću da će se zaista pojaviti 24 puta glava i 24 puta pismo;
+
+b. Vjerovatnoću da će se glava pojaviti više od 20 a manje od 28 puta;
+
+d. Vjerovatnoću da će se glava pojaviti više od 18 a manje od 30 puta.	
+\end{center}
+
+\underline{Rješenje:}\\
+
+a)
+
+$$p = \frac{C_{48}^{24}}{2^{48}} \approx 0.1145 \approx 11.4\%$$
+
+b)
+
+$$p = \frac{ C_{48}^{21} + C_{48}^{22} + C_{48}^{23} + C_{48}^{24} + C_{48}^{25} + C_{48}^{26} + C_{48}^{27}}{2^{48}} \approx 0.687 \approx 68.7\%$$
+
+c)
+
+$$p = \frac{2 \cdot C_{48}^{19} + 2 \cdot C_{48}^{20} + 2 \cdot C_{48}^{21} + 2 \cdot C_{48}^{22} + 2 \cdot C_{48}^{23} + \cdot C_{48}^{24}}{2^{48}} \approx 0.885 \approx 88.5\%$$
+
+\newpage
+\section*{Zadatak 12\label{Z12}}	 
+
+\underline{Postavka:}
+	
+Odredite vjerovatnoću da će u skupini od 9 nasumično izvučenih karata iz dobro izmješanog špila od 52 karte dvije karte biti sa slikom i šest karata crvene boje (herc ili karo).
+
+\underline{Rješenje:}\\
+
+Problem se svodi na računanje problema vjerovatnoće pri izboru uzoraka, s tim da klase moraju biti disjunktne. Podijelit ćemo univerzu A od $n = 52$ karte na 4 disjunktne klase:
+
+\begin{center}
+$A_{1}$ = Crvena boja sa slikom ($n_{1} = 6$)
+
+$A_{2}$ = Ostale boje sa slikama ($n_{2} = 6$)
+
+$A_{3}$ = Crvena boja bez slike ($n_{3} = 20$)
+
+$A_{4}$ = Ostale karte ($n_{4} = 20$)\\
+\end{center}
+
+Fomiramo sljedeće jednačine na osnovu postavke zadatka:
+
+$$m_{1} + m_2 = 2 \to \underline{m_2 = 2 - m_1}$$
+$$m_1 + m_3 = 6 \to \underline{m_3 = 6 - m_1}$$ 
+$$m_1 + m_2 + m_3 + m_4 = 9 \to m_4 = 9 - m_1 - m_2 - m_3 \to \underline{m_4 = 1 + m_1}$$\\
+
+Dalje, raspisujemo sve slučajeve koji nam odgovaraju za dati problem:
+
+$$m_1 = 0, m_2 = 2, m_3 = 6, m_4 = 1$$
+$$m_1 = 1, m_2 = 1, m_3 = 5, m_4 = 2$$
+$$m_1 = 2, m_2 = 0, m_3 = 4, m_4 = 3$$\\
+
+Tražena vjerovatnoća je rješenje sljedeće sume:
+
+$$\sum_{m_1 = 0}^{2} \frac{P_{52; 6, 6, 20, 20}^{m_1, 2 - m_1, 6 - m_1, 1 + m_1}}{C_{52}^9}$$\\
+
+U prethodnim zadacima nismo detaljno pokazali račun sa binomnim koeficijentima, ovaj put ćemo to učiniti da se pokaže da nije bilo množenje grubom silom već kraćenja:
+
+$$\sum_{m_1 = 0}^{2} \frac{C_6^{m1} C_6^{2-m1} C_{20}^{6-m1} C_{20}^{1+m1}}{C_{52}^9} = \sum_{m_1=0}^2 \frac{\dbinom{6}{m_1} \dbinom{6}{2 - m_1} \dbinom{20}{6 - m_1} \dbinom{20}{1+m_1}}{\dbinom{52}{9}} = $$
+$$ = \frac{\dbinom{6}{0} \dbinom{6}{2} \dbinom{20}{6} \dbinom{20}{1}}{\dbinom{52}{9}} + \frac{\dbinom{6}{1} \dbinom{6}{1} \dbinom{20}{5} \dbinom{20}{2}}{\dbinom{52}{9}} + \frac{\dbinom{6}{2} \dbinom{6}{0} \dbinom{20}{4} \dbinom{20}{3}}{\dbinom{52}{9}} =$$\\
+$$= \frac{ \frac{6!}{4! 2!} \frac{20!}{14! 6!} \frac{20!}{19!} }{ \frac{52!}{43! 9!} } + \frac{ \frac{6!}{5!}\cdot 6 \cdot \frac{20!}{15! 5!} \frac{20!}{18! 2!}}{ \frac{52!}{43! 9!} } + \frac{ \frac{6!}{4!2!} \frac{20!}{16!4!} \frac{20!}{17!3!} }{ \frac{52!}{43!9!} } =$$\\
+$$= \frac{ \frac{6 \cdot 5}{2}  \frac{20 \cdot 19 \cdot 18 \cdot 17 \cdot 16 \cdot 15}{6!} \cdot 20 }{\frac{52!}{43! 9!}} + \frac{ 6 \cdot 6 \cdot \frac{20 \cdot 19 \cdot 18 \cdot 17 \cdot 16}{5!} \frac{20 \cdot 19}{2} }{\frac{52!}{43! 9!}} + \frac{ \frac{6 \cdot 5}{2}  \frac{20 \cdot 19 \cdot 18 \cdot 17}{4!} \frac{20 \cdot 19 \cdot 18}{3!} }{\frac{52!}{43! 9!}} =$$\\
+$$= \frac{15 \cdot 38760 \cdot 20}{3679075400} + \frac{36 \cdot 190 \cdot 15504}{3679075400} + \frac{15 \cdot 4845 \cdot 1104}{3679075400} \approx 0.05379 \approx 5.3\%$$
+
+\newpage
+\section*{Zadatak 13\label{Z13}}	 
+
+\underline{Postavka:}
+	
+Podmornica gađa neprijateljski brod sa četiri torpeda, čije su vjerovatnoće pogađanja 25 \%, 25 \%, 80 \% i 75 \% respektivno. Ako brod pogodi jedan torpedo, on će biti potopljen sa vjerovatnoćom 25 \%, u slučaju pogotka sa dva torpeda on će biti potopljen sa vjerovatnoćom 80 \%, dok u slučaju da ga pogode tri ili četiri torpeda, on se potapa sigurno. Nađite vjerovatnoću da će brod biti potopljen.
+
+\underline{Rješenje:}\\
+
+Uvedimo oznake za vjerovatnoću za svaki od torpeda:
+
+$$T_1 = 25 \%$$
+$$T_2 = 25 \%$$
+$$T_3 = 80 \%$$
+$$T_4 = 75 \%$$\\
+
+Vjerovatnoća da jedan torpedo pogodi brod, dva torpeda pogode brod, tri torpeda pogode brod i četiri torpeda pogode brod su respektivno:
+
+$$P_1 = (T_1 T_2' T_3' T_4' + T_1' T_2 T_3' T_4' + T_1' T_2' T_3 T_4' + T_1' T_2' T_3' T_4 ) \cdot 0.25$$
+$$P_2 = (T_1 T_2 T_3' T_4' + T_1 T_2' T_3 T_4' + T_1 T_2' T_3' T_4 +  T_1' T_2' T_3 T_4 +  T_1' T_2 T_3' T_4 +  T_1' T_2 T_3 T_4') \cdot 0.8$$
+$$P_3 = (T_1 T_2 T_3 T_4' +  T_1 T_2 T_3' T_4 + T_1 T_2' T_3 T_4 + T_1' T_2 T_3 T_4  ) \cdot 1$$
+$$P_4 = (T_1 T_2 T_3 T_4) \cdot 1$$\\
+
+Tražena vjerovatnoća je zbir navedenih vjerovatnoća:
+
+$$\sum_{i=1}^{4} P_i = 0.05390625 + 0.3775 + 0.246875 + 0.0375 \approx 0.71578125 \approx 71.5\%$$
+
+\newpage
+\section*{Zadatak 14\label{Z14}}	 
+
+\underline{Postavka:}
+	
+Za četiri trkača vjerovatnoće da će uspjeti da istrče maraton do kraja procijenjene su na 35 \%, 45 \%, 25 \% i 60 \% respektivno. Nakon što je maraton zaista održan, pokazalo se da je samo jedan od njih uspio istrčati maraton do kraja. Nađite vjerovatnoću da je to bio treći trkač.
+\underline{Rješenje:}\\
+
+
 \end{document}
