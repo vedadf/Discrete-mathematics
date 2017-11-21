@@ -468,7 +468,75 @@ $$\sum_{i=1}^{4} P_i = 0.05390625 + 0.3775 + 0.246875 + 0.0375 \approx 0.7157812
 \underline{Postavka:}
 	
 Za četiri trkača vjerovatnoće da će uspjeti da istrče maraton do kraja procijenjene su na 35 \%, 45 \%, 25 \% i 60 \% respektivno. Nakon što je maraton zaista održan, pokazalo se da je samo jedan od njih uspio istrčati maraton do kraja. Nađite vjerovatnoću da je to bio treći trkač.
+
 \underline{Rješenje:}\\
 
+Uvedimo oznake za vjerovatnoće četiri trkača navede u postavci:
+
+$$A_1 = 35\%$$
+$$A_2 = 35\%$$
+$$A_3 = 25\%$$
+$$A_4 = 60\%$$\\
+
+Označimo sa A da će tačno jedan istrčati maraton, računamo vjerovatnoću tog događaja:
+
+$$p(A) = p(A_1) p(A_2') p(A_3') p(A_4') + p(A_1') p(A_2) p(A_3') p(A_4') + p(A_1') p(A_2') p(A_3) p(A_4') + p(A_1) p(A_2') p(A_3') p(A_4)$$
+$$p(A) = 0.368875$$\\
+
+Potrebno je izračunati vjerovatnoću $p(A_3/A) = \frac{p(A_3) p(A/A_3)}{p(A)}$. Dakle, računamo:
+
+$$p(A/A_3) = p(A_1')p(A_2')p(A_4') = 0.169$$\\
+
+Pa je rješenje $p(A_3/A) = \frac{p(A_3) p(A/A_3)}{p(A)} = \frac{0.25 * 0.169}{0.368875} \approx 0.1145 \approx 11.4\%$
+
+\newpage
+\section*{Zadatak 15\label{Z15}}	 
+
+\underline{Postavka:}
+	
+Igrač igra nagradnu igru u kojoj se iz kutije nasumično izvlače kuglice, koje mogu biti zlatne, srebrene i brončane. Ukupno ima 7 zlatnih, 18 srebrenih i 85 brončanih kuglica. Za osvajanje nagrade potrebno je izvući ili jednu zlatnu kuglicu (neovisno od toga kakve su ostale), ili dvije srebrene kuglice, ili tri brončane kuglice. Odredite vjerovatnoću osvajanja nagrade ako igrač ima pravo izvući
+
+\begin{center}
+a. jednu kuglicu;
+
+b. dvije kuglice;
+
+c. tri kuglice.
+\end{center}
+
+\underline{Rješenje:}\\
+
+a)
+
+$$p = \frac{C_7^1}{C_{110}^1}\approx 0.06363 \approx 6.36\%$$
+
+Za sljedeća dva primjera ćemo uzeti obrnuto, tj. u kojim slučajevima će izgubiti ako izvuče dvije kuglice i u kojim slučajevima će izgubiti ako izvuče 3 kuglice pa ćemo te slučajeve oduzeti od broja $1$.\\
+
+b)
+Izgubiti će ako izvuče 2 brončane ili 1 brončanu, 1 srebrenu, dakle:
+
+$$p = 1 - p' = 1 - \frac{C_{85}^2}{C_{110}^2} - \frac{C_{85}^1 C_{18}^1}{C_{110}^2} \approx 0.1492 \approx 14.9\%$$\\
+
+c)
+Izgubiti će ako izvuče 2 brončane i 1 srebrenu:
+
+$$p = 1 - p' = 1 - \frac{C_{85}^2 C_{18}^1}{C_{110}^{3}} \approx 0.702 \approx 70.2\%$$
+
+\newpage
+\section*{Zadatak 16\label{Z16}}	 
+
+\underline{Postavka:}
+	
+Računar A je generirao neki binarni podatak (odnosno podatak koji može biti samo 0 ili 1. Taj podatak je proslijeđen putem lokalne mreže računaru B, koja je zatim proslijeđena računaru C, i najzad računaru D (sve putem lokalne mreže). Međutim, uslijed smetnji u prenosu, vjerovatnoća da podatak poslan sa jednog računara na drugi putem mreže stigne neizmijenjen iznosi svega 47 \%. Greška može uzrokovati da se 0 pretvori u 1 ili 1 pretvori u 0. Ukoliko je poznato da je na krajnje odredište (računar D) stigao ispravan podatak, kolika je vjerovatnoća da je na računar B stigao ispravan podatak?
+
+\underline{Rješenje:}\\
+
+Označimo sa $p(B) = 0.47$ vjerovatnoću da će na računar B stići tačna informacija. Traži se vjerovatnoća $p(B/D) = \frac{p(D/B) \cdot p(B)}{p(D)}$ tj vjerovatnoća da će na računar B stići tačna informacija ako znamo da je na računar D stigla tačna informacija. Potrebna nam je vjerovatnoća da će na računar D stići tačna informacija što možemo dobiti preko vjerovatnoće za C, dakle:
+
+$$p(C) = p(B) \cdot 0.47 + p(B)' \cdot 0.53 = 0.47 \cdot 0.47 + 0.53 \cdot 0.53 = 0.5018$$
+$$p(D) = p(C) \cdot 0.47 + p(C)' \cdot 0.53 = 0.5018 \cdot 0.47 + (1 - 0.5018) \cdot 0.53 = 0.499$$
+$$p(D/B) = p(C) = 0.5018$$\\
+
+Imamo sve potrebne informacije, pa je rješenje: $p(B/D) = \frac{0.5018 \cdot 0.47}{0.4998} \approx 0.4718 \approx 47.18\%$
 
 \end{document}
