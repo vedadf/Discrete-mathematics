@@ -1551,7 +1551,7 @@ $$n_{sr} = 3$$
 Poruka:
 
 $$11101000101100110011111101$$
-
+\newpage
 Za $S_c$
 
 
@@ -1654,6 +1654,147 @@ Po svim stanjima: $n_{sr} = 0.145 \cdot 3.18 + 0.161 \cdot 3 + 0.693 \dot 2.16 =
 $$\overline{I(X)} = \frac{0.90667}{\tau}$$
 
 Iskorištenost: 90.60\%
+\newpage
+\section*{Zadatak 8\label{Z8}}
+
+\underline{Postavka:}
+
+Neki binarni kanal veze sa šumom prenosi dva simbola 0 i 1, pri čemu su vjerovatnoće greške nule i jedinice 0.2 i 0.2 respektivno. Odredite količinu prenesene informacije kroz ovaj kanal ukoliko vjerovatnoća pojave nule na ulazu u kanal iznosi 0.8, te odredite njegov kapacitet.
+
+\underline{Rješenje:}\\
+
+Vjerovatnoća pojave jedinice na ulazu je dakle 0.2.
+
+Ulazni simboli: $y_1 = 0$ i $y_2 = 1$
+
+Izlazni simboli: $z_1 = 0$ i $z_2 = 1$
+
+Iz postave zadatka zaključujemo sljedeće:
+
+$$p(z_1/y_1) = 0.8$$
+$$p(z_2/y_1) = 0.2$$
+$$p(z_1/y_2) = 0.2$$
+$$p(z_2/y_2) = 0.8$$
+$$p(y_1) = 0.8$$
+$$p(y_2) = 0.2$$
+
+Prema teoremi o totalnoj vjerovatnoći, vjerovatnoće simbola na izlazu su:
+
+$$p(z_1) = p(y_1) p(z_1 / y_1) + p(y_2) p(z_1 / y_2) = 0.68$$
+$$p(z_2) = 1 - p(z_1) = 0.32$$
+
+Entropije ulaznih i izlaznih simbola:
+
+$$H(Y) = - \frac{1}{\ln{2}} ( p(y_1) \ln{p(y_1)} +  p(y_2) \ln{p(y_2)}) \approx 0.721$$
+$$H(Z) \approx 0.904$$
+
+Potrebne su nam "djelimično" uvjetne entropije:
+
+$$H(Z/y_1) = - \frac{1}{\ln{2}} ( p(z_1/y_1) \ln{p(z_1/y_1)} + p(z_2 / y_1) \ln{p(z_2 / y_1)}) \approx 0.721$$
+$$H(Z/y_2) \approx 0.721$$
+
+Dakle $$H(Z/y_1) = H(Z/y_2)$$
+
+Pa je uvjetna entropija:
+
+$$H(Z/Y) = p(y_1) H(Z/y_1) + p(y_2) H(Z/y_2) \approx 0.721$$
+
+Prosječna prenesena količina informacije kroz kanal:
+
+$$I(Y, Z) = H(Z) - H(Z / Y) \approx 0.183$$
+
+Kapacitet kanala veze:
+
+$$C_c = max \overline{I(\eta, \zeta)} \approx \frac{0.2796}{\tau}$$
+
+Kapacitet ovog kanala je 27.96\% kapaciteta koji bi imao odgovarajući kanal bez šuma.
+
+\newpage
+\section*{Zadatak 9\label{Z9}}
+
+\underline{Postavka:}
+
+Izvor informacija bez memorije emitira dvije poruke a i b, pri čemu vjerovatnoća emitiranja poruke a iznosi p(a) = 0.8. Ove poruke se zatim kodiraju, i prenose kroz binarni kanal veze sa šumom koji koristi dva simbola 0 i 1, pri čemu su vjerovatnoće greške nule i jedinice 0.25 i 0.05 respektivno. Odredite količinu prenesene informacije kroz komunikacioni kanal, brzinu prenosa informacija kroz komunikacioni kanal, procenat iskorištenja kanala veze i vjerovatnoću greške u prenosu ukoliko se koristi
+
+a)Prosto kodiranje a → 0 i b → 1 uz dekodiranje zasnovano na klasifikaciji Sa = {0} i Sb = {1};
+
+b)Zaštitno kodiranje a → 000 i b → 111 uz dekodiranje zasnovano na klasifikaciji Sa = {000, 001, 010, 100} i Sb = {011, 101, 110, 111}.
+
+\underline{Rješenje:}\\
+
+a)\\
+
+$$x_1 = a; p(a) = p(x_1) = 0.8$$
+$$x_2 = b; p(b) = p(x_2) = 0.2$$
+
+Ulazni simboli: $y_1 = 0$ i $y_2 = 1$
+
+Izlazni simboli: $z_1 = 0$ i $z_2 = 1$
+
+Iz postave zadatka zaključujemo sljedeće:
+
+$$p(0/x_1) = p(z_1/y_1) = 0.75$$
+$$p(1/x_1) = p(z_2/y_1) = 0.25$$
+$$p(0/x_2) = p(z_1/y_2) = 0.05$$
+$$p(1/x_2) = p(z_2/y_2) = 0.95$$
+
+$$p(w_1) = p(x_1) p(0/x_1) + p(x_2) p(0/x_2) = 0.61 = p(0)$$
+$$p(w_2) = 0.39 = p(1)$$
+
+Entropija i uslovna entropija:
+
+$$H(W) = - \frac{1}{\ln{2}} ( p(w_1) ln p(w_1) + p(w_2) ln p(w_2) ) = 0.9648$$
+
+$$H(W/x_1) = 0.811$$
+$$H(W/x_2) = 0.286$$
+
+$$H(W/X) = p(x_1) H(W/x_1) + p(x_2) H(W / x_2) = 0.8 \cdot 0.811 + 0.2 \cdot 0.286 = 0.706$$ 
+
+$$I(X, W) = H(W) - H(W / X) = 0.9648 - 0.706 = 0.2588$$
+
+Vjerovatnoća greške je $p_e = 1 - p(a) \cdot p(0 / x_1) - p(b) \cdot p(1 / x_2) = 0.21$\\
+
+Brzina prenosa je: $\overline{I(X, W)} = \frac{I(X, W)}{T_{sr}} = \frac{0.3328}{T_{sr}}$\\
+
+\newpage
+b)\\
+
+$$w_1 = S_a$$
+$$w_2 = S_b$$
+
+Ulazni simboli: $y_1 = 0$ i $y_2 = 1$
+
+Izlazni simboli: $z_1 = 0$ i $z_2 = 1$
+
+$$x_1 = a; p(a) = p(x_1) = 0.8...x_1 \to y_1y_1y_1$$
+$$x_2 = b; p(b) = p(x_2) = 0.2...x_2 \to y_2y_2y_2$$
+
+$$S_a = {z_1z_1z_1, z_1z_1z_2, z_1z_2z_1, z_2z_1z_1}$$
+$$S_b = {z_1z_2z_2, z_2z_1z_2, z_2z_2z_1, z_2z_2z_2}$$
+
+$$p(w_1 / x_1) = p(z_1z_1z_1 / y_1y_1y_1) + p(z_1z_1z_2 / y_1y_1y_1) + p(z_1z_2z_1 / y_1y_1y_1) + p(z_2z_1z_1 / y_1y_1y_1)$$
+$$p(w_1 / x_1) = p(z_1 / y_1)^3 + 3 p(z_1 / y_1)^2 p(z_2 / y_1) = 0.84375$$
+$$p(w_2 / x_1) = 1 - 0.84375 = 0.15625$$
+$$p(w_1 / x_2) = 0.00725$$
+$$p(w_2 / x_2) = 0.99275$$
+
+$$p(w_1) = p(x_1) p(w_1 / x_1) + p(x_2) p(w_1 / x_2) = 0.67645$$
+$$p(w_2) = 0.32355$$
+
+$$H(W) = - \frac{1}{\ln{2}} ( p(w_1) \ln p(w_1) + p(w_2) \ln p(w_2) ) = 0.9082$$
+$$H(W / x_1) = 0.625262$$
+$$H(W / x_2) = 0.06195$$
+
+$$H(W / X) = p(x_1) H(W / x_1) + p(x_2) H( W / x_2) = 0.5125$$
+
+$$I(X, W) = H(W) - H(W / X) = 0.3956$$
+
+Vjerovatnoća greške:
+$$p_e = 1 - 0.8 \cdot 0.84375 - 0.2 \cdot 0.99275 = 0.126$$
+ 
+Brzina prenosa:
+
+$$\overline{I(X, W)} = \frac{0.1318}{\tau}$$
 
 
 \end{document}
