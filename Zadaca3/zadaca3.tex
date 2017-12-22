@@ -1296,21 +1296,364 @@ $$1111101110100111100111100111111111101$$
 \newpage
 c)\\
 
+Za $S_a$
+
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|l|l}
+\cline{1-3}
+c & 0.4 & 0.4/0 &  \\ \hline
+b & 0.3 & \multirow{2}{*}{0.6/1} & \multicolumn{1}{l|}{0.3/10} \\ \cline{1-2} \cline{4-4} 
+a & 0.3 &  & \multicolumn{1}{l|}{0.3/11} \\ \hline
+\end{tabular}
+\end{table}
+
+c - 0, b - 10, a - 11
+
+$$n_{sr} = 1.6$$
 
 
+Za $S_b$
+
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|l|l}
+\cline{1-3}
+c & 0.5 & 0.5/0 &  \\ \hline
+b & 0.3 & \multirow{2}{*}{0.5/1} & \multicolumn{1}{l|}{0.3/10} \\ \cline{1-2} \cline{4-4} 
+a & 0.2 &  & \multicolumn{1}{l|}{0.2/11} \\ \hline
+\end{tabular}
+\end{table}
+
+c - 0, b - 10, a - 11
+
+$$n_{sr} = 1.5$$
 
 
+Za $S_c$
+
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|l|l}
+\cline{1-3}
+c & 0.8 & 0.8/0 &  \\ \hline
+b & 0.1 & \multirow{2}{*}{0.2/1} & \multicolumn{1}{l|}{0.1/10} \\ \cline{1-2} \cline{4-4} 
+a & 0.1 &  & \multicolumn{1}{l|}{0.1/11} \\ \hline
+\end{tabular}
+\end{table}
+
+c - 0, b - 10, a - 11
+
+$$n_{sr} = 1.2$$
+
+Po svim stanjima: $$n_{sr} = 0.145 \cdot 1.6 + 0.161 \cdot 1.5 + 0.693 \cdot 1.2 = 1.3051$$
+
+$$\overline{I(X)} = \frac{0.8473}{\tau}$$
+Iskorištenost: 84.73\%
+
+Poruka za $S_a = S_b = S_c$  jer im je isto kodiranje:
+
+$$10111101001010101011111110$$
+
+\newpage
+d)\\
+
+Za sva stanja kodiramo pomoću stabla:
+
+Za $S_a$
+
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (38.7,-5.8) circle (3);
+\draw (38.7,-5.8) node {$1$};
+\draw [black] (18.1,-19.4) circle (3);
+\draw (18.1,-19.4) node {$0.52$};
+\draw [black] (59,-18.6) circle (3);
+\draw (59,-18.6) node {$0.48$};
+\draw [black] (8.5,-30.2) circle (3);
+\draw (8.5,-30.2) node {$0.28$};
+\draw [black] (29.2,-30.2) circle (3);
+\draw (29.2,-30.2) node {$0.24$};
+\draw [black] (50,-29.6) circle (3);
+\draw (50,-29.6) node {$0.21$};
+\draw [black] (68.4,-29.6) circle (3);
+\draw (68.4,-29.6) node {$0.27$};
+\draw [black] (4.7,-41.9) circle (3);
+\draw (4.7,-41.9) node {$cc$};
+\draw [black] (14.5,-41.1) circle (3);
+\draw (14.5,-41.1) node {$ac$};
+\draw [black] (24.8,-41.1) circle (3);
+\draw (24.8,-41.1) node {$bc$};
+\draw [black] (35,-41.1) circle (3);
+\draw (35,-41.1) node {$ca$};
+\draw [black] (44.3,-40.8) circle (3);
+\draw (44.3,-40.8) node {$cb$};
+\draw [black] (53.7,-41.1) circle (3);
+\draw (53.7,-41.1) node {$aa$};
+\draw [black] (62.7,-41.1) circle (3);
+\draw (62.7,-41.1) node {$ab$};
+\draw [black] (72.1,-41.1) circle (3);
+\draw (72.1,-41.1) node {$0.18$};
+\draw [black] (65.5,-49.6) circle (3);
+\draw (65.5,-49.6) node {$ba$};
+\draw [black] (76.6,-50.2) circle (3);
+\draw (76.6,-50.2) node {$bb$};
+\draw [black] (36.2,-7.45) -- (20.6,-17.75);
+\fill [black] (20.6,-17.75) -- (21.55,-17.72) -- (21,-16.89);
+\draw (27.4,-12.1) node [above] {$0$};
+\draw [black] (41.24,-7.4) -- (56.46,-17);
+\fill [black] (56.46,-17) -- (56.05,-16.15) -- (55.52,-17);
+\draw (47.85,-12.7) node [below] {$1$};
+\draw [black] (16.11,-21.64) -- (10.49,-27.96);
+\fill [black] (10.49,-27.96) -- (11.4,-27.69) -- (10.65,-27.03);
+\draw (12.76,-23.35) node [left] {$0$};
+\draw [black] (20.25,-21.49) -- (27.05,-28.11);
+\fill [black] (27.05,-28.11) -- (26.83,-27.19) -- (26.13,-27.91);
+\draw (22.63,-25.28) node [below] {$1$};
+\draw [black] (57.1,-20.92) -- (51.9,-27.28);
+\fill [black] (51.9,-27.28) -- (52.79,-26.98) -- (52.02,-26.34);
+\draw (53.94,-22.67) node [left] {$0$};
+\draw [black] (60.95,-20.88) -- (66.45,-27.32);
+\fill [black] (66.45,-27.32) -- (66.31,-26.39) -- (65.55,-27.04);
+\draw (63.15,-25.54) node [left] {$1$};
+\draw [black] (7.57,-33.05) -- (5.63,-39.05);
+\fill [black] (5.63,-39.05) -- (6.35,-38.44) -- (5.4,-38.13);
+\draw (5.83,-35.37) node [left] {$0$};
+\draw [black] (9.95,-32.83) -- (13.05,-38.47);
+\fill [black] (13.05,-38.47) -- (13.11,-37.53) -- (12.23,-38.01);
+\draw (10.83,-36.84) node [left] {$1$};
+\draw [black] (28.08,-32.98) -- (25.92,-38.32);
+\fill [black] (25.92,-38.32) -- (26.69,-37.76) -- (25.76,-37.39);
+\draw (26.26,-34.76) node [left] {$0$};
+\draw [black] (30.61,-32.85) -- (33.59,-38.45);
+\fill [black] (33.59,-38.45) -- (33.66,-37.51) -- (32.77,-37.98);
+\draw (31.42,-36.81) node [left] {$1$};
+\draw [black] (48.64,-32.27) -- (45.66,-38.13);
+\fill [black] (45.66,-38.13) -- (46.47,-37.64) -- (45.58,-37.19);
+\draw (46.46,-34.08) node [left] {$0$};
+\draw [black] (50.92,-32.46) -- (52.78,-38.24);
+\fill [black] (52.78,-38.24) -- (53.01,-37.33) -- (52.06,-37.64);
+\draw (51.08,-36.02) node [left] {$1$};
+\draw [black] (67.07,-32.29) -- (64.03,-38.41);
+\fill [black] (64.03,-38.41) -- (64.84,-37.92) -- (63.94,-37.47);
+\draw (64.85,-34.25) node [left] {$0$};
+\draw [black] (69.32,-32.46) -- (71.18,-38.24);
+\fill [black] (71.18,-38.24) -- (71.41,-37.33) -- (70.46,-37.64);
+\draw (69.48,-36.02) node [left] {$1$};
+\draw [black] (70.26,-43.47) -- (67.34,-47.23);
+\fill [black] (67.34,-47.23) -- (68.23,-46.91) -- (67.44,-46.29);
+\draw (68.23,-43.94) node [left] {$0$};
+\draw [black] (73.43,-43.79) -- (75.27,-47.51);
+\fill [black] (75.27,-47.51) -- (75.36,-46.57) -- (74.47,-47.02);
+\draw (73.65,-46.75) node [left] {$1$};
+\end{tikzpicture}
+\end{center}
+
+$$n_{sr} = 3.18$$
+
+Poruka: baacbcbbbbaaab
+
+$$111000101011111111101110$$
+
+Za $S_b$
+
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (30.1,-4.9) circle (3);
+\draw (30.1,-4.9) node {$1$};
+\draw [black] (13.5,-13.3) circle (3);
+\draw (13.5,-13.3) node {$0.55$};
+\draw [black] (54.7,-11.3) circle (3);
+\draw (54.7,-11.3) node {$0.45$};
+\draw [black] (4.6,-23.7) circle (3);
+\draw (4.6,-23.7) node {$cc$};
+\draw [black] (17.4,-23.7) circle (3);
+\draw (17.4,-23.7) node {$0.3$};
+\draw [black] (9.9,-35.5) circle (3);
+\draw (9.9,-35.5) node {$bc$};
+\draw [black] (21.8,-35.5) circle (3);
+\draw (21.8,-35.5) node {$cb$};
+\draw [black] (45.3,-23) circle (3);
+\draw (45.3,-23) node {$0.2$};
+\draw [black] (65.2,-21.7) circle (3);
+\draw (65.2,-21.7) node {$0.25$};
+\draw [black] (36.6,-33.5) circle (3);
+\draw (36.6,-33.5) node {$ac$};
+\draw [black] (49.6,-34.3) circle (3);
+\draw (49.6,-34.3) node {$ca$};
+\draw [black] (58.9,-34.3) circle (3);
+\draw (58.9,-34.3) node {$0.15$};
+\draw [black] (74.3,-32.3) circle (3);
+\draw (74.3,-32.3) node {$0.1$};
+\draw [black] (68.7,-42.3) circle (3);
+\draw (68.7,-42.3) node {$ba$};
+\draw [black] (77.1,-42.9) circle (3);
+\draw (77.1,-42.9) node {$aa$};
+\draw [black] (52.8,-42.9) circle (3);
+\draw (52.8,-42.9) node {$bb$};
+\draw [black] (61.6,-43.8) circle (3);
+\draw (61.6,-43.8) node {$ab$};
+\draw [black] (27.42,-6.25) -- (16.18,-11.95);
+\fill [black] (16.18,-11.95) -- (17.12,-12.03) -- (16.66,-11.14);
+\draw (20.81,-8.6) node [above] {$0$};
+\draw [black] (33,-5.66) -- (51.8,-10.54);
+\fill [black] (51.8,-10.54) -- (51.15,-9.86) -- (50.9,-10.83);
+\draw (41.65,-8.67) node [below] {$1$};
+\draw [black] (11.55,-15.58) -- (6.55,-21.42);
+\fill [black] (6.55,-21.42) -- (7.45,-21.14) -- (6.69,-20.49);
+\draw (8.5,-17.06) node [left] {$0$};
+\draw [black] (14.55,-16.11) -- (16.35,-20.89);
+\fill [black] (16.35,-20.89) -- (16.53,-19.97) -- (15.6,-20.32);
+\draw (14.69,-19.32) node [left] {$1$};
+\draw [black] (15.79,-26.23) -- (11.51,-32.97);
+\fill [black] (11.51,-32.97) -- (12.36,-32.56) -- (11.52,-32.02);
+\draw (13.03,-28.3) node [left] {$0$};
+\draw [black] (18.45,-26.51) -- (20.75,-32.69);
+\fill [black] (20.75,-32.69) -- (20.94,-31.76) -- (20,-32.11);
+\draw (18.84,-30.41) node [left] {$1$};
+\draw [black] (52.82,-13.64) -- (47.18,-20.66);
+\fill [black] (47.18,-20.66) -- (48.07,-20.35) -- (47.29,-19.72);
+\draw (49.44,-15.73) node [left] {$0$};
+\draw [black] (56.83,-13.41) -- (63.07,-19.59);
+\fill [black] (63.07,-19.59) -- (62.85,-18.67) -- (62.15,-19.38);
+\draw (58.93,-16.98) node [below] {$1$};
+\draw [black] (43.39,-25.31) -- (38.51,-31.19);
+\fill [black] (38.51,-31.19) -- (39.41,-30.89) -- (38.64,-30.25);
+\draw (40.4,-26.82) node [left] {$0$};
+\draw [black] (46.37,-25.8) -- (48.53,-31.5);
+\fill [black] (48.53,-31.5) -- (48.72,-30.57) -- (47.78,-30.93);
+\draw (46.7,-29.48) node [left] {$1$};
+\draw [black] (63.86,-24.38) -- (60.24,-31.62);
+\fill [black] (60.24,-31.62) -- (61.05,-31.12) -- (60.15,-30.68);
+\draw (61.35,-26.89) node [left] {$0$};
+\draw [black] (67.15,-23.98) -- (72.35,-30.02);
+\fill [black] (72.35,-30.02) -- (72.2,-29.09) -- (71.45,-29.74);
+\draw (69.2,-28.45) node [left] {$1$};
+\draw [black] (72.83,-34.92) -- (70.17,-39.68);
+\fill [black] (70.17,-39.68) -- (70.99,-39.23) -- (70.12,-38.74);
+\draw (70.84,-36.09) node [left] {$0$};
+\draw [black] (75.07,-35.2) -- (76.33,-40);
+\fill [black] (76.33,-40) -- (76.61,-39.1) -- (75.65,-39.35);
+\draw (74.94,-38.1) node [left] {$1$};
+\draw [black] (57.16,-36.75) -- (54.54,-40.45);
+\fill [black] (54.54,-40.45) -- (55.41,-40.09) -- (54.59,-39.51);
+\draw (55.26,-37.23) node [left] {$0$};
+\draw [black] (59.72,-37.19) -- (60.78,-40.91);
+\fill [black] (60.78,-40.91) -- (61.04,-40.01) -- (60.08,-40.28);
+\draw (59.48,-39.61) node [left] {$1$};
+\end{tikzpicture}
+\end{center}
+
+$$n_{sr} = 3$$
+
+Poruka:
+
+$$11101000101100110011111101$$
+
+Za $S_c$
 
 
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (22.6,-5) circle (3);
+\draw (22.6,-5) node {$1$};
+\draw [black] (11,-16.3) circle (3);
+\draw (11,-16.3) node {$cc$};
+\draw [black] (40.5,-9.5) circle (3);
+\draw (40.5,-9.5) node {$0.36$};
+\draw [black] (32.4,-17.4) circle (3);
+\draw (32.4,-17.4) node {$0.16$};
+\draw [black] (54.5,-15.5) circle (3);
+\draw (54.5,-15.5) node {$0.20$};
+\draw [black] (25.7,-28.2) circle (3);
+\draw (25.7,-28.2) node {$ac$};
+\draw [black] (36.9,-28.2) circle (3);
+\draw (36.9,-28.2) node {$bc$};
+\draw [black] (46.7,-27.1) circle (3);
+\draw (46.7,-27.1) node {$ca$};
+\draw [black] (60.1,-25.1) circle (3);
+\draw (60.1,-25.1) node {$0.12$};
+\draw [black] (54.5,-34.8) circle (3);
+\draw (54.5,-34.8) node {$cb$};
+\draw [black] (64,-34.8) circle (3);
+\draw (64,-34.8) node {$0.04$};
+\draw [black] (59.3,-44.4) circle (3);
+\draw (59.3,-44.4) node {$0.02$};
+\draw [black] (71.5,-44.4) circle (3);
+\draw (71.5,-44.4) node {$0.02$};
+\draw [black] (52.5,-53.5) circle (3);
+\draw (52.5,-53.5) node {$aa$};
+\draw [black] (61.6,-54.1) circle (3);
+\draw (61.6,-54.1) node {$ab$};
+\draw [black] (68.9,-53.6) circle (3);
+\draw (68.9,-53.6) node {$ba$};
+\draw [black] (76,-53.6) circle (3);
+\draw (76,-53.6) node {$bb$};
+\draw [black] (20.45,-7.09) -- (13.15,-14.21);
+\fill [black] (13.15,-14.21) -- (14.07,-14.01) -- (13.37,-13.29);
+\draw (15.78,-10.17) node [above] {$0$};
+\draw [black] (25.51,-5.73) -- (37.59,-8.77);
+\fill [black] (37.59,-8.77) -- (36.94,-8.09) -- (36.69,-9.06);
+\draw (30.83,-7.82) node [below] {$1$};
+\draw [black] (38.35,-11.59) -- (34.55,-15.31);
+\fill [black] (34.55,-15.31) -- (35.47,-15.1) -- (34.77,-14.39);
+\draw (35.43,-12.97) node [above] {$0$};
+\draw [black] (43.26,-10.68) -- (51.74,-14.32);
+\fill [black] (51.74,-14.32) -- (51.2,-13.54) -- (50.81,-14.46);
+\draw (46.53,-13.01) node [below] {$1$};
+\draw [black] (30.82,-19.95) -- (27.28,-25.65);
+\fill [black] (27.28,-25.65) -- (28.13,-25.23) -- (27.28,-24.71);
+\draw (28.42,-21.51) node [left] {$0$};
+\draw [black] (33.55,-20.17) -- (35.75,-25.43);
+\fill [black] (35.75,-25.43) -- (35.9,-24.5) -- (34.98,-24.88);
+\draw (33.91,-23.73) node [left] {$1$};
+\draw [black] (52.83,-17.99) -- (48.37,-24.61);
+\fill [black] (48.37,-24.61) -- (49.24,-24.23) -- (48.41,-23.67);
+\draw (49.99,-19.96) node [left] {$0$};
+\draw [black] (56.01,-18.09) -- (58.59,-22.51);
+\fill [black] (58.59,-22.51) -- (58.62,-21.57) -- (57.75,-22.07);
+\draw (56.65,-21.54) node [left] {$1$};
+\draw [black] (58.6,-27.7) -- (56,-32.2);
+\fill [black] (56,-32.2) -- (56.83,-31.76) -- (55.97,-31.26);
+\draw (56.65,-28.72) node [left] {$0$};
+\draw [black] (61.22,-27.88) -- (62.88,-32.02);
+\fill [black] (62.88,-32.02) -- (63.05,-31.09) -- (62.12,-31.46);
+\draw (61.3,-30.84) node [left] {$1$};
+\draw [black] (62.68,-37.49) -- (60.62,-41.71);
+\fill [black] (60.62,-41.71) -- (61.42,-41.21) -- (60.52,-40.77);
+\draw (60.95,-38.51) node [left] {$0$};
+\draw [black] (65.85,-37.16) -- (69.65,-42.04);
+\fill [black] (69.65,-42.04) -- (69.55,-41.1) -- (68.77,-41.71);
+\draw (67.18,-41.01) node [left] {$1$};
+\draw [black] (57.5,-46.8) -- (54.3,-51.1);
+\fill [black] (54.3,-51.1) -- (55.18,-50.76) -- (54.37,-50.16);
+\draw (55.32,-47.55) node [left] {$0$};
+\draw [black] (59.99,-47.32) -- (60.91,-51.18);
+\fill [black] (60.91,-51.18) -- (61.21,-50.29) -- (60.24,-50.52);
+\draw (59.69,-49.67) node [left] {$1$};
+\draw [black] (70.68,-47.29) -- (69.72,-50.71);
+\fill [black] (69.72,-50.71) -- (70.41,-50.08) -- (69.45,-49.81);
+\draw (69.43,-48.45) node [left] {$0$};
+\draw [black] (72.82,-47.09) -- (74.68,-50.91);
+\fill [black] (74.68,-50.91) -- (74.78,-49.97) -- (73.88,-50.41);
+\draw (73.05,-50.09) node [left] {$1$};
+\end{tikzpicture}
+\end{center}
 
+$$n_{sr} = 2.16$$
 
+Poruka:
 
+$$111110100101111111111111111100111101$$
 
+Po svim stanjima: $n_{sr} = 0.145 \cdot 3.18 + 0.161 \cdot 3 + 0.693 \dot 2.16 = 2.44098$
 
+$$\overline{I(X)} = \frac{0.90667}{\tau}$$
 
-
-
-
+Iskorištenost: 90.60\%
 
 
 \end{document}
