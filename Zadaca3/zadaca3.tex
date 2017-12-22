@@ -701,13 +701,421 @@ $$p(D) = 0.25$$
 Za ovaj izvor informacija formirajte
 
 a)Binarni Shannon-Fano kod sa simbolima 0 i 1;
+
 b)Binarni Huffmanov kod sa simbolima 0 i 1;
+
 c)Binarni Shannon-Fano kod sa simbolima 0 i 1, ali kodirajući parove poruka umjesto individualnih poruka;
+
 d)Binarni Huffmanov kod sa simbolima 0 i 1, ali kodirajući parove poruka umjesto individualnih poruka.
 
 Za sva četiri načina kodiranja, izračunajte protok informacija kroz komunikacioni kanal, procenat iskorištenja kanala veze, te kodirajte sekvencu poruka ADBBAAADDC.
 
 \underline{Rješenje:}\\
+
+a)\\
+
+Sortiramo:
+
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+B & 0.35 \\ \hline
+C & 0.35 \\ \hline
+D & 0.25 \\ \hline
+A & 0.05 \\ \hline
+\end{tabular}
+\end{table}
+
+Kodiramo pomoću binarnog stabla:
+
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (38.3,-10.9) circle (3);
+\draw (38.3,-10.9) node {$1$};
+\draw [black] (27.4,-21.1) circle (3);
+\draw (27.4,-21.1) node {$B$};
+\draw [black] (48.7,-21.1) circle (3);
+\draw (48.7,-21.1) node {$0.65$};
+\draw [black] (40.5,-32.7) circle (3);
+\draw (40.5,-32.7) node {$C$};
+\draw [black] (56.4,-32.7) circle (3);
+\draw (56.4,-32.7) node {$0.3$};
+\draw [black] (50,-45.1) circle (3);
+\draw (50,-45.1) node {$D$};
+\draw [black] (64.3,-45.1) circle (3);
+\draw (64.3,-45.1) node {$A$};
+\draw [black] (36.11,-12.95) -- (29.59,-19.05);
+\fill [black] (29.59,-19.05) -- (30.52,-18.87) -- (29.83,-18.14);
+\draw (31.83,-15.52) node [above] {$0$};
+\draw [black] (40.44,-13) -- (46.56,-19);
+\fill [black] (46.56,-19) -- (46.34,-18.08) -- (45.64,-18.8);
+\draw (44.52,-15.52) node [above] {$1$};
+\draw [black] (46.97,-23.55) -- (42.23,-30.25);
+\fill [black] (42.23,-30.25) -- (43.1,-29.89) -- (42.29,-29.31);
+\draw (44.01,-25.53) node [left] {$0$};
+\draw [black] (50.36,-23.6) -- (54.74,-30.2);
+\fill [black] (54.74,-30.2) -- (54.72,-29.26) -- (53.88,-29.81);
+\draw (51.94,-28.23) node [left] {$1$};
+\draw [black] (55.02,-35.37) -- (51.38,-42.43);
+\fill [black] (51.38,-42.43) -- (52.19,-41.95) -- (51.3,-41.49);
+\draw (52.51,-37.76) node [left] {$0$};
+\draw [black] (58.01,-35.23) -- (62.69,-42.57);
+\fill [black] (62.69,-42.57) -- (62.68,-41.63) -- (61.84,-42.16);
+\draw (59.73,-40.21) node [left] {$1$};
+\end{tikzpicture}
+\end{center}
+
+A - 111, B - 0, C - 10, D - 110
+
+$$n_{sr} = \sum_{i = 1}^{4}n_i p_i = 1.95$$
+$$H(X/X^{\infty}) \approx 1.7763$$
+
+$$\overline{I(X)} \approx \frac{0.9109}{\tau}$$
+Pa je iskorištenost kanala veze 91.09\%
+
+Poruka: ADBBAAADDC
+
+$$1111100011111111111011010$$
+\newpage
+b)\\
+
+
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\multicolumn{2}{|l|}{Početak} & \multicolumn{2}{l|}{Iteracija 1} & \multicolumn{2}{l|}{Iteracija 2} & \multicolumn{2}{l|}{Iteracija 3} \\ \hline
+B & 0.35 & B & 0.35 & C/0 & \multirow{3}{*}{0.65} & C/00 & \multirow{4}{*}{1} \\ \cline{1-4}
+C & 0.35 & C & 0.35 & D/10 &  & D/010 &  \\ \cline{1-4}
+D & 0.25 & D/0 & \multirow{2}{*}{0.3} & A/11 &  & A/011 &  \\ \cline{1-2} \cline{5-6}
+A & 0.05 & A/1 &  & B & 0.35 & B/1 &  \\ \hline
+\end{tabular}
+\end{table}
+
+Iskorištenost kanala veze, entropija i prosječna dužina riječi su iste kao i u pod a)
+
+Poruka: ADBBAAADDC
+
+$$0110101101101101101001000$$
+
+\newpage
+c)\\
+
+Sortirane vjerovatnoće parova poruka $p(x_1 x_2) = p(x_1) p(x_2)$ su date u sljedećoj tabeli:
+
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+BB & 0.1225 \\ \hline
+BC & 0.1225 \\ \hline
+CB & 0.1225 \\ \hline
+CC & 0.1225 \\ \hline
+BD & 0.0875 \\ \hline
+CD & 0.0875 \\ \hline
+DB & 0.0875 \\ \hline
+DC & 0.0875 \\ \hline
+DD & 0.0625 \\ \hline
+AB & 0.0175 \\ \hline
+AC & 0.0175 \\ \hline
+BA & 0.0175 \\ \hline
+CA & 0.0175 \\ \hline
+AD & 0.0125 \\ \hline
+DA & 0.0125 \\ \hline
+AA & 0.0025 \\ \hline
+\end{tabular}
+\end{table}
+
+Kodiramo pomoću binarnog stabla:
+
+\newpage
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (20.9,-3.9) circle (3);
+\draw (20.9,-3.9) node {$1$};
+\draw [black] (11.3,-17.1) circle (3);
+\draw (11.3,-17.1) node {$0.49$};
+\draw [black] (5.5,-31.3) circle (3);
+\draw (5.5,-31.3) node {$0.245$};
+\draw [black] (21.8,-30.7) circle (3);
+\draw (21.8,-30.7) node {$0.245$};
+\draw [black] (3.2,-45) circle (3);
+\draw (3.2,-45) node {$BB$};
+\draw [black] (13.1,-45) circle (3);
+\draw (13.1,-45) node {$BC$};
+\draw [black] (20.2,-45) circle (3);
+\draw (20.2,-45) node {$CB$};
+\draw [black] (30.4,-45) circle (3);
+\draw (30.4,-45) node {$CC$};
+\draw [black] (33.6,-8.2) circle (3);
+\draw (33.6,-8.2) node {$0.51$};
+\draw [black] (30.4,-17.8) circle (3);
+\draw (30.4,-17.8) node {$0.2625$};
+\draw [black] (48.8,-10.2) circle (3);
+\draw (48.8,-10.2) node {$0.2475$};
+\draw [black] (29.5,-26.8) circle (3);
+\draw (29.5,-26.8) node {$BD$};
+\draw [black] (39.7,-25.5) circle (3);
+\draw (39.7,-25.5) node {$0.175$};
+\draw [black] (32.9,-35) circle (3);
+\draw (32.9,-35) node {$CD$};
+\draw [black] (41.9,-35) circle (3);
+\draw (41.9,-35) node {$DB$};
+\draw [black] (43.7,-18.5) circle (3);
+\draw (43.7,-18.5) node {$DC$};
+\draw [black] (59.3,-14.3) circle (3);
+\draw (59.3,-14.3) node {$0.16$};
+\draw [black] (50.7,-19.5) circle (3);
+\draw (50.7,-19.5) node {$0.08$};
+\draw [black] (70.9,-20.1) circle (3);
+\draw (70.9,-20.1) node {$0.08$};
+\draw [black] (47.4,-29.3) circle (3);
+\draw (47.4,-29.3) node {$DD$};
+\draw [black] (54.9,-28.4) circle (3);
+\draw (54.9,-28.4) node {$AB$};
+\draw [black] (47.4,-41.6) circle (3);
+\draw (47.4,-41.6) node {$0.035$};
+\draw [black] (71.8,-32.3) circle (3);
+\draw (71.8,-32.3) node {$0.045$};
+\draw [black] (38.3,-50.4) circle (3);
+\draw (38.3,-50.4) node {$AC$};
+\draw [black] (49.4,-50.4) circle (3);
+\draw (49.4,-50.4) node {$BA$};
+\draw [black] (59.3,-41.6) circle (3);
+\draw (59.3,-41.6) node {$0.03$};
+\draw [black] (76.8,-43.2) circle (3);
+\draw (76.8,-43.2) node {$0.015$};
+\draw [black] (55.9,-52.9) circle (3);
+\draw (55.9,-52.9) node {$CA$};
+\draw [black] (63.3,-52.9) circle (3);
+\draw (63.3,-52.9) node {$AD$};
+\draw [black] (70.1,-54.3) circle (3);
+\draw (70.1,-54.3) node {$DA$};
+\draw [black] (76.8,-54.3) circle (3);
+\draw (76.8,-54.3) node {$AA$};
+\draw [black] (19.14,-6.33) -- (13.06,-14.67);
+\fill [black] (13.06,-14.67) -- (13.94,-14.32) -- (13.13,-13.73);
+\draw (15.51,-9.12) node [left] {$0$};
+\draw [black] (10.17,-19.88) -- (6.63,-28.52);
+\fill [black] (6.63,-28.52) -- (7.4,-27.97) -- (6.47,-27.59);
+\draw (7.66,-23.29) node [left] {$0$};
+\draw [black] (13.13,-19.47) -- (19.97,-28.33);
+\fill [black] (19.97,-28.33) -- (19.87,-27.39) -- (19.08,-28);
+\draw (15.98,-25.31) node [left] {$1$};
+\draw [black] (5,-34.26) -- (3.7,-42.04);
+\fill [black] (3.7,-42.04) -- (4.32,-41.34) -- (3.34,-41.17);
+\draw (3.64,-37.92) node [left] {$0$};
+\draw [black] (6.96,-33.92) -- (11.64,-42.38);
+\fill [black] (11.64,-42.38) -- (11.69,-41.43) -- (10.82,-41.92);
+\draw (8.63,-39.35) node [left] {$1$};
+\draw [black] (21.47,-33.68) -- (20.53,-42.02);
+\fill [black] (20.53,-42.02) -- (21.12,-41.28) -- (20.13,-41.17);
+\draw (20.34,-37.74) node [left] {$0$};
+\draw [black] (23.35,-33.27) -- (28.85,-42.43);
+\fill [black] (28.85,-42.43) -- (28.87,-41.49) -- (28.01,-42);
+\draw (25.46,-39.11) node [left] {$1$};
+\draw [black] (23.74,-4.86) -- (30.76,-7.24);
+\fill [black] (30.76,-7.24) -- (30.16,-6.51) -- (29.84,-7.45);
+\draw (28.15,-5.52) node [above] {$1$};
+\draw [black] (32.65,-11.05) -- (31.35,-14.95);
+\fill [black] (31.35,-14.95) -- (32.08,-14.35) -- (31.13,-14.04);
+\draw (31.23,-12.3) node [left] {$0$};
+\draw [black] (30.1,-20.79) -- (29.8,-23.81);
+\fill [black] (29.8,-23.81) -- (30.38,-23.07) -- (29.38,-22.97);
+\draw (29.31,-22.21) node [left] {$0$};
+\draw [black] (32.71,-19.71) -- (37.39,-23.59);
+\fill [black] (37.39,-23.59) -- (37.09,-22.69) -- (36.45,-23.46);
+\draw (34.04,-22.14) node [below] {$1$};
+\draw [black] (37.95,-27.94) -- (34.65,-32.56);
+\fill [black] (34.65,-32.56) -- (35.52,-32.2) -- (34.71,-31.62);
+\draw (35.71,-28.88) node [left] {$0$};
+\draw [black] (40.38,-28.42) -- (41.22,-32.08);
+\fill [black] (41.22,-32.08) -- (41.53,-31.19) -- (40.56,-31.41);
+\draw (40.05,-30.65) node [left] {$1$};
+\draw [black] (36.57,-8.59) -- (45.83,-9.81);
+\fill [black] (45.83,-9.81) -- (45.1,-9.21) -- (44.97,-10.2);
+\draw (41.5,-8.61) node [above] {$1$};
+\draw [black] (47.23,-12.76) -- (45.27,-15.94);
+\fill [black] (45.27,-15.94) -- (46.12,-15.52) -- (45.26,-15);
+\draw (45.62,-13.07) node [left] {$0$};
+\draw [black] (51.59,-11.29) -- (56.51,-13.21);
+\fill [black] (56.51,-13.21) -- (55.94,-12.45) -- (55.58,-13.38);
+\draw (55,-11.73) node [above] {$1$};
+\draw [black] (56.73,-15.85) -- (53.27,-17.95);
+\fill [black] (53.27,-17.95) -- (54.21,-17.96) -- (53.69,-17.11);
+\draw (54,-16.4) node [above] {$0$};
+\draw [black] (61.98,-15.64) -- (68.22,-18.76);
+\fill [black] (68.22,-18.76) -- (67.72,-17.95) -- (67.28,-18.85);
+\draw (66.09,-16.7) node [above] {$1$};
+\draw [black] (49.74,-22.34) -- (48.36,-26.46);
+\fill [black] (48.36,-26.46) -- (49.09,-25.86) -- (48.14,-25.54);
+\draw (48.28,-23.69) node [left] {$0$};
+\draw [black] (51.98,-22.21) -- (53.62,-25.69);
+\fill [black] (53.62,-25.69) -- (53.73,-24.75) -- (52.83,-25.18);
+\draw (52.09,-25) node [left] {$1$};
+\draw [black] (68.69,-22.13) -- (49.61,-39.57);
+\fill [black] (49.61,-39.57) -- (50.54,-39.4) -- (49.87,-38.67);
+\draw (58.14,-30.36) node [above] {$0$};
+\draw [black] (71.12,-23.09) -- (71.58,-29.31);
+\fill [black] (71.58,-29.31) -- (72.02,-28.47) -- (71.02,-28.55);
+\draw (70.74,-26.25) node [left] {$1$};
+\draw [black] (45.24,-43.69) -- (40.46,-48.31);
+\fill [black] (40.46,-48.31) -- (41.38,-48.12) -- (40.68,-47.4);
+\draw (41.83,-45.52) node [above] {$0$};
+\draw [black] (48.06,-44.53) -- (48.74,-47.47);
+\fill [black] (48.74,-47.47) -- (49.05,-46.58) -- (48.07,-46.81);
+\draw (47.65,-46.39) node [left] {$1$};
+\draw [black] (69.39,-34.09) -- (61.71,-39.81);
+\fill [black] (61.71,-39.81) -- (62.65,-39.73) -- (62.05,-38.93);
+\draw (64.55,-36.45) node [above] {$0$};
+\draw [black] (73.05,-35.03) -- (75.55,-40.47);
+\fill [black] (75.55,-40.47) -- (75.67,-39.54) -- (74.76,-39.95);
+\draw (73.58,-38.77) node [left] {$1$};
+\draw [black] (58.44,-44.47) -- (56.76,-50.03);
+\fill [black] (56.76,-50.03) -- (57.47,-49.41) -- (56.52,-49.12);
+\draw (56.83,-46.64) node [left] {$0$};
+\draw [black] (60.3,-44.43) -- (62.3,-50.07);
+\fill [black] (62.3,-50.07) -- (62.5,-49.15) -- (61.56,-49.48);
+\draw (60.54,-48.01) node [left] {$1$};
+\draw [black] (75.25,-45.77) -- (71.65,-51.73);
+\fill [black] (71.65,-51.73) -- (72.49,-51.31) -- (71.64,-50.79);
+\draw (72.81,-47.48) node [left] {$0$};
+\draw [black] (76.8,-46.2) -- (76.8,-51.3);
+\fill [black] (76.8,-51.3) -- (77.3,-50.5) -- (76.3,-50.5);
+\draw (76.3,-48.75) node [left] {$1$};
+\end{tikzpicture}
+\end{center}
+
+Kodiranja su sljedeća:
+
+BB - 000, BC - 001, CB - 010, CC - 011, BD - 100, DC - 110
+
+CD - 1010, DB - 1011, DD - 11100, AB - 11101, AC - 111100, BA - 111101
+
+CA - 1111100, AD - 1111101, DA - 1111110, AA - 1111111
+
+$$H(X/X^{\infty}) = - \frac{1}{\ln{2}} \sum_{i = 1}^{16} p_i \ln{p_i} \approx 3.5526$$
+$$n_{sr} = \sum_{i = 1}^{16} p_i n_i = 3.62$$
+
+Protok:
+
+$$\overline{I(X)} = \frac{0.9814}{\tau}$$
+
+Tj. $98.14\%$
+
+Poruka: ADBBAAADDC
+
+$$111110100011111111111101110$$
+
+\newpage
+
+d)\\
+
+$m = 2, m^{*} = 2$
+
+Zadatak je urađen u 14 iteracija, ovdje ćemo prikazati njih 5(ostale ćemo preskočiti):
+
+\begin{table}[hp]
+\hspace*{-1.25in}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multicolumn{2}{|l|}{Početak} & \multicolumn{2}{l|}{Iteracija 1} & \multicolumn{2}{l|}{Iteracija 2} & \multicolumn{2}{l|}{Iteracija 3} & \multicolumn{2}{l|}{Iteracija 4} & \multicolumn{2}{l|}{Iteracija 5} \\ \hline
+BB & 0.1225 & BB & 0.1225 & CD/0 & \multirow{2}{*}{0.175} & CB/0 & \multirow{2}{*}{0.245} & BB/00 & \multirow{10}{*}{0.43} & CD/0000 & \multirow{16}{*}{1} \\ \cline{1-5}
+BC & 0.1225 & BC & 0.1225 & DB/1 &  & CC/1 &  & BC/01 &  & DB/0001 &  \\ \cline{1-8}
+CB & 0.1225 & CB & 0.1225 & DC/0 & \multirow{2}{*}{0.15} & BB/0 & \multirow{2}{*}{0.245} & AB/10000 &  & DC/0010 &  \\ \cline{1-5}
+CC & 0.1225 & CC & 0.1225 & DD/1 &  & BC/1 &  & AC/10001 &  & DD/0011 &  \\ \cline{1-8}
+BD & 0.0875 & BD & 0.0875 & BB & 0.1225 & AB/0000 & \multirow{8}{*}{0.185} & DA/100100 &  & CB/010 &  \\ \cline{1-6}
+CD & 0.0875 & CD & 0.0875 & BC & 0.1225 & AC/0001 &  & AA/100101 &  & CC/011 &  \\ \cline{1-6}
+DB & 0.0875 & DB & 0.0875 & CB & 0.1225 & DA/00100 &  & AD/10011 &  & BB/100 &  \\ \cline{1-6}
+DC & 0.0875 & DC & 0.0875 & CC & 0.1225 & AA/00101 &  & BA/1010 &  & BC/101 &  \\ \cline{1-6}
+DD & 0.0625 & DD & 0.0625 & AB/000 & \multirow{7}{*}{0.0975} & AD/0011 &  & CA/1011 &  & AB/110000 &  \\ \cline{1-4}
+AB & 0.0175 & BA/0 & \multirow{2}{*}{0.035} & AC/001 &  & BA/010 &  & BD/11 &  & AC/110001 &  \\ \cline{1-2} \cline{9-10}
+AC & 0.0175 & CA/1 &  & DA/0100 &  & CA/011 &  & CD/00 & \multirow{4}{*}{0.325} & DA/1100100 &  \\ \cline{1-4}
+BA & 0.0175 & AB/0 & \multirow{2}{*}{0.035} & AA/0101 &  & BD/1 &  & DB/01 &  & AA/1100101 &  \\ \cline{1-2} \cline{7-8}
+CA & 0.0175 & AC/1 &  & AD/011 &  & CD/0 & \multirow{2}{*}{0.175} & DC/10 &  & AD/110011 &  \\ \cline{1-4}
+AD & 0.0125 & DA/00 & \multirow{3}{*}{0.0275} & BA/10 &  & DB/1 &  & DD/11 &  & BA/11010 &  \\ \cline{1-2} \cline{7-10}
+DA & 0.0125 & AA/01 &  & CA/11 &  & DC/0 & \multirow{2}{*}{0.15} & CB/0 & \multirow{2}{*}{0.245} & CA/11011 &  \\ \cline{1-2} \cline{5-6} \cline{9-9}
+AA & 0.0025 & AD/1 &  & BD & 0.0875 & DD/1 &  & CC/1 &  & BD/111 &  \\ \hline
+\end{tabular}
+\end{table}
+
+$$H(X/X^{\infty}) = - \frac{1}{\ln{2}} \sum_{i = 1}^{16} p_i \ln{p_i} \approx 3.5526$$
+$$n_{sr} = 3.5975$$
+
+$$\overline{I(X)} = \frac{0.9875}{\tau}$$
+
+Iskoristivost kanala veze 98.75\%
+
+Poruka: ADBBAAADDC
+
+$$11001110011001011100110010$$
+
+\newpage
+
+\section*{Zadatak 7\label{Z7}}
+
+\underline{Postavka:}
+
+Markovljev izvor informacija prvog reda emitira tri različite poruke a, b i c. Ovisno od toga koja je poruka posljednja emitirana, izvor se nalazi u jednom od 3 moguća stanja Sa, Sb i Sc koja redom odgovaraju emitiranim porukama a, b odnosno c. Vjerovatnoće da će izvor emitirati neku od ove 3 poruke ovisno od stanja u kojem se nalazi date su u sljedećoj tablici: 
+
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+p($x_j$ / $S_i$) & a & b & c \\ \hline
+$S_a$ & 0.3 & 0.3 & 0.4 \\ \hline
+$S_b$ & 0.2 & 0.3 & 0.5 \\ \hline
+$S_c$ & 0.1 & 0.1 & 0.8 \\ \hline
+\end{tabular}
+\end{table}
+
+Za ovaj izvor informacija formirajte binarni Shannon-Fano kod sa simbolima 0 i 1
+
+a) posmatrajući izvor kao izvor bez memorije;
+
+b) posmatrajući izvor kao izvor bez memorije, ali kodirajući parove poruka umjesto individualnih poruka;
+
+c) koristeći posebno kodiranje za svako stanje;
+
+d) koristeći posebno kodiranje za svako stanje, ali kodirajući parove poruka umjesto individualnih poruka.
+
+Za sva četiri načina kodiranja, izračunajte protok informacija kroz komunikacioni kanal, procenat iskorištenja kanala veze, te kodirajte sekvencu poruka baacbcbbbbaaab. U posljednja dva slučaja, pretpostavite da izvor započinje rad u stanju Sa.
+
+\underline{Rješenje:}\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
