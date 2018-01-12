@@ -71,6 +71,175 @@
 	
 \end{titlepage}
 
+\newpage
+
+\section*{Zadatak 1\label{Z1}}
+
+\underline{Postavka:}
+
+Data su tri neusmjerena grafa:
+
+$$G1 = {{x1, x2, x3, x4, x5, x6, x7, x8}, {{x1, x2}, {x1, x3}, {x1, x5}, {x1, x7}, {x2, x3}, {x2, x4}, {x2, x5}, {x3, x4}, {x3, x6}, {x4, x8}, {x5, x7}, {x5, x8}, {x6, x7}, {x7, x8}}}$$
+$$G2 = {{x1, x2, x3, x4, x5, x6, x7, x8}, {{x1, x2}, {x1, x3}, {x1, x5}, {x1, x6}, {x2, x5}, {x2, x7}, {x2, x8}, {x3, x4}, {x3, x6}, {x3, x7}, {x4, x5}, {x4, x8}, {x5, x6}, {x6, x8}}}$$
+$$G3 = {{x1, x2, x3, x4, x5, x6, x7, x8}, {{x1, x3}, {x1, x6}, {x1, x7}, {x1, x8}, {x2, x4}, {x2, x5}, {x2, x6}, {x2, x8}, {x3, x4}, {x3, x6}, {x4, x5}, {x5, x7}, {x5, x8}, {x6, x8}}}$$
+
+
+Za ove grafove potrebno je uraditi sljedeće:
+
+Predstavite ih pomoću matrica susjedstva i pomoću listi susjedstva.
+
+Utvrdite ima li među ovim grafovima nekih koji su međusobno izomorfni. Ukoliko neka dva jesu izomorfna (ako takvih parova ima), prikažite kako glasi izomorfizam između njih. Ukoliko neka dva nisu izomorfna (ako takvih parova ima), argumentirano objasnite zašto nisu.
+
+Utvrdite ima li među ovim grafovima planarnih grafova. Za one koji su planarni (ako ih ima), nacrtajte ih tako da im se grane ne presjecaju. Za one koji nisu planarni (ako ih ima), argumentirano objasnite zašto nisu.
+
+Pronađite hromatske brojeve za ova tri grafa. Odgovor mora biti argumentiran.
+
+\underline{Rješenje:}
+
+a) Matrica i lista susjedstva za graf $G_1$
+
+\begin{tabular}{ | c || c  | c | c | c | c | c | c | c | }
+\hline
+ & x1 & x2 & x3 & x4 & x5 & x6 & x7 & x8\\
+ \hline
+ \hline
+x1 & - & 1 & 1 & - & 1 & - & 1 & -\\
+ \hline
+x2 & 1 & - & 1 & 1 & 1 & - & - & -\\
+ \hline
+x3 & 1 & 1 & - & 1 & - & 1 & - & -\\
+ \hline
+x4 & - & 1 & 1 & - & - & - & - & 1\\
+ \hline
+x5 & 1 & 1 & - & - & - & - & 1 & 1\\
+ \hline
+x6 & - & - & 1 & - & - & - & 1 & -\\
+ \hline
+x7 & 1 & - & - & - & 1 & 1 & - & 1\\
+ \hline
+x8 & - & - & - & 1 & 1 & - & 1 & -\\
+ \hline
+\end{tabular}
+
+$$G_1 = (\{ x2, x3, x5, x7 \}, \{x1, x3, x4, x5\}, \{x1, x2, x4, x6\}, \{x2, x3, x8\}, $$
+$$\{ x1, x2, x7, x8\}, \{ x3, x7 \}, \{x1, x5, x6, x8\}, \{x4, x5, x7\})$$
+\newpage
+Matrica i lista susjedstva za graf $G_2$
+
+\begin{tabular}{ | c || c  | c | c | c | c | c | c | c | }
+\hline
+ & x1 & x2 & x3 & x4 & x5 & x6 & x7 & x8\\
+ \hline
+ \hline
+x1 & - & 1 & 1 & - & 1 & 1 & - & -\\
+ \hline
+x2 & 1 & - & - & - & 1 & - & 1 & 1\\
+ \hline
+x3 & 1 & - & - & 1 & - & 1 & 1 & -\\
+ \hline
+x4 & - & - & 1 & - & 1 & - & - & 1\\
+ \hline
+x5 & 1 & 1 & - & 1 & - & 1 & - & -\\
+ \hline
+x6 & 1 & - & 1 & - & 1 & - & - & 1\\
+ \hline
+x7 & - & 1 & 1 & - & - & - & - & -\\
+ \hline
+x8 & - & 1 & - & 1 & - & 1 & - & -\\
+ \hline
+\end{tabular}
+
+$$G_2 = (\{ x2, x3, x5, x6 \}, \{x1, x5, x7, x8\}, \{x1, x4, x6, x7\}, \{x3, x5, x8\}, $$
+$$\{ x1, x2, x4, x6\}, \{x1, x3, x5, x8 \}, \{x2, x3\}, \{x2, x4, x6\})$$
+
+Matrica i lista susjedstva za graf $G_3$
+
+\begin{tabular}{ | c || c  | c | c | c | c | c | c | c | }
+\hline
+ & x1 & x2 & x3 & x4 & x5 & x6 & x7 & x8\\
+ \hline
+ \hline
+x1 & - & - & 1 & - & - & 1 & 1 & 1\\
+ \hline
+x2 & - & - & - & 1 & 1 & 1 & - & 1\\
+ \hline
+x3 & 1 & - & - & 1 & - & 1 & - & -\\
+ \hline
+x4 & - & 1 & 1 & - & 1 & - & - & -\\
+ \hline
+x5 & - & 1 & - & 1 & - & - & 1 & 1\\
+ \hline
+x6 & 1 & 1 & 1 & - & - & - & - & 1\\
+ \hline
+x7 & 1 & - & - & - & 1 & - & - & -\\
+ \hline
+x8 & 1 & 1 & - & - & 1 & 1 & - & -\\
+ \hline
+\end{tabular}
+
+$$G_3 = (\{ x3, x6, x7, x8\}, \{ x4, x5, x6, x8\}, \{x1, x4, x6\}, \{x2, x3, x5\}, $$
+$$\{  x2, x4, x7, x8\}, \{x1, x2, x3, x8 \}, \{x1, x5\}, \{x1, x2, x5, x6\})$$
+
+b)
+
+Formiramo skupove stepena čvorova za svaki graf:
+
+$$S_{G1} = \{ 4, 4, 4, 3, 4, 2, 4, 3\}$$
+$$S_{G2} = \{ 3, 4, 4, 3, 4, 4, 2, 3\}$$
+$$S_{G3} = \{4, 4, 3, 3, 4, 4, 2, 4\}$$
+
+Vidimo da svaki graf ima jednak broj čvorova i grana, te su stepeni njihovih čvorova isti, pa je potreban uslov za izomorfizam zadovoljen.
+
+c)
+Za početak koristimo Eulerovu teoremu m- broj grana, n - broj čvorova.
+Za sva tri grafa vrijedi:
+$$n = 8, m = 14$$ 
+
+$$m \leq 3n - 6$$
+$$ 14 \leq 18$$
+
+Nejednakost je istinita, te svi grafovi mogu još uvijek biti planarni.
+
+Lahko zaključujemo da su grafovi G1 i G3 planarni:
+
+
+Graf G2 nije planaran jer kontrakcijom ivica dobijamo graf K5, tj. prema Wagnerovoj teoremi, nije planaran.
+
+d)
+
+Za graf G1:
+
+$$x1 \rightarrow 4$$
+$$x2 \rightarrow 1$$
+$$x3 \rightarrow 2$$
+$$x4 \rightarrow 3$$
+$$x5 \rightarrow 2$$
+$$x6 \rightarrow 1$$
+$$x7 \rightarrow 3$$
+$$x8 \rightarrow 1$$
+
+Za graf G2:
+
+$$x1 \rightarrow 1$$
+$$x2 \rightarrow 2$$
+$$x3 \rightarrow 3$$
+$$x4 \rightarrow 1$$
+$$x5 \rightarrow 3$$
+$$x6 \rightarrow 2$$
+$$x7 \rightarrow 1$$
+$$x8 \rightarrow 3$$
+
+Za graf G3:
+
+$$x1 \rightarrow 4$$
+$$x2 \rightarrow 1$$
+$$x3 \rightarrow 1$$
+$$x4 \rightarrow 2$$
+$$x5 \rightarrow 3$$
+$$x6 \rightarrow 3$$
+$$x7 \rightarrow 1$$
+$$x8 \rightarrow 2$$
+
 
 \newpage
 \section*{Zadatak 1\label{Z1}}
@@ -125,6 +294,98 @@ Zixa & 220 & 610 & 480 & 490 & 260 & 240 & 370 & 0\\
  \hline
 \end{tabular}
 
+
+\begin{tabular}{ | c || c  | c | c | c | c | c | c | c | c | c | }
+\hline
+ & A & B & C & D & E & F & G & H & I & J\\
+ \hline
+ \hline
+A & - & - & - & - & - & - & - & - & 65 & -\\
+ \hline
+B & - & - & - & - & - & - & -95 & - & - & -\\
+ \hline
+C & - & - & - & 65 & - & 55 & - & - & 75 & -\\
+ \hline
+D & -105 & - & - & - & - & - & - & 60 & - & -\\
+ \hline
+E & - & - & - & - & - & - & - & 70 & - & -\\
+ \hline
+F & - & - & - & 80 & -65 & - & - & - & - & -\\
+ \hline
+G & 40 & - & -30 & - & 50 & - & - & - & - & -\\
+ \hline
+H & - & 45 & - & - & - & - & 60 & - & - & -\\
+ \hline
+I & - & - & - & - & - & - & - & 20 & - & -\\
+ \hline
+J & - & - & -85 & 25 & - & - & - & - & - & -\\
+ \hline
+\end{tabular}
+
+\hspace{-10cm}
+
+\begin{tabular}{ | c || c  | c | c | c | c | c | c | c | c | c | }
+\hline
+ & A & B & C & D & E & F & G & H & I & J\\
+ \hline
+ \hline
+Inicijalno stanje:  & 0 & \(\infty\) & \(\infty\) & \(\infty\) & \(\infty\) & \(\infty\) & \(\infty\) & \(\infty\) & \(\infty\) & \(\infty\)\\
+ \hline
+Iteracija 1 & 0 & \(\infty\) &  &  &  &  &  & \(\infty\) & 65 & \(\infty\)\\
+ \hline
+Iteracija 2 & 0 & 130 &  &  &  &  & 145 & 85 & 65 & \(\infty\)\\
+ \hline
+Iteracija 3 & 0 & 130 & 5 & 70 & 85 & 60 & 35 & 85 & 65 & \(\infty\)\\
+ \hline
+Iteracija 4 & -35 & 130 & 5 & 70 & -5 & 60 & 35 & 65 & 30 & \(\infty\)\\
+ \hline
+Iteracija 5 & -35 & 95 & 5 & 70 & -5 & 60 & 35 & 50 & 30 & \(\infty\)\\
+ \hline
+Iteracija 6 & -35 & 95 & -30 & 35 & -5 & 25 & 0 & 50 & 30 & \(\infty\)\\
+ \hline
+Iteracija 7 & -70 & 95 & -30 & 35 & -40 & 25 & 0 & 30 & -5 & \(\infty\)\\
+ \hline
+Iteracija 8 & -70 & 60 & -30 & 35 & -40 & 25 & 0 & 15 & -5 & \(\infty\)\\
+ \hline
+Iteracija 9 & -70 & 60 & -65 & 0 & -40 & -10 & -35 & 15 & -5 & \(\infty\)\\
+ \hline
+Iteracija 10 & -105 & 60 & -65 & 0 & -75 & -10 & -35 & -5 & -40 & \(\infty\)\\
+ \hline
+Iteracija 11 & -105 & 25 & -65 & 0 & -75 & -10 & -35 & -20 & -40 & \(\infty\)\\
+ \hline
+\end{tabular}
+
+
+\begin{tabular}{ | c || c  | c | c | c | c | c | c | c | c | c | }
+\hline
+ & A & B & C & D & E & F & G & H & I & J\\
+ \hline
+ \hline
+Inicijalno stanje:  & A & B & C & D & E & F & G & H & I & J\\
+ \hline
+Iteracija 1 & A &  & G & C & F & C & B &  & A & \\
+ \hline
+Iteracija 2 & A & H & G & C & F & C & H & I & A & \\
+ \hline
+Iteracija 3 & A & H & G & C & G & C & B & I & A & \\
+ \hline
+Iteracija 4 & D & H & G & C & F & C & B & E & A & \\
+ \hline
+Iteracija 5 & D & H & G & C & F & C & B & I & A & \\
+ \hline
+Iteracija 6 & D & H & G & C & F & C & B & I & A & \\
+ \hline
+Iteracija 7 & D & H & G & C & F & C & B & E & A & \\
+ \hline
+Iteracija 8 & D & H & G & C & F & C & B & I & A & \\
+ \hline
+Iteracija 9 & D & H & G & C & F & C & B & I & A & \\
+ \hline
+Iteracija 10 & D & H & G & C & F & C & B & E & A & \\
+ \hline
+Iteracija 11 & D & H & G & C & F & C & B & E & A & \\
+ \hline
+\end{tabular}
 
 
 
