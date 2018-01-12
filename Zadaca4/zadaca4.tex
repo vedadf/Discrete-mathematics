@@ -727,27 +727,181 @@ G &  &  &  &  &  &  &  &  &  &  & 35 \\ \hline
 
 Dobili smo $\lambda_A = -35 < 0$, pa je pronađen put negativne dužine koji spaja čvor A sam sa sobom. Algoritam sigurno neće terminirati. Dakle, kontura sa negativnom sumom težina je: A-I-H-B-G-C-D-A.
 
+\newpage
+
+\section*{Zadatak 5\label{Z5}}
+\underline{Postavka:}
+
+Dat je usmjereni težinski graf
+
+$$G = \{\{x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11\}, \{(x1, x5, 33), (x1, x6, 17), (x1, x8, 14), $$
+$$(x2, x3, 25), (x2, x7, 26), (x4, x3, 35), (x5, x9, 8), (x5, x10, 5), $$
+$$(x6, x5, 32), (x6, x8, 8), (x7, x3, 26), (x7, x4, 14), (x8, x9, 18), $$
+$$(x8, x11, 25), (x9, x10, 18), (x9, x11, 10), (x10, x4, 40), (x10, x7, 18), $$
+$$(x11, x2, 21), (x11, x7, 20)\}\}$$
+
+Pokažite da u ovom grafu ima tačno jedan izvor (čvor ulaznog stepena 0) i tačno jedan ponor (čvor izlaznog stepena 0), te da se radi o acikličkom grafu;
+
+Izvršite topološko sortiranje čvorova ovog grafa obavljajući DFS pretragu počev od izvora grafa;
+
+Primjenom Dijkstrinog algoritma, pronađite najkraći put od izvora do ponora grafa i navedite koliko iznosi dužina tog puta;
+
+Primjenom Bellman-Fordovog algoritma, pronađite najkraći put od izvora do ponora grafa i navedite koliko iznosi dužina tog puta;
+
+Primjenom Bellman-Fordovog algoritma, pronađite najduži put od izvora do ponora grafa i navedite koliko iznosi dužina tog puta.
+
+Postupak provedite “naslijepo”, bez crtanja grafa, koristeći samo raspoložive informacije (eventualno uz bilježenje raznih pomoćnih informacija).
 
 
+\underline{Rješenje:}
 
+a)
 
+Izvor je čvor x1 jer u njega ne ulazi niti jedna grana, također on je jedini izvor. 
 
+Ponor je čvor x3 jer iz njega ne izlazi niti jedna grana, također on je jedini ponor.
 
+Radi se o transportnoj mreži. Graf sadrži izvor i ponor, pa je potreban uslov acikličnosti zadovoljen. Ako bilo koji čvor uzmemo da je početni i počnemo pratiti usmjerenje grana, doći ćemo uvijek do ponora. Dakle, dati graf je acikličan graf.
+\newpage
+b) Topološko sortiranje koristeći DFS. Uradit ćemo zadatak na čisto 'programerski' način. Dodavat ćemo čvorove na stack, kada čvor pop-amo sa stacka dodat ćemo ga u listu. Na kraju, listu ćemo samo prevrnuti tako da prvi element ima indeks zadnjeg elementa itd. Uradit ćemo nekoliko koraka, pa ćemo napisati rješenje jer se radi analogno kao i prethodni koraci. Pop-anje i pushanje na stack je zapravo DFS.
 
+Pratimo redom čvorove: x1 - x5 - x9 - x10 - x4 - x3
 
+Stack trenutno izgleda ovako (prvi element predstavlja vrh stacka, a zadnji dno): x3 - x4 - x10 - x9 - x5 - x1 
 
+Pošto je x3 ponor, on nema granu koja vodi u neki drugi čvor, pa njega slobodno pop-amo sa stacka, te ga dodamo u listu. 
 
+Lista: x3
 
+Stack: x4 - x10 - x9 - x5 - x1
 
+Čvor x4 ima jedan put koji vodi do čvora x3, ali čvor x3 se nalazi u listi dakle posjećen je, pa možemo slobodno pop-ati čvor x4.
 
+Lista: x3, x4
 
+Stack: x10 - x9 - x5 - x1
 
+Čvor x10 ima put koji vodi do x7 pa x7 pushamo na stack:
 
+Lista: x3, x4
 
+Stack: x7 - x10 - x9 - x5 - x1
 
+Čvor x7 vodi do x3 i x4. Oba čvora na koji vodi x7 su posjećeni, pa pop-amo x7 sa stacka:
 
+Lista: x3, x4, x7
 
+Stack: x10 - x9 - x5 - x1
 
+Sljedeće korake uradimo na osnovu do sada objašnjenih koraka, te na kraju dobijemo listu:
+
+x3, x4, x7, x10, x2, x11, x9, x5, x8, x6, x1
+
+sa indeksima redom od 1 do 11. Kada prevrnemo listu, dobijemo sljedeće indekse čvorova što je zapravo i rješenje:
+
+x3 - 11, x4 - 10, x7 - 9, x10 - 8, x2 - 7, x11 - 6, x9 - 5, x5 - 4, x8 - 3, x6 - 2, x1 - 1
+
+\newpage
+
+c) Zanima nas najkraći put od x1 do x3
+
+\begin{table}[hp]
+\centering
+\hspace*{-0.8in}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multirow{2}{*}{} & x1 & x2 & x3 & x4 & x5 & x6 & x7 & x8 & x9 & x10 & x11 \\ \cline{2-12} 
+ & 0 & - & - & - & - & - & - & - & - & - & - \\ \hline
+x1(0) &  & - & - & - & 33/x1 & 17/x1 & - & 14/x1 & - & - & - \\ \hline
+x8(14) &  & - & - & - & 33/x1 & 17/x1 & - &  & 32/x8 & - & 36/x8 \\ \hline
+x6(17) &  & - & - & - & 33/x1 &  & - &  & 32/x8 & - & 36/x8 \\ \hline
+x9(32) &  & - & - & - & 33/x1 &  & - &  &  & 50/x9 & 36/x8 \\ \hline
+x5(33) &  & - & - & - &  &  & - &  &  & 38/x5 & 36/x8 \\ \hline
+x11(36) &  & 57/x11 & - & - &  &  & 56/x11 &  &  & 38/x5 &  \\ \hline
+x10(38) &  & 57/x11 & - & 78/x10 &  &  & 56/x11 &  &  &  &  \\ \hline
+x7(56) &  & 57/x11 & 82/x7 & 70/x7 &  &  &  &  &  &  &  \\ \hline
+x2(57) &  &  & 82/x7 & 70/x7 &  &  &  &  &  &  &  \\ \hline
+x4(70) &  &  & 82/x7 &  &  &  &  &  &  &  &  \\ \hline
+x3(82) &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+\end{tabular}
+\end{table}
+
+Dužina najkraćeg puta od x1 - x3 je 82. Put je x1 - x5 - x10 - x7 - x3.
+
+\newpage
+
+d)
+Iteracija 1
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multirow{2}{*}{} & x1 & x2 & x3 & x4 & x5 & x6 & x7 & x8 & x9 & x10 & x11 & \multirow{2}{*}{$\lambda$} \\ \cline{2-12}
+ & 0 & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ &  \\ \hline
+x1 &  &  &  &  & 33 & 17 &  & 14 &  &  &  & 0 \\ \hline
+x2 &  &  &  &  &  &  &  &  &  &  &  & $\infty$, 60 \\ \hline
+x3 &  &  &  &  &  &  &  &  &  &  &  & $\infty$ \\ \hline
+x4 &  &  &  &  &  &  &  &  &  &  &  & $\infty$, 78 \\ \hline
+x5 &  &  &  &  &  &  &  &  & 41 & 38 &  & $\infty$, 33 \\ \hline
+x6 &  &  &  &  &  &  &  &  &  &  &  & $\infty$, 17 \\ \hline
+x7 &  &  &  &  &  &  &  &  &  &  &  & $\infty$, 56 \\ \hline
+x8 &  &  &  &  &  &  &  &  & 32 &  & 39 & $\infty$, 14 \\ \hline
+x9 &  &  &  &  &  &  &  &  &  &  &  & $\infty$, 41, 32 \\ \hline
+x10 &  &  &  & 78 &  &  & 56 &  &  &  &  & $\infty$, 38 \\ \hline
+x11 &  & 60 &  &  &  &  &  &  &  &  &  & $\infty$, 39 \\ \hline
+\end{tabular}
+\end{table}
+
+Iteracija 2
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multirow{2}{*}{} & x1 & x2 & x3 & x4 & x5 & x6 & x7 & x8 & x9 & x10 & x11 & \multirow{2}{*}{$\lambda$} \\ \cline{2-12}
+ & 0 & 60 & $\infty$ & 78 & 33 & 17 & 56 & 14 & 32 & 38 & 39 &  \\ \hline
+x1 &  &  &  &  &  &  &  &  &  &  &  & 0 \\ \hline
+x2 &  &  & 85 &  &  &  &  &  &  &  &  & 60 \\ \hline
+x3 &  &  &  &  &  &  &  &  &  &  &  & $\infty$, 85, 82 \\ \hline
+x4 &  &  &  &  &  &  &  &  &  &  &  & 78, 70 \\ \hline
+x5 &  &  &  &  &  &  &  &  &  &  &  & 33 \\ \hline
+x6 &  &  &  &  &  &  &  &  &  &  &  & 17 \\ \hline
+x7 &  &  & 82 & 70 &  &  &  &  &  &  &  & 56 \\ \hline
+x8 &  &  &  &  &  &  &  &  &  &  &  & 14 \\ \hline
+x9 &  &  &  &  &  &  &  &  &  &  &  & 32 \\ \hline
+x10 &  &  &  &  &  &  &  &  &  &  &  & 38 \\ \hline
+x11 &  &  &  &  &  &  &  &  &  &  &  & 39 \\ \hline
+\end{tabular}
+\end{table}
+
+Dužina najkraćeg puta od x1 - x3 je 82. Put je x1 - x5 - x10 - x7 - x3.
+\newpage
+e)
+
+Najduži put od x1 - x3.
+
+Iteracija 1
+
+\begin{table}[hp]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multirow{2}{*}{} & x1 & x2 & x3 & x4 & x5 & x6 & x7 & x8 & x9 & x10 & x11 & \multirow{2}{*}{$\lambda$} \\ \cline{2-12}
+ & 0 & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ &  \\ \hline
+x1 &  &  &  &  &  & 33 & 17 &  & 14 &  &  & 0 \\ \hline
+x2 &  &  &  &  &  &  &  &  &  &  &  & $\infty$, 74 \\ \hline
+x3 &  &  &  &  &  &  &  &  &  &  &  & $\infty$ \\ \hline
+x4 &  &  &  &  &  &  &  &  &  &  &  & $\infty$, 101 \\ \hline
+x5 &  &  &  &  &  &  &  &  & 41 & 38 &  & $\infty$, 33, 49 \\ \hline
+x6 &  &  &  &  & 49 &  &  & 25 &  &  &  & $\infty$, 17 \\ \hline
+x7 &  &  &  &  &  &  &  &  &  &  &  & $\infty$, 79 \\ \hline
+x8 &  &  &  &  &  &  &  &  & 43 &  & 50 & $\infty$, 14, 25 \\ \hline
+x9 &  &  &  &  &  &  &  &  &  & 61 & 53 & $\infty$, 41 ,43 \\ \hline
+x10 &  &  &  & 101 &  &  & 79 &  &  &  &  & $\infty$, 38, 61 \\ \hline
+x11 &  & 74 &  &  &  &  &  &  &  &  &  & $\infty$, 50, 53 \\ \hline
+\end{tabular}
+\end{table}
+
+Iteracija 2
 
 
 
