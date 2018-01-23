@@ -1,0 +1,322 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	language=C++,
+	frame = tb,
+	numbers = left,
+	showstringspaces = false,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{green}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#} 
+}
+
+\begin{document}
+
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+	
+	\center
+	
+	\textsc{\Large Elektrotehnički fakultet Univerziteta Sarajevo}\\[4cm]
+	
+	{\huge\bfseries Diskretna Matematika\vspace{5mm}
+
+ 	Zadaća 5}\\[4.5cm]
+
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Student}\\
+			Vedad Fejzagić\\[5mm]
+			\textit{Broj indeksa}\\
+			17336\\[5mm]
+			\textit{Grupa}\\
+			RI2-2
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textbf{Demonstrator}\\
+			\hspace{10mm}Šeila Bečirović
+		\end{flushright}
+	\end{minipage}
+	
+	\vfill\vfill\vfill
+	
+	{\large\today}
+	
+	\vfill
+	
+\end{titlepage}
+
+\newpage
+
+\section*{Zadatak 1\label{Z1}}
+
+\underline{Postavka:}
+
+Dat je periodični diskretni signal perioda 6, čije vrijednosti u trenucima 0, 1, 2, 3, 4 i 5 respektivno iznose 4, –6, 4, 0, 5 i –8.
+
+
+Predstavite ovaj diskretni signal formulom u kojoj se javlja cijeli dio broja;
+
+Predstavite ovaj signal diskretnim Fourierovim redom;
+
+Odredite amplitudni i fazni spektar za ovaj signal i predstavite ga u vidu sume harmonika.
+
+
+\underline{Rješenje:}
+
+$$N = 6$$
+$$n = 0, 1, 2, 3, 4, 5$$
+$$x_0 = 4, x_1 = -6, x_2 = 4, x_3 = 0, x_4 = 5, x_5 = -8$$
+
+a)
+
+Predstavljamo diskretni signal formulom u kojoj se javlja cijeli dio broja:
+
+$$x_n = x_{-1} + (x_0 - x_{-1}) \floor[\Big]{\frac{n}{6}} + (x_1 - x_0) \floor[\Big]{\frac{n - 1}{6}} + (x_2 - x_1)  \floor[\Big]{\frac{n - 2}{6}} + $$
+$$ + (x_3 - x_2)  \floor[\Big]{\frac{n - 3}{6}} + (x_4 - x_3)  \floor[\Big]{\frac{n - 4}{6}}  + (x_5 - x_4)  \floor[\Big]{\frac{n - 5}{6}}$$ 
+
+Pa je rješenje:
+
+$$x_n = -8 + 12 \floor[\Big]{\frac{n}{6}} - 10 \floor[\Big]{\frac{n - 1}{6}} + 10  \floor[\Big]{\frac{n - 2}{6}} - $$
+$$ - 4\floor[\Big]{\frac{n - 3}{6}} + 5  \floor[\Big]{\frac{n - 4}{6}}  - 13 \floor[\Big]{\frac{n - 5}{6}}$$
+\newpage
+b) 
+
+Računamo $a_k, b_k$ te na kraju $x_n$. $N = 6$ je parno pa $b_3 = 0$.
+
+$$a_0 = \frac{2}{6} \sum_{n = 0}^{5} x_n \cdot cos 0 = \frac{2}{6} (4 - 6 + 4 + 5 - 8) = - \frac{1}{3}$$
+
+Na isti način računamo ostale koeficijente, pa se dobije:
+
+$$a_1 = - \frac{5}{2}, a_2 = \frac{13}{6}, a_3 = \frac{27}{6}$$
+
+$$b_1 = \frac{\sqrt{3}}{6}, b_2 = \frac{\sqrt{3}}{2}$$
+
+Na kraju, razvoj u Furijerov red:
+
+$$x_n = - \frac{1}{6} + (- \frac{5}{2} cos \frac{\pi n}{3} + \frac{\sqrt{3}}{6} sin \frac{\pi n}{3}) + (\frac{13}{6}cos\frac{2 \pi n}{3} + \frac{\sqrt{3}}{2} sin \frac{2\pi n}{3}) + (\frac{27}{6} cos \pi n)$$
+ 
+c)
+
+$$A_0 = - \frac{1}{6}$$
+$$\varphi_{0} = 0$$
+
+\newpage
+
+\section*{Zadatak 2\label{Z2}}
+
+\underline{Postavka:}
+Ispitajte koji su od sljedećih diskretnih signala periodični a koji nisu. Za one koji jesu, nađite osnovni period N:
+
+$$2 sin (7n \pi + \pi/5)$$
+$$3 + cos2 (12n\pi/5 – 1)$$
+$$(–1)n cos (4n\pi/7)$$
+$$sin (2n \pi/3)$$
+
+Odgovori moraju biti obrazloženi, inače se neće priznavati!
+
+
+\underline{Rješenje:}
+\\
+Diskretni harmonijski signali su periodični samo ako je moguće naći prirodan broj k takav da je $\frac{2 k \pi}{\Omega}$ također prirodan broj. Ovo svojstvo ćemo iskoristiti u podzadacima a) i b). Za c) i d) ćemo primjeniti svojstvo da je diskretni signal periodičan ako postoji cijeli broj $N \neq 0$  takav da za svako $n \in Z$ vrijedi $x_{n + N} = x_n$, pri tome broj N je period diskretnog signala.
+\\
+a)
+
+Iz postavke odredimo omega, pa uvrstimo u formulu $\frac{2 k \pi}{\Omega}$.
+
+$$\Omega = 7 \pi \to \frac{2 k \pi}{7 \pi} = \frac{2k}{7}$$
+
+Ovaj izraz je najrpije zadovoljen ako je $k = 7$. Uvrštavanjem se dobije: $N = 2$. Dakle ovaj diskretni signal je periodičan sa osnovnim periodom $N = 2$.
+\newpage
+b)
+
+$$\Omega = \frac{12 \pi}{5} \to \frac{10 k}{12} = \frac{5k}{6}$$
+
+Ovaj izraz je najrpije zadovoljen ako je $k = 6$. Uvrštavanjem se dobije: $N = 5$. Dakle ovaj diskretni signal je periodičan sa osnovnim periodom $N = 5$.
+
+c)
+
+Primjenjujemo pravilo $x_{n + N} = x_n$:
+
+$$(-1) ^{n + N} cos \frac{4(n + N) \pi}{7} = (-1)^n (-1) ^N (cos \frac{4 n \pi}{7} cos \frac{4 N \pi}{7} - sin \frac{4 n \pi}{7} sin \frac{
+ 4 N \pi}{7})$$
+
+N mora biti parno i mora vrijediti:
+
+$$cos \frac{4 N \pi}{7} = 1 \land sin \frac{4 N \pi}{7} = 0$$
+
+Ovo je ispunjeno za: 
+
+$$\frac{4 N \pi}{7} = 2 k \pi$$
+$$\frac{2N}{7} = k$$
+i N parno.
+
+Za N = 14, ova jednakost je zadovoljena.  Dakle ovaj diskretni signal je periodičan sa osnovnim periodom $N = 14$.
+
+d)
+
+Primjenjujemo pravilo $x_{n + N} = x_n$:
+
+Dobije se $sin \frac{2^n \cdot 2^N \pi}{3}$
+
+Da bi dobijeni izraz bio jednak $x_n$, mora vrijediti N = 0. Dakle, ovaj diskretni signal nije periodičan.
+
+\newpage
+
+\section*{Zadatak 3\label{Z3}}
+
+\underline{Postavka:}
+
+Odredite i nacrtajte amplitudno-frekventnu i fazno-frekventnu karakteristiku diskretnog sistema opisanog diferentnom jednačinom $y_n + 6y_{n–1} = –6x_n + 7 x_{n–1}$, a nakon toga, odredite odziv ovog sistema na periodični signal iz Zadatka 1. Uputa: razmotrite prolazak svakog od harmonika posebno.
+
+
+\underline{Rješenje:}
+\\
+Prvo računamo funkciju sistema $H(z)$. Izjednačavamo, $x_n = z^n$, $y_n  = z^n H(z)$. Dobijena diferentna jednačine postaje:
+
+$$z^n H(z) + 6 z^{n - 1} H(z) = - 6 z^n + 7 z^{n - 1}$$
+
+Slijedi:
+
+$$H(z) = \frac{  - 6 z^n + 7 z^{n - 1} }{ z^n + 6 z^{n - 1}  } = \frac{-6 + 7 z^{-1}}{1 + 6z^{-1}} = \frac{-6 z + 7}{z + 6}$$
+
+Računamo amplitudno-frekventnu karakteristiku:
+
+$$A(\Omega) = |H(e ^ {i \Omega})| = \abs{\frac{-6 e ^{i \Omega} + 7}{e ^{i \Omega} + 6}} = \frac{-6 cos \Omega + 7 - 6 i sin\Omega}{cos \Omega + 6 + i sin \Omega} = \sqrt{\frac{(-6 cos\Omega + 7)^2 + 36 sin^2 \Omega}{(cos \Omega + 6)^2 - sin^2 \Omega}}$$
+
+$$A(\Omega) = \sqrt{\frac{-84 cos \Omega + 85}{2 cos ^2 \Omega + 12 cos \Omega + 36}}$$
+
+Računamo fazno-frekventnu karakteristiku:
+
+Sličan postupak kao i kod računanja amplitudne-frekventne karakteristike, te odvajanje realnog i kompleksnog koeficijenta u zasebne sabrike za nalaženje arg:
+
+$$A(\varphi) = arg H(e ^{i\Omega}) = arg \frac{-6 cos\Omega + 7 - 6 i sin \Omega}{ cos \Omega + 6 + i sin \Omega} \cdot \frac{cos\Omega + 6 - i sin \Omega}{cos\Omega + 6 - i sin\Omega}$$
+$$A(\varphi) = arg \frac{-29 cos \Omega + 36 - i \cdot 43 sin \Omega}{(cos\Omega + 6 + i sin\Omega)(cos\Omega + 6 - i sin\Omega)}$$
+
+Realni dio je uvijek $Re(z) > 0$, pa možemo pisati:
+
+$$A(\varphi) = arctg(- \frac{43 sin \Omega}{36 - 29cos\Omega})$$
+
+Odziv ovog sistema na periodični signal iz Zadatka 1:
+
+$$y_{n - 1} = 0$$
+
+$$y_0 = -6 \cdot 4 + 7 \cdot (-8) - 0 = - 80$$
+
+Na isti način računamo ostale:
+
+$$y_1 = 544, y_2 = 3330, y_3 = -19952, y_4 = 119682, y_5 = -718079$$
+
+\newpage
+
+\section*{Zadatak 4\label{Z4}}
+
+\underline{Postavka:}
+
+Nađite z-transformaciju sekvence $x_n = (n^2 cos (n \pi / 6) + 4^n / (2_n + 1)! ) u_{n–3}$. Pri tome se po potrebi možete koristiti tablicama i osobinama z-transformacije.
+
+\underline{Rješenje:}
+
+Ovo je sekvenca oblika $y_n u_{n-3}$. Potrebno je izvesti pravilo za $Z\{y_n, u_{n - k}\}$. Ako stavimo da je $y_n = w_{n - k}$, tada je $w_n = y_{n + k}$, stoga imamo:
+
+$$Z\{y_n u_{n - k}\} = Z\{w_{n-k} u_{n - k}\} = Y(z) - \sum_{i = 0}^{k - 1} y_i z^{-i}$$
+
+Korištenjem tablice transformacije imamo:
+
+$$Z\{cos \frac{n \pi}{6}\} = \frac{z (z - \frac{1}{2})}{z^2 - z + 1}$$
+
+$$Z\{n^2 \cdot cos \frac{n \pi}{6}\} = z^2 (\frac{-z (z - \frac{1}{2})}{z^2 - z + 1}) ' = z^2 \frac{\frac{1}{2} z^2 + \frac{1}{2} - 2z}{(z^2 - z + 1)^2}$$
+
+Računamo drugu z - transformaciju:
+
+Imamo da je $Z\{\frac{1}{n!}\} = e ^{\frac{1}{z}}$
+
+Koristimo osobinu: $Z\{y_n\} = y(z) \implies Z\{y_{2n + 1}\} = \frac{Y(\sqrt{z}) - Y(- \sqrt{- z})}{2 \sqrt{z}}$
+Pa je
+
+$$Z\{ \frac{1}{(2n + 1)!} \} = \frac{e^{\frac{2}{\sqrt{z}}} - 1}{2 e ^{\frac{2}{\sqrt{z}}}}$$
+
+$$Z\{ \frac{4^n}{(2n + 1)!}\} = \frac{  e^{ - \frac{2 \sqrt{z}}{z} } - 1  }{2 e^{ \frac{2 \sqrt{z}}{z}}}$$
+
+Na kraju:
+
+$$Z \{x_n\} = Y(z) - y_0 - y_1 z^{-1} - y_2 z^{-2} = Z\{n^2 \cdot cos \frac{n \pi}{6}\} + Z\{ \frac{4^n}{(2n + 1)!}\} - y_0 - y_1 z^{-1} - y_2 z^{-2}$$
+
+$$Z \{x_n\} = z^2 \frac{\frac{1}{2} z^2 + \frac{1}{2} - 2z}{(z^2 - z + 1)^2} + \frac{  e^{ - \frac{2 \sqrt{z}}{z} } - 1  }{2 e^{ \frac{2 \sqrt{z}}{z}}} - 1 - \frac{1}{z} (\frac{\sqrt{3}}{2} + \frac{2}{3}) - \frac{1}{z^2} (\frac{1}{2} + \frac{16}{120})$$
+
+\newpage
+
+\section*{Zadatak 5\label{Z5}}
+
+\underline{Postavka:}
+
+Dat je diskretni sistem opisan diferentnom jednačinom $2 y_{n+1} + 7 y_n = 3 x_{n+1} – 5 x_{n–2}$. Nađite odziv ovog sistema na pobudu $x_n = n cos (2n \pi / 3) u_n$. Rješenje treba izraziti u obliku u kojem se ne javljaju kompleksni brojevi.
+
+\underline{Rješenje:}
+
+Najprije računamo funkciju sistema:
+
+$$x_n = z^n, y_n = z^n H(z)$$
+
+Dobije se:
+
+$$H (z) = \frac{3z^3 - 5}{z^2 (2z + 7)}$$
+
+Dalje, računamo impulsni odziv $h_n = Z^{-1}(H(z))$
+
+$$P(z) = 3z^3 - 5$$
+$$Q(z) = z^2(2z + 7)$$
+
+Nule polinama Q(z) su: z = 0 čija je višestrukost 2 i $z = - \frac{7}{2}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
